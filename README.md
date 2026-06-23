@@ -4,12 +4,6 @@
   <img src="assets/hero.png" alt="anti-slop" width="100%" />
 </p>
 
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-8B3BFF?style=for-the-badge" alt="MIT license" /></a>
-  <img src="https://img.shields.io/badge/Claude_Code-skill-3FE9FF?style=for-the-badge&labelColor=08080B" alt="Claude Code skill" />
-  <img src="https://img.shields.io/badge/em_dashes-0-08080B?style=for-the-badge" alt="zero em dashes" />
-</p>
-
 <p align="center"><b>One maintained skill that strips AI slop out of writing: detect it, rewrite it, and memorialize new tells as the models change.</b></p>
 
 anti-slop is the floor. It catches the words, rhythms, and structures that mark text as machine-written, and it leaves a writer's real voice alone through a protect-list seam. It consolidates and replaces three earlier skills (avoid-ai-writing, humanizer, stop-slop) into one spec that stays alive instead of going stale.
