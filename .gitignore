@@ -1,1 +1,4 @@
 .DS_Store
+harvest/
+evals/golden/*
+!evals/golden/README.md

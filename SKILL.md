@@ -174,6 +174,25 @@ slop, run the ingest flow and grow `references/living-corpus.md`. Tells age:
 the delve/tapestry era is already burned. Re-tier or retire entries as the
 models change.
 
+## Learning loops
+
+Beyond the manual triggers, four automated read-paths feed
+`references/candidates.md` (the inbox). All of them propose; only the writer
+files. The gate at filing time is the ingestion six-step plus the eval suite
+(`evals/`): a proposed rule must still catch the slop fixtures and must flag
+nothing in the golden set of real human prose.
+
+- **Harvest** (`references/harvest.md`): diff the skill's output against what
+  actually shipped. Human edits are labeled examples: missed tell or flattened
+  voice.
+- **Self-play** (`references/weekly-loop.md`): weekly. Generate with the skill
+  on, detect with fresh-eyes agents that never read it. Catches displacement
+  tells our own rules create.
+- **Scout** (same file): weekly. last30days sweep plus the Wikipedia
+  signs-of-AI-writing page, for tells the wild is already mocking.
+- **Aging** (same file): quarterly. Re-test corpus entries against current
+  models; propose retiring what no longer fires.
+
 ## References
 
 - `references/patterns.md`: the deduped rule library (the floor) and the
@@ -183,6 +202,10 @@ models change.
 - `references/ingestion.md`: the curation flow for memorializing new slop.
 - `references/protect-list.md`: the seam to a personal voice spec; signatures the
   floor must not strip. Ships as a fill-in template.
+- `references/harvest.md`: the shipped-diff harvest loop.
+- `references/weekly-loop.md`: the scheduled self-play / scout / aging round.
+- `references/candidates.md`: the inbox of proposed rules awaiting the gate.
+- `evals/`: the regression gate; slop fixtures plus a local-only golden set.
 
 ## Credits and license
 
