@@ -218,6 +218,13 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   beats and short-short-long stacking. See protect-list.md.)
 - **Rhetorical setups.** "What if...?", "Here's what I mean:", "Think about it:",
   "And that's okay." Make the point; let the reader conclude.
+- **Faux-insight setups.** "What most people get wrong is...", "The part everyone
+  misses...", "Here's what nobody tells you." Manufactured contrarianism as a
+  hook. If the insight is real, state it; it does not need a crowd to be wrong
+  first.
+- **Colon reveal.** A dramatic pause-and-reveal after a colon: "The answer:
+  simplicity." "The result: chaos." Fine occasionally in a hook; a tell when it
+  recurs. Rewrite as a plain sentence.
 - **Narrator-from-a-distance.** "Nobody designed this." "People tend to..." Put
   the reader in the room: "You don't sit down one day and decide to..."
 - **Passive voice / subjectless fragments.** "Mistakes were made." "No config
@@ -249,6 +256,10 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   protect-list.md.)
 - **Generic positive conclusions.** "The future looks bright", "exciting times
   ahead", "a step in the right direction." Cut, or make it specific.
+- **Fake-profound kicker.** A closing line that transmutes the point into a
+  metaphor for gravitas: "In the end, it was never about the code." End on the
+  last real point instead. The sibling of the generic conclusion: one inflates
+  cheer, this one inflates depth.
 - **Reasoning-chain artifacts.** "Let me think step by step", "Breaking this
   down", "Step 1:", "Here's my thought process." Scaffolding the reader does not
   need. State the conclusion, then the evidence.

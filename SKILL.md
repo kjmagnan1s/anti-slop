@@ -67,7 +67,10 @@ protect list, dedups, and files it into the living corpus. Full flow:
 4. **The protect-list seam.** On a byline with a voice spec, load
    `references/protect-list.md` (canonical: your voice spec) first. Never strip a
    protected signature. If a flag collides with one, surface it and do not
-   auto-edit.
+   auto-edit. With no voice spec (someone else's draft, an unowned byline), build
+   a throwaway one: before editing, note the core point and 3-5 voice signals in
+   the draft itself (vocabulary, humor, cadence, pet phrases) and preserve them
+   through the rewrite. De-slopped text that lost its author is still a failure.
 5. **Self-reference escape hatch.** When writing ABOUT slop (this file, examples,
    quoted bad writing), do not flag the quoted patterns. Only flag the author's
    own prose.
@@ -193,6 +196,9 @@ anti-slop is a consolidation of prior open work. It would not exist without:
   the content-pattern catalog and the adversarial self-audit step.
 - **stop-slop** by Hardik Pandya, hvpandya.com (MIT). Source of the false-agency
   rule, the binary-contrast variant table, and the 5-dimension scoring rubric.
+- **no-ai-slop** by Peter Yang (MIT). Source of the faux-insight-setup,
+  colon-reveal, and fake-profound-kicker patterns, and the throwaway
+  voice-signal step for drafts without a voice spec.
 
 License: MIT for anti-slop's own text. Examples ported from the humanizer /
 Wikipedia lineage are rewritten in our own words; the underlying Wikipedia
