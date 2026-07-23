@@ -32,6 +32,16 @@ file is honesty about lineage: the rule lists are not original to anti-slop.
   expanded binary-contrast variant table, and the 5-dimension scoring rubric
   (directness / rhythm / trust / authenticity / density).
 
+### no-ai-slop
+- Author: Peter Yang (github.com/petergyang/no-ai-slop)
+- License: MIT
+- Contributed (folded in 2026-07-22, after the consolidation): the
+  faux-insight-setup pattern ("what most people get wrong"), the colon-reveal
+  pattern, the fake-profound-kicker pattern, and the practice of extracting 3-5
+  voice signals from a draft before editing when no voice spec exists.
+- Note: anti-slop is not a fork of no-ai-slop; the rest of its catalog was
+  already covered by the three sources above.
+
 ## What anti-slop adds
 
 - One deduplicated rule library instead of three overlapping ones.
