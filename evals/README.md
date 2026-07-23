@@ -35,10 +35,16 @@ P0/P1 hit with the offending span quoted.
 
 ## How it grows
 
-Every corpus entry approved out of `references/candidates.md` contributes its
-before-text as a new slop fixture: add a file under `slop/` with the profile it
-was caught in and the new pattern named in `expected_flags`. The golden set
-grows from the owner's real pre-AI writing; see `golden/README.md`.
+Every corpus entry approved out of `references/candidates.md` contributes a
+new slop fixture: add a file under `slop/` with the profile it was caught in
+and the new pattern named in `expected_flags`. Provenance gate first: check
+the entry's `Loop:` field. Scout and self-play sources are already public or
+synthetic, so their before-text can ship verbatim. Harvest-sourced before-text
+is exactly what `harvest/` is gitignored to protect (pre-publication drafts,
+sent emails, DMs) and never ships verbatim: write a synthetic fixture that
+reproduces the tell in fresh text on a different topic. The fixture must carry
+the pattern, not the private prose. The golden set grows from the owner's real
+pre-AI writing; see `golden/README.md`.
 
 When aging retires a rule, remove that flag from any `expected_flags` lists but
 keep the fixture text. Old slop stays useful as a negative-drift check.

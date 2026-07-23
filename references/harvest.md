@@ -43,6 +43,12 @@ patterns. The ingestion friction dial still governs the final write: the writer
 approves inbox entries, then the six-step and the eval gate (`evals/`) run
 before anything is filed.
 
+`references/candidates.md` and `evals/slop/` are public files, and harvest
+text is not: quote only the minimal span needed as evidence in an inbox entry,
+and when a harvest-sourced candidate is approved, its eval fixture is
+synthesized fresh rather than pasted from the draft (see the provenance gate
+in `evals/README.md`).
+
 ## Ledger hygiene
 
 `harvest/` is local-only (gitignored) because it holds full pre-publication

@@ -36,7 +36,8 @@ re-proposed next round). Rejected entries are dedup targets too.
 Scout: 103 last30days items (Reddit, X, TikTok, YouTube, GitHub, web;
 2026-06-22 to 2026-07-22), Wikipedia signs-of-AI-writing (48 signs), Algorithmic
 Bridge and Olivia Cal catalogs. 11 candidates survived dedup; 16 near-miss
-groups deduped as already covered. Self-play results appended separately below.
+groups deduped as already covered. Self-play entries open the section; the 11
+scout entries follow them.
 
 Self-play: 4 samples written with the skill fully applied; 8 fresh-eyes
 detectors (isolated headless runs, no repo access) judged all 4 AI-written on
@@ -139,29 +140,6 @@ existing rules that failed at write time, not new patterns.
 - Mechanism guess: instruction-tuning (essay-arc training rewards
   lesson-shaped endings; the metaphor ban leaves the maxim shape as the
   surviving exit)
-
-### em-dash-retier [status: proposed]
-
-- Found: 2026-07-23  |  Loop: aging (Kevin's observation)
-- Evidence: Kevin's read is that current models emit em dashes noticeably less
-  than the 2024-25 era, so the pattern may no longer deserve headline
-  preferential treatment relative to binary contrast and the colon reveal.
-- Source: Kevin, in-session 2026-07-23
-- Proposed change: gather frequency evidence in the next self-play and aging
-  passes; if confirmed, re-tier the em dash corpus entry down from headline
-  status while keeping it flagged. Note the seam: the zero-em-dash rule on
-  Kevin's byline comes from his voice spec and stands regardless of model
-  frequency; only the floor's tiering would change.
-- Mechanism guess: n/a (aging; models moved)
-
-### Round notes: generation-side misses (not candidates)
-
-1. A tailing-negation binary contrast ("before you turn the thing on, not
-   after") shipped despite the FATAL family being on the books. Rule exists;
-   application missed it.
-2. A conscious reroute around the faux-insight ban ("Nobody warned us about
-   the GPS stamps") was still caught as the identical template slot. Rewording
-   a banned phrase does not vacate the slot; the fix is structural.
 
 ### quietly-becoming [status: proposed]
 
@@ -295,3 +273,28 @@ existing rules that failed at write time, not new patterns.
   emoji bullet markers, checkmark lists, dividers. Edit to the patterns.md
   style section; linkedin keeps its 1-2 end-of-line allowance.
 - Mechanism guess: pretraining-register (LinkedIn-corpus style bleed)
+
+### Round notes: generation-side misses (not candidates)
+
+1. A tailing-negation binary contrast ("before you turn the thing on, not
+   after") shipped despite the FATAL family being on the books. Rule exists;
+   application missed it.
+2. A conscious reroute around the faux-insight ban ("Nobody warned us about
+   the GPS stamps") was still caught as the identical template slot. Rewording
+   a banned phrase does not vacate the slot; the fix is structural.
+
+## Round 2026-07-23 (aging observation, logged manually)
+
+### em-dash-retier [status: proposed]
+
+- Found: 2026-07-23  |  Loop: aging (Kevin's observation)
+- Evidence: Kevin's read is that current models emit em dashes noticeably less
+  than the 2024-25 era, so the pattern may no longer deserve headline
+  preferential treatment relative to binary contrast and the colon reveal.
+- Source: Kevin, in-session 2026-07-23
+- Proposed change: gather frequency evidence in the next self-play and aging
+  passes; if confirmed, re-tier the em dash corpus entry down from headline
+  status while keeping it flagged. Note the seam: the zero-em-dash rule on
+  Kevin's byline comes from his voice spec and stands regardless of model
+  frequency; only the floor's tiering would change.
+- Mechanism guess: n/a (aging; models moved)
