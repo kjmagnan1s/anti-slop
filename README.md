@@ -84,6 +84,17 @@ anti-slop separates the two jobs. The floor strips general tells. A per-byline p
 
 `references/living-corpus.md` is the part that compounds. Each entry is a dated tell caught in the wild, tagged with the mechanism that produces it (reward-tuning, repetition-penalty, instruction-tuning, pretraining-register, displacement, and more). Tells age, so entries get re-tiered or retired as the models change. The rule lists you can copy from anyone. This is the asset you cannot.
 
+## The learning loops
+
+The corpus does not wait for someone to spot a tell. Four automated read-paths propose rules into `references/candidates.md`, the inbox:
+
+- **Harvest** diffs the skill's output against what actually shipped. Every hand edit is a labeled example: a missed tell or a flattened voice.
+- **Self-play** (weekly) generates with the skill on and detects with fresh-eyes agents that never read it, catching the displacement tells our own rules create.
+- **Scout** (weekly) sweeps what the wild is already mocking as AI writing, plus Wikipedia's actively maintained signs-of-AI-writing page.
+- **Aging** (quarterly) re-tests corpus entries against current models and proposes retiring what no longer fires.
+
+All four only propose. Filing requires the writer's approval plus the regression gate in `evals/`: a candidate rule must still catch every slop fixture and must flag nothing in a golden set of real human prose. The golden set is gitignored because it is the owner's personal writing; you seed your own from yours (see `evals/golden/README.md`). And the rule set has a hard size budget, so at capacity a new rule must fold into an existing mechanism or retire something in the same commit. The loops keep the rules current, not growing.
+
 ## What is inside
 
 ```
@@ -92,6 +103,10 @@ references/patterns.md         The deduped rule library (the floor) and the cont
 references/living-corpus.md    Dated tells caught in the wild, with mechanism tags
 references/ingestion.md        The curation flow for memorializing new slop
 references/protect-list.md     The per-byline seam, shipped as a fill-in template
+references/harvest.md          The shipped-diff harvest loop
+references/weekly-loop.md      The scheduled self-play / scout / aging round
+references/candidates.md       The inbox of proposed rules awaiting the gate
+evals/                         The regression gate: slop fixtures plus a local-only golden set
 CREDITS.md                     Full lineage and attribution
 LICENSE                        MIT
 ```
@@ -103,6 +118,7 @@ anti-slop is a consolidation of prior open work, credited in full in [CREDITS.md
 - **avoid-ai-writing** by Conor Bronsdon (MIT): the tiered vocabulary, context profiles, and severity tiers.
 - **humanizer** (MIT), based on Wikipedia's "Signs of AI writing" (CC BY-SA 4.0): the content-pattern catalog and the adversarial self-audit.
 - **stop-slop** by Hardik Pandya (MIT): the false-agency rule, the binary-contrast table, and the scoring rubric.
+- **no-ai-slop** by Peter Yang (MIT): the faux-insight-setup, colon-reveal, and fake-profound-kicker patterns, and the throwaway voice-signal step for drafts without a voice spec.
 
 ## License
 
