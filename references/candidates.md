@@ -140,6 +140,20 @@ existing rules that failed at write time, not new patterns.
   lesson-shaped endings; the metaphor ban leaves the maxim shape as the
   surviving exit)
 
+### em-dash-retier [status: proposed]
+
+- Found: 2026-07-23  |  Loop: aging (Kevin's observation)
+- Evidence: Kevin's read is that current models emit em dashes noticeably less
+  than the 2024-25 era, so the pattern may no longer deserve headline
+  preferential treatment relative to binary contrast and the colon reveal.
+- Source: Kevin, in-session 2026-07-23
+- Proposed change: gather frequency evidence in the next self-play and aging
+  passes; if confirmed, re-tier the em dash corpus entry down from headline
+  status while keeping it flagged. Note the seam: the zero-em-dash rule on
+  Kevin's byline comes from his voice spec and stands regardless of model
+  frequency; only the floor's tiering would change.
+- Mechanism guess: n/a (aging; models moved)
+
 ### Round notes: generation-side misses (not candidates)
 
 1. A tailing-negation binary contrast ("before you turn the thing on, not

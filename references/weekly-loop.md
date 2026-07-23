@@ -69,3 +69,8 @@ When the writer approves a candidate, run the ingestion six-step, then the eval
 gate: the proposed rule must still catch the `evals/slop/` fixtures and must
 flag nothing in `evals/golden/`. A rule that flags golden human prose is
 rejected or tiered down, not filed.
+
+The size budget also applies (SKILL.md, Maintenance): fold candidates into
+existing mechanism rules wherever possible, and at budget, every filing must
+merge or retire something in the same commit. The loop's job is to keep the
+rule set current, not to grow it.

@@ -40,8 +40,13 @@ For each flagged span, produce:
    - context-dependent: fine in some profiles, a tell in others.
 5. **Replacement.** The rewrite, plus the general rule behind it so it
    generalizes past this one example.
-6. **Dedup + file.** Check the living corpus and patterns.md. If it is already
-   covered, merge as a variant. If new, write a fresh entry.
+6. **Dedup + fold + file.** Check the living corpus and patterns.md. If it is
+   already covered, merge as a variant. If new, first try to fold it into an
+   existing mechanism-level rule as an example; only write a fresh entry when
+   it is a genuinely new mechanism or shape. Then check the size budget
+   (SKILL.md, Maintenance): patterns.md ~40 rules, corpus ~30 live entries. At
+   budget, filing requires merging or retiring something in the same commit.
+   The list must stay small enough to actually follow.
 
 ## The protect-list cross-check (mandatory before filing)
 

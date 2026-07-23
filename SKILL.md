@@ -174,6 +174,17 @@ slop, run the ingest flow and grow `references/living-corpus.md`. Tells age:
 the delve/tapestry era is already burned. Re-tier or retire entries as the
 models change.
 
+### Size budget (the anti-ratchet rule)
+
+The rule set has a hard ceiling, because a list I cannot hold in attention is a
+list I will not follow, and over-constraint breeds displacement tells. Budget:
+`patterns.md` holds at most ~40 mechanism-level rules; the living corpus at
+most ~30 live entries. At budget, filing something new requires merging it into
+an existing mechanism or retiring an entry in the same commit. Fold, don't
+append: a new tell is usually an example of a mechanism already on the books,
+not a new rule. Three banned phrases with one cause are one rule with three
+examples.
+
 ## Learning loops
 
 Beyond the manual triggers, four automated read-paths feed
