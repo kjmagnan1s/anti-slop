@@ -14,10 +14,29 @@ evidence beats self-report on style.
 ## How to run it
 
 **Step 0: corpus first.** Collect 3-5 authored samples (published writing,
-dictation transcripts, working notes). Extract the style layer from those:
-rhythm, openers, closers, signature phrases, formatting habits, banned words.
-That work replaces the style/mechanics questions entirely. No samples at all?
-Style questions come back; that flow is a separate appendix, not this file.
+dictation transcripts, working notes). When the person can't produce samples on
+demand, which is the common case, `voice-sources.md` finds the corpus already
+on their machine. Extract the style layer from those samples: rhythm, openers,
+closers, signature phrases, formatting habits, banned words. That work replaces
+the style/mechanics questions entirely.
+
+**Step 0, fallback: no corpus and none discoverable.** Don't stop here. Make a
+small corpus, then run the interview with a style round in front of it:
+
+- Have them write or dictate three short pieces cold, on topics from Section 1:
+  a post, a reply to someone who is confidently wrong, and a piece of bad news.
+  That is a corpus. Ten minutes of real writing beats an hour of self-report
+  about writing.
+- Then ask the six style questions self-report can actually carry. What words
+  and phrases do you use that other people in your space don't? What words
+  would you never use? How long are your sentences and paragraphs when the
+  writing is going well? What do your openers and closers look like? What
+  punctuation do you overuse? What formatting do you reach for on your own,
+  and what do you only use because a tool suggested it?
+- Mark every style-layer line sourced this way as self-reported, and treat it
+  as the weakest data in the spec. Once real writing exists, the mirror
+  (Step 3) re-derives the layer from it, and the corpus wins per the conflict
+  rule below.
 
 **Step 1: the interview.** The five sections below, ~47 questions. Rules:
 

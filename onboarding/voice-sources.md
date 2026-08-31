@@ -14,10 +14,16 @@ lives and the rules for touching it.
    range, one example filename. Read only what the user approves, source by
    source. Session logs contain client work and secrets; treat every source
    as sensitive until the user says otherwise.
-2. **Local only.** Extraction and profiling happen on the user's machine. Raw
-   corpus never leaves it. The output is a derived profile (patterns,
-   frequencies, quoted signature phrases); offer to delete intermediate
-   copies when done.
+2. **No egress beyond the agent already running.** Extraction and profiling
+   happen on the user's machine: no upload, no third-party service, no network
+   egress of raw text. What this flow cannot promise is invisibility to the
+   agent doing the work, because an agent reads a file by putting its contents
+   into a hosted model's context. Say that out loud before the user approves a
+   source, and for anything the user calls sensitive, prefer script-based
+   extraction: a local script writes the raw corpus and computes the
+   fingerprint, and only the fingerprint enters the agent's context. The output
+   is a derived profile (patterns, frequencies, approved signature phrases);
+   offer to delete intermediate copies when done.
 3. **Register-tag everything.** Prompt history is working voice: commands to
    an agent. It is the right source for vocabulary, quirks, hedges, and
    signature phrases, and the wrong source for published-prose structure.
@@ -92,9 +98,23 @@ frequencies mean anything.
    unchecked source is never read.
 3. **Extract locally.** User turns, transcripts, commit messages into a raw
    corpus file per source, register-tagged.
-4. **Profile.** Compute the fingerprint (below) and pull candidate signature
+4. **Scrub, before anything is profiled.** Sweep each raw corpus file for
+   credentials and key-shaped strings (API keys, tokens, connection strings,
+   private URLs), client and employer names, other people's names, addresses,
+   phone numbers, and file paths carrying a client identifier. Replace each hit
+   with a placeholder rather than deleting the span, so the surrounding rhythm
+   survives. Session logs are the highest-risk source: a key pasted into a
+   prompt last month is a recurring n-gram, and recurring n-grams are exactly
+   what step 5 promotes. Report the redaction count per source and let the user
+   add patterns, then sweep again.
+5. **Profile.** Compute the fingerprint (below) and pull candidate signature
    phrases with quoted evidence.
-5. **Review.** Show the derived profile. The raw extracts stay on disk where
+6. **Approve each quotation.** No phrase becomes a protected signature until
+   the user has seen it in a list and kept it. A quoted phrase does not stay
+   in the raw corpus: it goes into the voice spec, loads into every writing
+   session, and travels with any copy of the spec that gets shared or sold.
+   Drop anything the user hesitates on.
+7. **Review.** Show the derived profile. The raw extracts stay on disk where
    the user can read them; offer deletion once the profile is accepted.
 
 ## What the profiler extracts
@@ -125,8 +145,9 @@ without the weeks of hand work.
   answers the style questions; the interview covers only what no sample can
   show (beliefs, hard nos, registers under pressure).
 - The **protect list** (`../references/protect-list.md`) is a direct output:
-  verified signature phrases become protected signatures the de-slop floor
-  must never strip.
+  the signature phrases the user approved in step 6 become protected
+  signatures the de-slop floor must never strip. Redacted spans and
+  unapproved candidates never reach it.
 - The **contamination guard** applies end to end: assistant-generated text is
   never corpus. If a source mixes user and machine text, extract the user
   side only or drop the source.

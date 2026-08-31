@@ -141,6 +141,10 @@ Before delivering prose, run the pass:
 Two questions, answered honestly, every time:
 
 1. "What makes this still obviously AI-generated?" Whatever you name, fix.
+   "Nothing" is a valid answer, and on an already-clean draft it is the right
+   one (spine rule 1). Naming a tell you cannot point at in the text fails the
+   gate the same way missing a real one does; the question hunts for tells, it
+   does not require a quota.
 2. "Does the rewrite state any fact, name, number, date, or quote that isn't
    in the source?" A fabrication is a defect even when it sounds more human.
 

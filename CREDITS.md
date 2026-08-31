@@ -48,6 +48,9 @@ file is honesty about lineage: the rule lists are not original to anti-slop.
 
 ### unslop
 - Author: @poteto (github.com/cursor/plugins, pstack plugin)
+- License: none carried here. Concepts only; no text or code was reused, so no
+  upstream terms travel with anti-slop. Check the source repo before copying
+  anything from it directly.
 - Contributed (folded in 2026-08-27): the adding-soul doctrine (sterile,
   stanceless prose is also slop: have opinions, vary rhythm, let some mess in)
   and the single-question runtime self-audit ("what makes this obviously AI
@@ -74,7 +77,8 @@ file is honesty about lineage: the rule lists are not original to anti-slop.
 
 ## What anti-slop adds
 
-- One deduplicated rule library instead of three overlapping ones.
+- One deduplicated rule library instead of six overlapping ones: three
+  replaced outright, three folded in later.
 - The ingestion flow: a defined process for memorializing new tells, tagged to
   the generative mechanism that produces them.
 - The living corpus: dated, mechanism-tagged tells caught in the wild.

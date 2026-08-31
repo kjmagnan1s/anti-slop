@@ -1,4 +1,5 @@
 .DS_Store
 harvest/
+scratch/
 evals/golden/*
 !evals/golden/README.md
