@@ -210,7 +210,8 @@ nothing in the golden set of real human prose.
 - `references/harvest.md`: the shipped-diff harvest loop.
 - `references/weekly-loop.md`: the scheduled self-play / scout / aging round.
 - `references/candidates.md`: the inbox of proposed rules awaiting the gate.
-- `evals/`: the regression gate; slop fixtures plus a local-only golden set.
+- `evals/`: the regression gate; slop fixtures, a local-only golden set, and
+  committed run reports (`evals/reports/`).
 
 ## Credits and license
 

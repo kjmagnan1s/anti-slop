@@ -6,7 +6,7 @@
 
 <p align="center"><b>One maintained skill that strips AI slop out of writing: detect it, rewrite it, and memorialize new tells as the models change.</b></p>
 
-anti-slop is the floor. It catches the words, rhythms, and structures that mark text as machine-written, and it leaves a writer's real voice alone through a protect-list seam. It consolidates and replaces three earlier skills (avoid-ai-writing, humanizer, stop-slop) into one spec that stays alive instead of going stale.
+anti-slop is the floor. It catches the words, rhythms, and structures that mark text as machine-written, and it leaves a writer's real voice alone through a protect-list seam. It replaces three earlier skills outright (avoid-ai-writing, humanizer, stop-slop) and folds in three more, so one spec stays alive instead of going stale.
 
 ## See it work
 
@@ -68,11 +68,17 @@ What got cut: the flowery opener, the Tier 1 vocabulary (delve, tapestry, robust
 
 ## The spine
 
-1. **Structure is the number one signal**, above vocabulary. Uniform sentence and paragraph length reads as AI even with every flagged word removed. Vary the rhythm first, swap words second.
-2. **Tiered vocabulary, not blanket bans.** Tier 1 always replace, Tier 2 flag in clusters, Tier 3 flag by density. Blunt "never" rules stacked deep recreate the over-polishing they are meant to fix.
-3. **Context profiles** adjust strictness per surface: linkedin, blog, technical-blog, investor-email, docs, casual.
-4. **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first and never strips a protected signature.
-5. **Self-reference escape hatch.** When writing about slop (quoting bad examples), the quoted patterns are not flagged. Only the author's own prose is.
+Nine rules run on every pass. The ones that shape the most edits:
+
+- **Minimum effective edit.** Cut in proportion to the actual slop. A clean draft gets a light pass, and "this text is fine" is a valid verdict. Over-editing human prose is the same failure as slop, pointed the other way.
+- **Structure is the number one signal**, above vocabulary. Uniform sentence and paragraph length reads as AI even with every flagged word removed. Vary the rhythm first, swap words second.
+- **Tiered vocabulary, not blanket bans.** Tier 1 always replace, Tier 2 flag in clusters, Tier 3 flag by density. Blunt "never" rules stacked deep recreate the over-polishing they are meant to fix.
+- **The portability test.** A sentence that could move unchanged to another person, company, or product says nothing about this one. Cut it or make it specific.
+- **Sterile is also slop.** Voiceless, evenly balanced prose is as machine-tellable as delve. On a byline, the draft needs a position and a pulse. Technical reference and encyclopedic text are exempt.
+- **Honesty, both modes.** Detect mode names patterns, never authors. Rewrite mode adds no fact, name, number, date, or quote that is not in the source.
+- **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first and never strips a protected signature.
+
+Context profiles, the self-reference escape hatch, the seam rules, and the two-question delivery gate are in [SKILL.md](SKILL.md).
 
 ## It protects your voice
 
@@ -108,7 +114,7 @@ references/weekly-loop.md      The scheduled self-play / scout / aging round
 references/candidates.md       The inbox of proposed rules awaiting the gate
 onboarding/voice-sources.md    The corpus discovery manifest: where your voice evidence already lives
 onboarding/taste-interview.md  The stance-layer interview: what a writing sample can't show
-evals/                         The regression gate: slop fixtures plus a local-only golden set
+evals/                         The regression gate: slop fixtures, a local-only golden set, committed run reports
 CREDITS.md                     Full lineage and attribution
 LICENSE                        MIT
 ```
