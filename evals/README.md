@@ -30,8 +30,13 @@ Prompt-based, no code. Run the skill's detect mode over each fixture:
    The candidate must not lose any expected flag on slop and must not add a
    P0/P1 flag on golden.
 
-Report per fixture: pass or fail, any missing flags by name, and any golden
-P0/P1 hit with the offending span quoted.
+Report per fixture on a local run: pass or fail, any missing flags by name,
+and any golden P0/P1 hit with the offending span quoted.
+
+When the run gates a pull request, commit the report to `reports/` in the
+format `reports/README.md` defines, so the reviewer reads an artifact instead
+of a self-report. Golden hits go in by file ID, severity, and character offset;
+the span itself stays on the machine.
 
 ## How it grows
 

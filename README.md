@@ -6,7 +6,7 @@
 
 <p align="center"><b>One maintained skill that strips AI slop out of writing: detect it, rewrite it, and memorialize new tells as the models change.</b></p>
 
-anti-slop is the floor. It catches the words, rhythms, and structures that mark text as machine-written, and it leaves a writer's real voice alone through a protect-list seam. It consolidates and replaces three earlier skills (avoid-ai-writing, humanizer, stop-slop) into one spec that stays alive instead of going stale.
+anti-slop is the floor. It catches the words, rhythms, and structures that mark text as machine-written, and it leaves a writer's real voice alone through a protect-list seam. It replaces three earlier skills outright (avoid-ai-writing, humanizer, stop-slop) and folds in three more, so one spec stays alive instead of going stale.
 
 ## See it work
 
@@ -62,23 +62,29 @@ What got cut: the flowery opener, the Tier 1 vocabulary (delve, tapestry, robust
 
 | Mode | What it does |
 |------|--------------|
-| **rewrite** (default) | Flags every AI-ism, returns a clean version, shows a diff of what changed. Runs the structure pass, the vocabulary pass, and a transition-iteration pass that varies the seams instead of banning specific connectors. |
+| **rewrite** (default) | Flags every AI-ism, returns a clean version, shows a diff of what changed. Runs the structure pass, the vocabulary pass, and a seam pass that varies the shape of each connection instead of banning specific connectors. |
 | **detect** | Flags only, grouped by severity (P0 credibility killers, P1 obvious smell, P2 polish). No rewriting. For published text, someone else's writing, or a quick scan. |
 | **ingest** | The curation flow. Paste text marked `slop:` and the skill dissects it, names the generative mechanism, writes a tiered rule plus a replacement, checks it against the protect list, and files it into the living corpus. |
 
 ## The spine
 
-1. **Structure is the number one signal**, above vocabulary. Uniform sentence and paragraph length reads as AI even with every flagged word removed. Vary the rhythm first, swap words second.
-2. **Tiered vocabulary, not blanket bans.** Tier 1 always replace, Tier 2 flag in clusters, Tier 3 flag by density. Blunt "never" rules stacked deep recreate the over-polishing they are meant to fix.
-3. **Context profiles** adjust strictness per surface: linkedin, blog, technical-blog, investor-email, docs, casual.
-4. **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first and never strips a protected signature.
-5. **Self-reference escape hatch.** When writing about slop (quoting bad examples), the quoted patterns are not flagged. Only the author's own prose is.
+Nine rules run on every pass. The ones that shape the most edits:
+
+- **Minimum effective edit.** Cut in proportion to the actual slop. A clean draft gets a light pass, and "this text is fine" is a valid verdict. Over-editing human prose is the same failure as slop, pointed the other way.
+- **Structure is the number one signal**, above vocabulary. Uniform sentence and paragraph length reads as AI even with every flagged word removed. Vary the rhythm first, swap words second.
+- **Tiered vocabulary, not blanket bans.** Tier 1 always replace, Tier 2 flag in clusters, Tier 3 flag by density. Blunt "never" rules stacked deep recreate the over-polishing they are meant to fix.
+- **The portability test.** A sentence that could move unchanged to another person, company, or product says nothing about this one. Cut it or make it specific.
+- **Sterile is also slop.** Voiceless, evenly balanced prose is as machine-tellable as delve. On a byline, the draft needs a position and a pulse. Technical reference and encyclopedic text are exempt.
+- **Honesty, both modes.** Detect mode names patterns, never authors. Rewrite mode adds no fact, name, number, date, or quote that is not in the source.
+- **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first and never strips a protected signature.
+
+Context profiles, the self-reference escape hatch, the seam rules, and the two-question delivery gate are in [SKILL.md](SKILL.md).
 
 ## It protects your voice
 
 A de-slop pass that runs at full strength on everything will sand a real writer down to the same flat statistical profile it is supposed to fix. Deliberate fragments, an "And" opener, a signature phrase, an uneven cadence: those are what keep text human.
 
-anti-slop separates the two jobs. The floor strips general tells. A per-byline protect list says what must survive. `references/protect-list.md` ships as a fill-in template, and its companion onboarding skill, [voice-dna-builder](https://github.com/kjmagnan1s/claude-skills/tree/main/skills/voice-dna-builder), builds your personal voice spec and protect list from your own writing samples. When a floor flag collides with one of your signatures, the skill surfaces the collision instead of editing it.
+anti-slop separates the two jobs. The floor strips general tells. A per-byline protect list says what must survive, and `onboarding/` carries the two instruments that build one: a manifest for finding the writing corpus already on your machine, and a taste interview for the judgment layer no sample can show. `references/protect-list.md` ships as a fill-in template, and its companion onboarding skill, [voice-dna-builder](https://github.com/kjmagnan1s/claude-skills/tree/main/skills/voice-dna-builder), builds your personal voice spec and protect list from your own writing samples. When a floor flag collides with one of your signatures, the skill surfaces the collision instead of editing it.
 
 ## The living corpus (the moat)
 
@@ -90,7 +96,7 @@ The corpus does not wait for someone to spot a tell. Four automated read-paths p
 
 - **Harvest** diffs the skill's output against what actually shipped. Every hand edit is a labeled example: a missed tell or a flattened voice.
 - **Self-play** (weekly) generates with the skill on and detects with fresh-eyes agents that never read it, catching the displacement tells our own rules create.
-- **Scout** (weekly) sweeps what the wild is already mocking as AI writing, plus Wikipedia's actively maintained signs-of-AI-writing page.
+- **Scout** (monthly) sweeps what the wild is already mocking as AI writing, what other anti-slop systems are shipping, and Wikipedia's actively maintained signs-of-AI-writing page. Its cleanest finds ship as a drafted pull request, where merging is filing.
 - **Aging** (quarterly) re-tests corpus entries against current models and proposes retiring what no longer fires.
 
 All four only propose. Filing requires the writer's approval plus the regression gate in `evals/`: a candidate rule must still catch every slop fixture and must flag nothing in a golden set of real human prose. The golden set is gitignored because it is the owner's personal writing; you seed your own from yours (see `evals/golden/README.md`). And the rule set has a hard size budget, so at capacity a new rule must fold into an existing mechanism or retire something in the same commit. The loops keep the rules current, not growing.
@@ -98,7 +104,7 @@ All four only propose. Filing requires the writer's approval plus the regression
 ## What is inside
 
 ```
-SKILL.md                       The skill: modes, the spine, transition iteration, scoring
+SKILL.md                       The skill: modes, the spine, the seam rules, the delivery gate
 references/patterns.md         The deduped rule library (the floor) and the context-profile matrix
 references/living-corpus.md    Dated tells caught in the wild, with mechanism tags
 references/ingestion.md        The curation flow for memorializing new slop
@@ -106,7 +112,9 @@ references/protect-list.md     The per-byline seam, shipped as a fill-in templat
 references/harvest.md          The shipped-diff harvest loop
 references/weekly-loop.md      The scheduled self-play / scout / aging round
 references/candidates.md       The inbox of proposed rules awaiting the gate
-evals/                         The regression gate: slop fixtures plus a local-only golden set
+onboarding/voice-sources.md    The corpus discovery manifest: where your voice evidence already lives
+onboarding/taste-interview.md  The stance-layer interview: what a writing sample can't show
+evals/                         The regression gate: slop fixtures, a local-only golden set, committed run reports
 CREDITS.md                     Full lineage and attribution
 LICENSE                        MIT
 ```
@@ -117,8 +125,10 @@ anti-slop is a consolidation of prior open work, credited in full in [CREDITS.md
 
 - **avoid-ai-writing** by Conor Bronsdon (MIT): the tiered vocabulary, context profiles, and severity tiers.
 - **humanizer** (MIT), based on Wikipedia's "Signs of AI writing" (CC BY-SA 4.0): the content-pattern catalog and the adversarial self-audit.
-- **stop-slop** by Hardik Pandya (MIT): the false-agency rule, the binary-contrast table, and the scoring rubric.
-- **no-ai-slop** by Peter Yang (MIT): the faux-insight-setup, colon-reveal, and fake-profound-kicker patterns, and the throwaway voice-signal step for drafts without a voice spec.
+- **stop-slop** by Hardik Pandya (MIT): the false-agency rule, the binary-contrast table, and the 5-dimension scoring rubric, which anti-slop retired on 2026-08-27 in favor of the two-question delivery gate.
+- **no-ai-slop** by Peter Yang (MIT): the faux-insight-setup, colon-reveal, and fake-profound-kicker patterns, the portability test, the minimum-effective-edit rule, and the throwaway voice-signal step for drafts without a voice spec.
+- **unslop** by @poteto (concepts only, no text reused): the adding-soul doctrine (sterile, stanceless prose is also slop) and the single-question runtime self-audit.
+- **soundshuman** by aashaexo (MIT): the no-fabrication rule and the false-positive guardrails behind minimum effective edit.
 
 ## License
 
