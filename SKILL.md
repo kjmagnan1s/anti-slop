@@ -5,11 +5,12 @@ description: >
   replaces avoid-ai-writing, humanizer, and stop-slop. Use when drafting,
   editing, or reviewing any text to remove AI tells; when the user pastes text
   marked "slop:" to memorialize a new pattern; or when asked to "de-slop",
-  "remove AI-isms", "clean up AI writing", or "audit for AI tells". This is the
+  "remove AI-isms", "clean up AI writing", or "audit for AI tells". Also fires
+  on technically clean but voiceless prose that needs a stance. This is the
   general AI-slop floor. On a byline with a personal voice spec, it pairs with
   that voice overlay through the protect-list seam, so it never flattens a
   writer's real signatures.
-version: 0.1.0
+version: 0.2.0
 license: MIT
 metadata:
   replaces: [avoid-ai-writing, humanizer, stop-slop]
@@ -19,9 +20,15 @@ metadata:
 # anti-slop
 
 One owned, maintained skill for removing AI writing patterns, and for ingesting
-new ones as the models change. The rule lists are commodity. The living corpus
-(`references/living-corpus.md`) is the moat: dated tells caught in the wild, each
-tagged with the mechanism that produces it.
+new ones as the models change. The rule lists are commodity; every skill in
+this category ships the same 80%. The moat is the machinery around them: the
+learning loops, the eval gate, and the voice-spec seam. The living corpus
+(`references/living-corpus.md`) is that machinery's output: dated tells caught
+in the wild, tagged with the generative mechanism.
+
+This file alone runs the common pass. `references/` is escalation (the full
+tables and profiles) and maintenance (loops, inbox, corpus); load those only
+when the task needs them.
 
 ## How this fits together
 
@@ -32,10 +39,8 @@ tagged with the mechanism that produces it.
   canonical for the protect list; this skill points at it, never restates it. See
   `references/protect-list.md` for the seam. To build your own voice spec from
   your writing, use the companion onboarding flow (`voice-dna-builder`).
-- **The three old skills are retired here.** Their unique parts fold in:
-  avoid-ai's tiered vocabulary, context profiles, and severity tiers;
-  humanizer's content-pattern catalog and adversarial self-audit; stop-slop's
-  false-agency rule and scoring rubric.
+- **Predecessors and sources are retired into this skill.** What folded in
+  from where: `CREDITS.md`.
 
 ## Modes
 
@@ -54,84 +59,62 @@ protect list, dedups, and files it into the living corpus. Full flow:
 
 ## The spine
 
-1. **Structure is the #1 detection signal**, above vocabulary. Uniform sentence
+1. **Minimum effective edit.** Fix the tell, leave strong human sentences
+   alone, cut in proportion to the actual slop. A clean draft gets a light
+   pass, and "this text is fine" is a valid verdict. Over-editing human prose
+   is the same failure as slop, pointed the other way.
+2. **Structure is the #1 detection signal**, above vocabulary. Uniform sentence
    and paragraph length reads as AI even with every flagged word removed. Vary
    rhythm first, swap words second.
-2. **Tiered vocabulary, not blanket bans.** Tier 1 always-replace, Tier 2 flag
+3. **Tiered vocabulary, not blanket bans.** Tier 1 always-replace, Tier 2 flag
    in clusters, Tier 3 flag by density. Full tables in `references/patterns.md`.
    Blunt "never" rules stacked deep recreate the over-polishing failure they are
    meant to fix.
-3. **Context profiles** adjust strictness: linkedin, blog, technical-blog,
+4. **The portability test.** If a sentence could move unchanged to another
+   person, company, or product, it says nothing about this one. Cut it or make
+   it specific.
+5. **Context profiles** adjust strictness: linkedin, blog, technical-blog,
    investor-email, docs, casual. Matrix in `references/patterns.md`. Auto-detect
    from content cues if none is passed.
-4. **The protect-list seam.** On a byline with a voice spec, load
+6. **The protect-list seam.** On a byline with a voice spec, load
    `references/protect-list.md` (canonical: your voice spec) first. Never strip a
    protected signature. If a flag collides with one, surface it and do not
    auto-edit. With no voice spec (someone else's draft, an unowned byline), build
    a throwaway one: before editing, note the core point and 3-5 voice signals in
    the draft itself (vocabulary, humor, cadence, pet phrases) and preserve them
    through the rewrite. De-slopped text that lost its author is still a failure.
-5. **Self-reference escape hatch.** When writing ABOUT slop (this file, examples,
+7. **Honesty, both modes.** Detect mode names patterns, never authors: a named
+   pattern is checkable evidence, an authorship claim is a guess, so never
+   declare a text AI-written. Rewrite mode never invents: no fact, name,
+   number, date, or quote that isn't in the source. A needed specific comes
+   from the source or the user, or the sentence ships plain.
+8. **Sterile is also slop.** Voiceless, stanceless, evenly balanced prose is as
+   machine-tellable as delve. On genres that carry a byline (opinion, blog,
+   personal, marketing), the draft needs a position and a pulse: react to
+   facts, vary rhythm, let some mess in. Stance content comes from the voice
+   spec's stance layer; with no spec, sharpen the positions already in the
+   draft, never fabricate new ones. Technical reference and encyclopedic text
+   are exempt: neutral is the correct human voice there.
+9. **Self-reference escape hatch.** When writing ABOUT slop (this file, examples,
    quoted bad writing), do not flag the quoted patterns. Only flag the author's
    own prose.
 
-## Transition iteration (rewrite mode)
+## Seams (rewrite mode)
 
 AI slop shows most at the seams: how paragraphs and thoughts connect. Banning
-specific transitions (the old blocklist approach) is subtractive and backfires.
-Kill "Moreover" and the model collapses to a different small set, or drops
-connective tissue entirely, and you get a new uniformity. So transitions get
-iterated, not banned. Same mental model as iterating on a feature in code: do
-not ship the first pass.
+transitions backfires (the metronome moves; see displacement in the corpus).
+Instead:
 
-The target is variety plus voice-fit, not rarity. A deliberately rare or showy
-transition is its own tell. Vary toward the byline's own transition vocabulary
-(from the protect list and voice samples), and remember the best transition is
-often none: just start the next thought.
-
-### The procedure (run on every rewrite)
-
-1. **Draft pass.** Write or rewrite normally.
-2. **Seam pass.** Walk each paragraph boundary and each major thought-shift. At
-   each one, generate 2-3 candidate openers and always include "no transition,
-   start the thought directly" as a candidate. Choose by fit to the voice and the
-   argument, not by novelty. State a one-word reason. Emitting the candidates is
-   the forcing function; it is what stops this from collapsing to a single pass.
-3. **Monotony pass.** Read the whole piece end to end for transition repetition.
-   If two boundaries lean on the same move (two "and then"s, two Wh-openers, two
-   appositive asides), break one. Vary the shape of the connection, not just the
-   word: a short fragment, a question, a flat statement, a callback to an earlier
-   line.
-
-### Candidate-artifact format (seam pass)
-
-For each boundary, before committing:
-
-```
-[seam after "...last few words of prior paragraph"]
-  a) <candidate opener>
-  b) <a structurally different candidate>
-  c) no transition: <how the next line reads cold>
-  -> chose (x): <one-word reason: fit / rhythm / voice / cut>
-```
-
-In rewrite mode this is internal scaffolding; do not ship it in the final text.
-In detect mode, surface it so the writer sees the seams and the choices.
-
-### Guards
-
-- Do not manufacture a transition where the thought connects fine on its own.
-  Bolting connective tissue onto every seam is itself an AI habit.
-- Do not reach for rare transitions to seem human. Fit is the goal, not novelty.
-- On a byline with a protect list, bias the candidate set toward that voice's
-  natural transitions, never away from them.
-
-### Optional escalation: fresh-eyes pass
-
-For flagship pieces (a published blog post, a long-form essay), run a separate
-transition review after the inline passes. An agent that did not write the draft
-catches seam-monotony the author is blind to, the same way you miss your own
-typos. Reserve it for high-value work; it is not worth the cost on a tweet.
+- Vary the shape of the connection, not just the word: a fragment, a question,
+  a flat statement, a callback. Two boundaries leaning on the same move means
+  break one.
+- The best transition is often none. Start the next thought.
+- Never manufacture connective tissue where the thought connects fine; a
+  transition bolted onto every seam is itself an AI habit. Rare or showy
+  transitions are their own tell; fit beats novelty.
+- On a byline, bias toward that voice's natural transitions (protect list).
+- Flagship pieces only: a separate seam review by a fresh-eyes agent that did
+  not write the draft. Not worth the cost on a tweet.
 
 ## Quick checks
 
@@ -148,22 +131,22 @@ Before delivering prose, run the pass:
 - Synonym cycling within a paragraph? Repeat the right word instead.
 - Significance inflation on a routine event ("marking a pivotal moment")? Cut it.
 - Chatbot artifacts, sycophancy, cutoff disclaimers? Strip entirely.
+- Sentence could ship unchanged in someone else's post? Portability fail: cut
+  it or make it specific.
+- Opinion-genre piece with no position anywhere? A flag, not a virtue.
 - Reads like clean TTS with no rhythm? It is too uniform. Add disfluency.
 
+## The gate (before delivery)
+
+Two questions, answered honestly, every time:
+
+1. "What makes this still obviously AI-generated?" Whatever you name, fix.
+2. "Does the rewrite state any fact, name, number, date, or quote that isn't
+   in the source?" A fabrication is a defect even when it sounds more human.
+
 Then, on a byline with a voice spec: walk that spec's runtime self-review
-checklist and the protect list.
-
-## Scoring
-
-Rate 1-10 on each. Below 35/50, revise.
-
-| Dimension | Question |
-|-----------|----------|
-| Directness | Statements, or announcements about what comes next? |
-| Rhythm | Varied, or metronomic? |
-| Trust | Respects the reader's intelligence? |
-| Authenticity | Sounds like a person wrote it? |
-| Density | Anything cuttable without losing meaning? |
+checklist and the protect list. If question 1 keeps finding the same class of
+tell across passes, stop patching and regenerate from a tighter brief.
 
 ## Maintenance
 
@@ -199,8 +182,10 @@ nothing in the golden set of real human prose.
 - **Self-play** (`references/weekly-loop.md`): weekly. Generate with the skill
   on, detect with fresh-eyes agents that never read it. Catches displacement
   tells our own rules create.
-- **Scout** (same file): weekly. last30days sweep plus the Wikipedia
-  signs-of-AI-writing page, for tells the wild is already mocking.
+- **Scout** (same file): monthly. last30days sweep for tells the wild is
+  already mocking and for new anti-slop techniques worth absorbing, plus the
+  Wikipedia signs-of-AI-writing page. Its cleanest finds ship as a drafted PR
+  (weekly-loop.md, step 6); merging is filing.
 - **Aging** (same file): quarterly. Re-test corpus entries against current
   models; propose retiring what no longer fires.
 
@@ -213,6 +198,11 @@ nothing in the golden set of real human prose.
 - `references/ingestion.md`: the curation flow for memorializing new slop.
 - `references/protect-list.md`: the seam to a personal voice spec; signatures the
   floor must not strip. Ships as a fill-in template.
+- `onboarding/taste-interview.md`: the stance-layer interview; builds the
+  judgment half of a voice spec (companion to `voice-dna-builder`).
+- `onboarding/voice-sources.md`: the corpus discovery manifest; finds the
+  voice evidence already on the machine, with per-source consent and
+  register tagging. Runs before the interview.
 - `references/harvest.md`: the shipped-diff harvest loop.
 - `references/weekly-loop.md`: the scheduled self-play / scout / aging round.
 - `references/candidates.md`: the inbox of proposed rules awaiting the gate.
@@ -220,21 +210,8 @@ nothing in the golden set of real human prose.
 
 ## Credits and license
 
-anti-slop is a consolidation of prior open work. It would not exist without:
-
-- **avoid-ai-writing** by Conor Bronsdon (MIT). Source of the tiered vocabulary
-  (Tier 1/2/3), the context profiles, and the severity tiers. Its vocabulary
-  tiering was itself adapted from `brandonwise/humanizer`.
-- **humanizer** (MIT), based on Wikipedia's "Signs of AI writing" page,
-  maintained by WikiProject AI Cleanup (content under CC BY-SA 4.0). Source of
-  the content-pattern catalog and the adversarial self-audit step.
-- **stop-slop** by Hardik Pandya, hvpandya.com (MIT). Source of the false-agency
-  rule, the binary-contrast variant table, and the 5-dimension scoring rubric.
-- **no-ai-slop** by Peter Yang (MIT). Source of the faux-insight-setup,
-  colon-reveal, and fake-profound-kicker patterns, and the throwaway
-  voice-signal step for drafts without a voice spec.
-
-License: MIT for anti-slop's own text. Examples ported from the humanizer /
-Wikipedia lineage are rewritten in our own words; the underlying Wikipedia
-material is CC BY-SA 4.0. See `CREDITS.md` and `LICENSE` for full attribution and
-the share-alike note.
+anti-slop consolidates prior open work: avoid-ai-writing (Conor Bronsdon),
+humanizer (Wikipedia "Signs of AI writing" lineage), stop-slop (Hardik Pandya),
+no-ai-slop (Peter Yang), unslop (@poteto), and soundshuman (aashaexo). Who
+contributed what, plus the CC BY-SA share-alike note for the Wikipedia-lineage
+material, lives in `CREDITS.md`. anti-slop's own text is MIT; see `LICENSE`.
