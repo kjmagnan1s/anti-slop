@@ -244,6 +244,10 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   limited based on available information." Find the fact or remove the hedge.
 - **Sycophancy.** "You're absolutely right!", "That's a really insightful
   observation." Remove.
+- **Validation tails.** "so this one lands", "so this tracks", "which is why
+  this hits." A clause appended to your own fact that reports your approval of
+  what you are replying to. Tier 1, delete on sight; the fact already proved the
+  relevance. Full entry in `living-corpus.md`.
 - **Acknowledgment loops.** "To answer your question", "The question of whether",
   restating the prompt before answering. Just answer.
 - **Confidence-calibration adverbs.** "Notably", "Interestingly", "Importantly",

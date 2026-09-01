@@ -9,6 +9,10 @@ let the `voice-dna-builder` onboarding flow generate it for you. Delete the
 placeholder examples once you have replaced them; an unfilled template protects
 nothing.
 
+To keep a filled-in list out of a public clone, write it to
+`references/protect-list.local.md` instead. That file is gitignored, and when it
+exists the skill loads it in place of this template.
+
 ## The mechanism (general)
 
 anti-slop is reusable across contexts. Each context supplies its own protect list:
