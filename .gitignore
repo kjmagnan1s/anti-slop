@@ -3,3 +3,4 @@ harvest/
 scratch/
 evals/golden/*
 !evals/golden/README.md
+references/protect-list.local.md

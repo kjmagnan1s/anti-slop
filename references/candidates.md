@@ -2146,3 +2146,451 @@ The Q4 round still owes the three things listed on 2026-08-18.
   drift INTO real human phrasing.
 - Mechanism guess: mixed; several are reward-tuning punchiness tells (sibling
   of punchline-terminal-paragraphs), the chains are structure tells.
+
+## Round 2026-09-01 (weekly loop)
+
+Harvest: 1 ledger entry (`2026-07-23-trimhero-gate-qt.md`, tweet). Fetch-back
+FAILED for the seventh consecutive round. WebFetch on x.com returned **HTTP 402
+again**, so the 403 of 2026-08-25 was transient and the 402 is the stable
+failure mode. The Grok Build fallback was attempted again and refused again, and
+the refusal confirms the 2026-08-25 diagnosis over the 2026-08-18 one: this
+session's shell is scoped to the repo working directory, so both `ls
+/Users/kevinmagnan/.grok/bin/` and any invocation of the binary are blocked
+before an allowlist question arises. Adding a Bash permission would not fix it.
+No published text was retrieved and none was reconstructed. Ledger entry
+retained, not pruned. No new harvest candidates: the entry was classified in the
+2026-07-28 round from its capture-path-1 record, and re-reading it would only
+duplicate `unnamed-attributor-social`, `fix-and-cta-close`, and
+`lineage-credit-signature`. The 2026-08-25 note stands: a successful fetch-back
+would now only confirm a classification the loop already holds, so the honest
+options are to widen the session's allowed directories or to demote fetch-back
+below the paste fallback in `harvest.md` and stop budgeting a weekly step for
+it.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics
+(municipal parks scheduling, urban birding, a duplicate-push-notification
+incident, an aquarium forum post). The isolated-generator protocol was applied:
+four subagents, each reading only `SKILL.md`, `patterns.md`, and
+`living-corpus.md`, explicitly forbidden to open `candidates.md`. Samples saved
+to `scratch/selfplay-2026-09-01/` (gitignored). **The 2026-08-25 round-note-1
+fix was applied**: the pool ran as two instruments rather than one split. Eight
+standard detectors (2 per sample, the weekly-loop prompt verbatim) and four
+hostile detectors (1 per sample, the same prompt plus a forensic-coherence
+instruction), reported separately. Standard instrument: **4 AI (72-82%), 4 human
+(60-92%)**. Hostile instrument: **3 AI (75-85%), 1 human (65%)**. ~165 raw
+flags, ~35 distinct tells, 4 survivors after dedup plus 1 amendment to an open
+candidate, 1 evidence entry, and 8 fold-only proposals. Read round note 1 before
+treating the hostile instrument as a verdict count; its job is the coherence
+audit, not the verdict rate.
+
+Scout: last30days FAILED to execute for the seventh consecutive round (the skill
+errored on invocation). Fell back to WebSearch plus direct fetches. Four direct
+fetches succeeded: the full pattern list behind Simon Willison's cliche
+highlighter (executing the 2026-08-28 manual pointer), a Georgia Tech controlled
+study on human AI-detection, a competitor-skill survey, and the Wikipedia signs
+page. Per the 2026-08-25 note, no sign count is reported; coverage is reported
+instead. The Wikipedia "Biases in content" section and its "Pro-authoritarian
+bias" subsection were truncated again, the third consecutive partial fetch of
+that section; recording it as an unresolved fetch failure rather than guessing.
+4 candidates, 8 fold-only proposals.
+
+Aging: SKIPPED. Not the first run of the quarter; Q3 2026 opened with the
+2026-07-22 bootstrap round. The Q4 round still owes the three things listed on
+2026-08-18. One of them shrinks this round: the PR leg below files the em-dash
+generation-side/detection-side split, so what remains for Q4 is only the
+rule-off generation pass for our own base rate.
+
+### chimera-proper-noun [status: proposed]
+
+- Found: 2026-09-01  |  Loop: self-play
+- Evidence: Three detectors, independently, on the same two words. The blog
+  sample placed a bird sighting at "the retention pond behind Fastrac Tire."
+  B1: "Fastrac is a convenience-store chain, not a tire business. A composite or
+  confabulated local business name is a recognizable generation artifact; a real
+  person usually writes either the true name or 'the tire place.'" B2: "Aldi,
+  Sunoco, Nikon, and Merlin are all real. 'Fastrac Tire' is a plausible-sounding
+  blend sitting in the middle of verifiable brands. That is exactly what
+  proper-noun generation looks like when it fills a slot." Bh reached it from
+  the other direction, using the real brands to geolocate the piece and then
+  finding the one name that does not resolve.
+- Source: self-play round 7 detector reports (sample B)
+- Proposed rule: Distinct from the two open naming candidates, and it completes
+  the family. `named-entity-vacuum` covers the case where no proper noun
+  appears; `canonical-detail` covers the case where the name supplied is the
+  category's most transparent instance ("billing-events", "Emily"). This covers
+  the case where a name IS supplied, IS specific, and IS wrong: a real entity's
+  name welded to the wrong business, place, or product category, sitting in a
+  run of verifiable names that lends it cover. Test: for every proper noun, ask
+  whether that entity does the thing the sentence says it does. Where the real
+  name is not available, name the category ("the tire place") rather than
+  inventing a specific. Suggested Tier 2, escalating anywhere the text claims
+  first-hand knowledge. Note for the writer: this is a counterexample to the
+  mechanism `named-entity-vacuum` proposes. That entry argues proper nouns get
+  avoided because they are checkable and a fabricated one is a penalized error.
+  Here the model fabricated one anyway, and a blend of two real names is what a
+  checkable-error-avoidant system should never produce. Either the mechanism is
+  wrong or an explicit be-specific instruction defeats it, and the two entries
+  should be filed together so that question gets settled once.
+- Mechanism guess: pretraining-register (local-business names sit in a dense
+  n-gram neighborhood, so the model samples a plausible name rather than
+  retrieving one, and the be-specific pressure supplies the slot)
+
+### weight-assignment-phrases [status: proposed]
+
+- Found: 2026-09-01  |  Loop: scout
+- Evidence: The full pattern list behind Simon Willison's LLM cliche
+  highlighter, read from source this round (the 2026-08-28 inbox pointer asked
+  for exactly this diff). Roughly a third of its original patterns are one
+  mechanism `patterns.md` does not carry: a sentence whose only job is to tell
+  the reader how much the preceding sentence weighs. Labels and examples from
+  the tool: "That's the whole X" (point/game/thing), "Is the entire X", "The
+  entire X is", "Is the whole X", "That's not nothing", "The punchline is",
+  "That's the part..." ("the part that makes me trust"), "Here's the twist"
+  (also thing/catch/kicker), "Sit with that", "You already know", "Worth
+  naming", "The only X I trust", "Don't take my word for it", "That's why X
+  mattered".
+- Source: https://tools.simonwillison.net/llm-cliche-highlighter (patterns read
+  from https://raw.githubusercontent.com/simonw/tools/main/llm-cliche-highlighter.html,
+  fetched 2026-09-01)
+- Proposed rule: One Tier 1 phrase family, not fourteen entries. `patterns.md`
+  already carries the two positional cousins: faux-insight setups (the opener
+  that promises a payoff) and the fake-profound kicker (the closer that inflates
+  the point). This is the mid-piece member of the same family, and it is the one
+  that survives a crackdown on both, because it neither opens nor closes
+  anything. It attaches to a sentence already written and grades it. Cut the
+  grading sentence; if the preceding line carries weight, the reader feels it.
+  File as a third bullet under the same mechanism rather than as a new rule,
+  with the list above as examples. Cross-check done: "let that sink in" and "sit
+  with that" were already proposed on 2026-07-22 as `let-that-sink-in`, so file
+  these together and retire that narrower entry in the same commit.
+- Mechanism guess: reward-tuning (engagement-optimized corpora reward
+  significance marking, and the marking survives when the inflated vocabulary
+  around it is scrubbed)
+
+### feature-blind-detection [status: proposed]
+
+- Found: 2026-09-01  |  Loop: scout (methodology)
+- Evidence: A controlled two-phase experiment. 21 participants wrote paired
+  opinion pieces with an AI chatbot; half were warned their submission would be
+  scanned by an AI detector. 251 independent judges then made 1,999 paired
+  comparisons, choosing which document was "written by a human." Judges picked
+  the warned writer's document 54.13% of the time against 45.87% for the
+  unwarned one, rejecting chance at p = 0.000243. The finding that matters here
+  is the second one, quoted from the abstract: "on every measurable text feature
+  I extracted, including AI overlap scores, lexical diversity, sentence
+  structure, and pronoun usage, the two groups were indistinguishable. The
+  judges are picking up on something that feature based methods do not capture."
+- Source: Daniel Tabach, Georgia Institute of Technology, April 2026, "Can
+  Humans Detect AI? Mining Textual Signals of AI-Assisted Writing Under Varying
+  Scrutiny Conditions", https://arxiv.org/pdf/2604.23471 (PDF fetched and read
+  directly, 2026-09-01; pages 1-6 read, later sections not read, so the feature
+  list above is the abstract's and not the full methods section's)
+- Proposed change: A methodology entry, and the first external result that
+  speaks to what this skill can and cannot be. Two consequences for the writer.
+  First, it is corroboration for `counterculture-signature` (2026-08-11) from a
+  controlled setting rather than from reporting: writing under detection
+  pressure does shift reader judgments, and the shift is real but small, a few
+  points above chance. Second, and harder: the shift was invisible to every text
+  feature the study extracted. A rule library is a feature library. If what
+  judges respond to is not in the features, a rule set has a ceiling, and this
+  loop has been finding that ceiling from the inside for three rounds, in the
+  same-span disagreements of 2026-08-11, 2026-08-18, and 2026-08-25 where two
+  readers split on one sentence. Suggested filing: one sentence in the
+  over-polishing warning recording the measured size of the effect, so future
+  rounds stop reading verdict-rate swings as progress. Honest limits: 21 writers
+  on one prompt, judges making a forced binary choice, and a feature set that is
+  not our rule set.
+- Mechanism guess: n/a (detection calibration; external)
+
+### scored-gate-convergence [status: proposed]
+
+- Found: 2026-09-01  |  Loop: scout (new-techniques sweep)
+- Evidence: Three independently built writing skills have converged on the same
+  machinery: a numeric rubric plus a re-run threshold. stop-slop scores 1 to 10
+  across five dimensions and revises below 35/50. claude-blog runs a 100-point
+  rubric across five gates and re-runs automatically, up to three times, on
+  anything below 90. AI-Research-SKILLs scores six rigor dimensions. Per the
+  weekly-loop rule that a technique two competitors invent independently is
+  high-confidence, three is worth acting on.
+- Source: https://www.analyticsvidhya.com/blog/2026/08/top-5-claude-writing-skills/
+  (fetched 2026-09-01; the individual repos were not read, so treat the scoring
+  details as secondary). Fourth skill surveyed for rule structure:
+  https://github.com/jalaalrd/anti-ai-slop-writing
+- Proposed rule: Take the trigger, not the rubric. `SKILL.md`'s gate already
+  says "If question 1 keeps finding the same class of tell across passes, stop
+  patching and regenerate from a tighter brief," which is the same move these
+  three skills make, with no threshold on it and so no way to know when it
+  fires. Proposal: give the existing regenerate rule a countable trigger (the
+  same class of tell surviving two passes, or three or more P1 flags after a
+  rewrite pass) and cap the retries. Deliberately NOT proposed: adopting a
+  five-dimension score. This round's own evidence argues against it, and so does
+  the whole second-order-uniformity thread. A fixed rubric applied to every draft
+  is a uniform transform, and uniform transforms are what this loop keeps
+  catching. The value in the convergence is the stopping rule, not the
+  scorecard. Suggested filing: one clause in the existing gate, no new section.
+- Mechanism guess: n/a (competitor convergence; methodology)
+
+### Amendment: locally-plausible-globally-incoherent (scope extension and a runnable test)
+
+- Found: 2026-09-01  |  Loop: self-play (both instruments)
+- Evidence: The dominant finding of the round, and the first time this failure
+  has appeared outside the technical sample. The hostile instrument found
+  substantive coherence failures in 3 of 4 samples, in three registers, and the
+  standard instrument independently found one of them without being asked to
+  look.
+  - Technical (Ch): "38% of our mobile users got every push notification two to
+    four times" caps total volume at 1.38x to 2.14x, so the timeline's "Send
+    volume hit 3.4x expected and paged notifications on-call" could not have
+    fired at all against a 3x threshold. Ch also caught that a p99 latency rise
+    cannot duplicate every notification for 38% of users, that an FCM-only
+    trigger cannot produce an all-mobile blast radius, and that the stated fix
+    (a transaction around the write and the check) does not move the hash
+    computation the document itself names as the bug.
+  - Linkedin (Ah, corroborated by A2 on the standard prompt): "asking council
+    for a tenth crew" implies nine crews, and nine crews recovering 40 minutes a
+    day is about 0.7 of a crew, while holding "two staff unassigned" removes
+    about one. The package nets out below where the department started and is
+    presented as the reason the tenth crew was unnecessary. A2 found the same
+    contradiction from the other side: quadrant ownership is incoherent at nine
+    or ten crews across four quadrants. Ah also caught a shift that silently
+    changed length, 7:00-3:30 against 5:45-2:00.
+  - Blog (Bh): "Around month five" collides with "I got bored in July. Six weeks
+    without picking them up," and it is the only elapsed-month count in a piece
+    that otherwise names months. "The register shifts to the vaguer unit
+    precisely where the arithmetic would fail."
+- Source: self-play round 7 detector reports (samples A, B, C; both instruments)
+- Proposed change: Two amendments to the open 2026-07-28 candidate, which has
+  now carried five failure signatures across five rounds with no filing
+  decision. **Scope.** The candidate is written as a check on "explanatory or
+  incident text," and its open question is whether a factual-accuracy check
+  belongs in a slop skill at all. This round answers half of that: the failure
+  is not a property of technical writing. It appears anywhere the prose makes
+  claims whose constraints only a practitioner would check, including a 200-word
+  LinkedIn post about mowing schedules. **Test.** The candidate has lacked a
+  runnable form. This round supplies one that is cheaper than reading the causal
+  chain end to end: take any two quantities in the piece and ask whether one
+  constrains the other. In real reporting they do, because they came off the same
+  system (crew count times crew size is headcount; blast radius times copies is
+  volume). In generated prose each number is locally plausible and jointly
+  unconstrained, which is why A2 could say "there's no arithmetic a reader could
+  check" about one sample while Ch found arithmetic that contradicts itself in
+  another. Both are the same failure: the numbers were chosen for the sentence,
+  not read off a shared source. Where they do reconcile, check whether they
+  reconcile too well (C2: 1.5x is exactly half of 3x and buys exactly one hour).
+- Mechanism guess: n/a (generation coherence, not a style tell) — unchanged
+
+### em-dash-retier-evidence-4 [status: proposed]
+
+- Found: 2026-09-01  |  Loop: self-play (evidence for the open em-dash thread)
+- Evidence: **Seven of twelve detectors named the absence of the banned marks as
+  positive evidence, unprompted, and three generalized it past the em dash to
+  the whole punctuation palette.** Bh: "no em dashes, no 'not just X but Y,' no
+  tricolons, no elevated diction. That absence, sitting on top of this much
+  architectural symmetry, reads like output that was written against a tell
+  list, or scrubbed after the fact. Slop removal is easier than shape removal,
+  and the shape is untouched." Ah: "No em dashes at all, unusual in a piece with
+  this cadence, which suggests deliberate suppression rather than natural
+  style." B2: "There is not one dash, colon, or semicolon anywhere in the text,
+  which in a piece with this much appositive instinct reads like a constraint
+  being obeyed rather than a natural plain style." Dh: "If this is
+  machine-written, it was written by a model explicitly instructed to avoid em
+  dashes and vary sentence length."
+- Source: self-play round 7 detector reports (all 4 samples, both instruments)
+- Proposed change: The 2026-07-28 entry found 3 of 8 detectors treating em-dash
+  absence as a de-slopping signature. This round it is 7 of 12, and the finding
+  has widened from one mark to the palette, which is the result
+  `flat-syntactic-spine` (2026-08-04) reached from the syntax side. Two things
+  follow, and neither changes the generation-side conclusion
+  `em-dash-retier-evidence-3` already quantified. First, the detection-side
+  tier-down now has support from two independent directions: a population
+  argument (human literary prose overlaps the model range) and a behavioral one
+  (readers read absence, not presence, as the machine signal). Second, the seam
+  `flat-syntactic-spine` flagged is real and the PR leg below does not resolve
+  it. The em-dash rule and the hedging rules both thin the punctuation palette,
+  and a thinned palette is now itself a flag. The writer should expect to pay
+  for the em-dash rule somewhere, and the honest place is the spine check
+  `flat-syntactic-spine` proposes.
+- Mechanism guess: n/a (aging; the ecosystem moved, and the loop can now measure
+  the move from inside its own detector pool)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Zero ballast** -> the general statement of the merge already proposed
+  between `closed-loop-narrative-economy` and `zero-residue-argument`, and the
+  most-cited tell of the round: five detectors, all four samples. Dh gave the
+  cleanest form, on the casual sample: "Every single detail is load-bearing. No
+  brand of sand, no how-long-the-10-gallon-has-run, no LFS guy, no stand, no
+  reason he set the tank up. Real distressed posts carry dead weight. This one
+  is 100% signal, which is the strongest machine signature present." C2: "There
+  is not one word of ballast here." A2: "Every clause pays rent." B2: "Nothing
+  is redundant, nothing is out of order, nothing is wasted." Those two open
+  candidates cover details that pay off and objections that get answered; this
+  is the third and simplest register of the same mechanism, material included
+  for no reason at all. File all three as one rule.
+- **One engine, iterated** -> the whole-piece instance of the open
+  second-order-uniformity consolidation, and evidence for filing it. B2: "The
+  entire piece is a single move iterated... An essayist writing from actual
+  memory usually varies the machine, or forgets to run it once." Bh, on the same
+  sample, counted the device: "every anecdote lands on a short wry deflating
+  tag. That is not variety, that is one punchline mechanism applied uniformly
+  five or six times." Ah found the same shape in another register: "long setup,
+  short self-aware button, repeat. Sentence length varies, but the variation is
+  patterned." That is the 2026-08-25 clumping test measured at the scale of a
+  whole piece rather than a paragraph. Do not file separately.
+- **Elided dead time** -> fold into `monotonic-recall-order` (2026-08-11) as its
+  second variant. That entry covers narrative order; this covers narrative
+  duration. C2: the incident timeline has "a 2 hour 18 minute hole between
+  '11:22 Rollback started' and '13:40 Backlog cleared' with no entry in it. That
+  is the messiest stretch of any real incident, the part with the drain-rate
+  estimates and the second scare, and it is empty because it does not serve the
+  story." Ch listed the same absence from the other side, naming "a 90-minute
+  hole with nothing in it" among the things real timelines contain. Same
+  mechanism as monotonic order: the timeline was planned rather than recalled,
+  and planning skips the interval where nothing happened.
+- **Precision on the wrong axis** -> sharpens `canonical-detail`. That entry
+  tests retrieved against observed; this tests whether the precision is the kind
+  the stated role would actually carry. Bh on the binoculars: "'Refurbished
+  Nikons, eight power' is how a writer renders binoculars, not how an owner
+  describes them; an actual user writes 8x32 or 8x42... Specificity here is
+  distributed by flavor yield, not by what a person would actually retain." Add
+  as a second test under the same entry.
+- **The vague unit at the load-bearing seam** -> fold into
+  `uniform-hedge-per-number` (2026-08-11), which already carries the 2026-08-11
+  version of this ("'a great deal longer' is the one place the writer had a
+  number available and didn't give one"). Bh found it again in a different
+  register: "Around month five" is the only elapsed-month count in a piece that
+  otherwise names months, and it sits exactly where the arithmetic breaks. Two
+  independent rounds, two registers. The check is one line: find the vaguest
+  quantity in the piece and ask what it is covering.
+- **The absent stakes field** -> fold into `reply-shaped-registers`
+  (2026-08-11). Both casual detectors independently noticed that the aquarium
+  post never says whether anything is living in the tank, which is the first
+  thing a responder asks at 0.5 ammonia. They drew opposite conclusions from it,
+  D2 reading the omission as checklist tidiness ("that is the whole stakes") and
+  Dh reading it as human forgetfulness ("a checklist-driven generator usually
+  fills that slot; a panicking human forgets it"). Both readings support the
+  same rule: on a participant surface, the fields a real poster leads with are
+  set by stakes, not by completeness, and generated posts fill the canonical
+  fields evenly while missing the one the genre actually turns on.
+- **Stranded auxiliary contrast, and the "No X, no Y" chain** -> two additions
+  to existing `patterns.md` entries, from the simonw pattern list. The stranded
+  auxiliary ("The tool died; the data didn't") is a binary-contrast variant our
+  table lacks, and it is the sibling of the already-open
+  `matched-antithesis-pairs` and `rather-than-variant`: file all three into the
+  binary-contrast table at once. The "No X, no Y" chain and the "Did not X, did
+  not Y" chain belong in negative listing, which currently lists only the "Not a
+  X... Not a Y... A Z." form.
+- **Measured forms for three open candidates**, all from the scout sweep. The
+  simonw list supplies "repeated sentence openers" (three or more consecutive
+  sentences starting with the same word) as the countable form of
+  `paragraph-opener-monotony`, and "echoing sentence runs" (consecutive
+  sentences sharing a repeated multi-word skeleton) as the countable form of the
+  parallelism family. A separate 2026 write-up supplies a sentence-length
+  population figure to sit alongside the burstiness numbers folded on
+  2026-08-18: humans average 14-18 words per sentence, AI 20-25. Source:
+  https://imperfectly.app/post/remove-ai-slop-from-writing (fetched 2026-09-01;
+  the underlying measurement is not sourced on the page, so treat it as weaker
+  than the burstiness figures).
+
+### Round notes: methodology, misses, and inbox state
+
+1. **The two-instrument split works, and it belongs in `weekly-loop.md` step
+   2.** The 2026-08-25 round ran a half-deviated pool and correctly called its
+   own 7-of-8 headline incomparable. This round ran the fix: eight standard
+   detectors for the verdict rate, four hostile detectors for the coherence
+   audit, reported separately. Both instruments earned their place. The standard
+   pool's 4 AI / 4 human is directly comparable to prior rounds (against
+   2026-08-25's unmodified 3 AI / 1 human and 2026-08-18's 3 AI / 5 human), and
+   the hostile pool produced every coherence finding in the amendment above,
+   including two the standard pool would have missed. The protocol is now two
+   rounds old and has been re-derived from the round notes both times. It and the
+   isolated-generator protocol both belong in the file.
+
+2. **The coherence failure is not a technical-writing failure, and that is this
+   round's most consequential finding.** Four prior rounds found factually
+   incoherent prose in the technical sample and asked, reasonably, whether an
+   accuracy check belongs in a slop skill. This round the hostile instrument
+   found substantive failures in three of four samples across three registers: an
+   incident writeup whose blast radius contradicts its own alert threshold, a
+   LinkedIn post whose staffing arithmetic nets below where it started, and a
+   personal essay whose timeline collides with itself. The standard instrument
+   found the LinkedIn contradiction independently, with no coherence instruction,
+   which means it is visible to an ordinary reader. The scope question is settled
+   on the evidence: this is not a property of the technical register, it is a
+   property of any prose making claims a practitioner could check. What remains
+   open is whether the fix belongs here, and the 2026-08-18 finding still points
+   at the cheapest answer: one generation-side coherence instruction prevented
+   it, where no detect-mode rule has.
+
+3. **The FATAL binary-contrast family did not survive generation this round, for
+   the first time in six rounds.** No detector across either instrument flagged a
+   negate-then-correct construction in any of the four samples. Two of them noted
+   the absence: Ah observed the list "mowing, trash, restroom checks, and
+   playground inspections" is a four rather than the reflexive triad, and Dh
+   noted the one negation present ("It's the white kind, not algae green") is
+   informative rather than rhetorical, which is the correct call. Recording this
+   as a clean result and not as a trend. The round note asking for a discrete
+   pass over the finished draft (2026-07-28, repeated 08-04, 08-11, 08-18,
+   08-25) has still not been actioned, so nothing in the skill changed to cause
+   this. One round is sample variance. If it holds next round, the standing
+   recommendation gets cheaper to argue against.
+
+4. **The protect-list collision flagged on 2026-08-28 is now confirmed against
+   the golden set.** The simonw highlighter marks "Turns out ..." as an LLM
+   cliche. That phrase appears four times across two of the six golden files, in
+   writing dated 2020, five years before any of this. Importing that pattern to
+   the floor would fail this repo's own gate on the first run. It is the cleanest
+   available argument for the protect-list seam over global phrase bans, and it
+   is worth keeping as a worked example: a tell can drift into a real person's
+   prose, or a real person's prose can predate the tell, and a rule library with
+   no per-byline layer cannot tell those apart.
+
+5. **Inbox state, and the first drain.** This round adds 4 candidates, 1
+   amendment, 1 evidence entry, and 8 fold-only proposals. It is also the first
+   round to drain rather than only fill: the PR leg below drafts three rule
+   changes plus one retirement, and they close eleven inbox entries between them
+   (four uniformity candidates, three humanization candidates, three em-dash
+   evidence entries, and the elegant-variation aging proposal). The two
+   consolidations recommended since 2026-08-04, and the em-dash thread open since
+   2026-07-23, are all in it. What stays queued and should lead next month:
+   `locally-plausible-globally-incoherent` with this round's test attached, the
+   zero-ballast three-way merge, and the binary-contrast discrete pass from round
+   note 3, which remains the cheapest unactioned item in the file.
+
+### Round 2026-09-01 addendum: PR leg drafted, not opened
+
+Correcting the round summary above, which was written before the push was
+attempted. Step 6 ran to completion locally and then stopped at the push.
+
+- Branch `loop/scout-2026-09` exists **locally only**, cut from `origin/main`,
+  with the round commit cherry-picked and two commits on it: `8fe8c4b` (this
+  inbox section) and `d01a969` (the rule edits plus the eval report at
+  `evals/reports/scout-2026-09.md`).
+- `git push origin loop/scout-2026-09` was **refused**, and the refusal is a
+  configuration failure rather than a missing decision. This repo's
+  `.claude/settings.local.json` already carries `Bash(git push origin loop/:*)`,
+  which is exactly this command, so the standing 2026-08-27 exception is
+  configured and did not take effect in this headless run. `gh pr create:*` sits
+  in the same allow list and was never reached. Diagnose it there before adding
+  a broader permission. This is the same class of blocker as the harvest
+  fetch-back, which has now failed seven consecutive rounds for a permission
+  reason rather than a technical one.
+- No PR was opened. Nothing was pushed. `main` was not pushed and no other
+  branch was touched.
+- The eval gate DID run, locally and in full, before the push attempt: all 8
+  `evals/slop/` fixtures still catch, and the golden side has one P1 hit
+  (`golden-05`, offset 884) that predates this PR and comes from the untouched
+  signposting rule. The report on the branch records both, including the
+  limitation that both new rules were filed at P2 and therefore could not have
+  failed the golden side.
+- To finish the leg by hand: `git push origin loop/scout-2026-09`, then
+  `gh pr create` with the body drafted in the branch's commit message. Or grant
+  the push and re-run the loop, which will find the branch already built.
+
+Note for the writer: two of the four legs of this loop now end at a permission
+boundary in a headless run, and in both cases the boundary is not where the
+docs assume it is. Harvest fails on directory scope, not on a command allowlist
+(corrected 2026-08-25). Step 6 fails with the correct allowlist entry already in
+place. Until the headless session actually honors `.claude/settings.local.json`,
+`weekly-loop.md` step 6 should say plainly that an unattended run stops at a
+local branch, so a future round does not report a PR it did not open.

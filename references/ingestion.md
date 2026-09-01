@@ -51,8 +51,10 @@ For each flagged span, produce:
 ## The protect-list cross-check (mandatory before filing)
 
 Run every proposed entry against `protect-list.md` (canonical: your voice spec).
-If the pattern collides with one of your protected signatures (for example, you
-pasted something that happens to contain a phrase on your protect list), STOP.
+If `protect-list.local.md` is present, check against that file instead;
+`protect-list.md` stays the tracked template. If the pattern collides with one
+of your protected signatures (for example, you pasted something that happens to
+contain a phrase on your protect list), STOP.
 Surface the collision and ask before filing. Do not let a slop entry accidentally
 ban your own voice.
 

@@ -57,6 +57,10 @@ mechanism, writes a tiered rule plus a replacement, checks it against the
 protect list, dedups, and files it into the living corpus. Full flow:
 `references/ingestion.md`.
 
+**rewrite and detect always end with the completeness verifier** (see below): a
+fresh-context subagent whose only job is to confirm the pass caught everything
+it was supposed to catch. Not skippable. ingest does not need it.
+
 ## The spine
 
 1. **Minimum effective edit.** Fix the tell, leave strong human sentences
@@ -77,7 +81,9 @@ protect list, dedups, and files it into the living corpus. Full flow:
    investor-email, docs, casual. Matrix in `references/patterns.md`. Auto-detect
    from content cues if none is passed.
 6. **The protect-list seam.** On a byline with a voice spec, load
-   `references/protect-list.md` (canonical: your voice spec) first. Never strip a
+   `references/protect-list.md` first; if `references/protect-list.local.md`
+   exists it replaces the template, and it is gitignored so a filled-in list
+   never leaves the machine (canonical: your voice spec). Never strip a
    protected signature. If a flag collides with one, surface it and do not
    auto-edit. With no voice spec (someone else's draft, an unowned byline), build
    a throwaway one: before editing, note the core point and 3-5 voice signals in
@@ -152,6 +158,42 @@ Then, on a byline with a voice spec: walk that spec's runtime self-review
 checklist and the protect list. If question 1 keeps finding the same class of
 tell across passes, stop patching and regenerate from a tighter brief.
 
+## Completeness verifier (mandatory before returning any rewrite or detect)
+
+The pass above grades its own homework. A pass that missed a tell can't flag the
+tell it missed. So before returning, launch a fresh-context subagent with the
+Agent tool (`general-purpose`) whose sole job is to confirm this pass caught
+everything it was supposed to. This is not the flagship-only fresh-eyes seam
+review above; that one hunts seam monotony on long-form. This one runs on every
+rewrite and detect, short or long, and its scope is narrow: did anything slip
+through?
+
+The verifier does NOT rewrite, does NOT add new stylistic opinions, does NOT
+second-guess a protected signature that was correctly left alone, and does NOT
+re-litigate judgment calls. It re-scans and reports misses, nothing else.
+
+Give the subagent:
+- the ORIGINAL text (pre-edit), and the cleaned/flagged output plus the list of
+  what this pass changed or flagged,
+- the rule set to check against: `references/patterns.md` (Tier 1/2/3 vocab,
+  false agency, binary-contrast variants) and, on a byline with a voice spec,
+  the protect list plus that spec's runtime checklist,
+- the active context profile, so it holds the same strictness bar.
+
+Brief it to walk the original independently and surface only tells this pass
+FAILED to catch or fix: any em dash (glyph or `--`) beyond what the active
+profile allows (zero on a byline whose voice spec bans it), any "not X, it's Y" /
+binary-contrast variant (FATAL on a byline whose spec bans it), copula
+avoidance, false agency, significance inflation, three-in-a-row uniform sentence
+length, synonym cycling, chatbot artifacts / sycophancy / validation tails /
+cutoff disclaimers, and any Tier 1 vocab left standing. It must also flag
+over-correction: a real signature or intended fragment the pass wrongly stripped.
+
+Required return: a list of misses only, most-severe first, each with the exact
+quoted span and the rule it violates; empty list if the pass was clean. No
+praise, no restating what was already caught. Then fold any confirmed misses
+back into the output before returning it.
+
 ## Maintenance
 
 This skill is alive on purpose. The third-party skills it replaces went stale in
@@ -201,7 +243,8 @@ nothing in the golden set of real human prose.
   tags. The moat.
 - `references/ingestion.md`: the curation flow for memorializing new slop.
 - `references/protect-list.md`: the seam to a personal voice spec; signatures the
-  floor must not strip. Ships as a fill-in template.
+  floor must not strip. Ships as a fill-in template; a filled-in
+  `references/protect-list.local.md` overrides it and stays gitignored.
 - `onboarding/taste-interview.md`: the stance-layer interview; builds the
   judgment half of a voice spec (companion to `voice-dna-builder`).
 - `onboarding/voice-sources.md`: the corpus discovery manifest; finds the

@@ -78,13 +78,13 @@ Nine rules run on every pass. The ones that shape the most edits:
 - **Honesty, both modes.** Detect mode names patterns, never authors. Rewrite mode adds no fact, name, number, date, or quote that is not in the source.
 - **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first and never strips a protected signature.
 
-Context profiles, the self-reference escape hatch, the seam rules, and the two-question delivery gate are in [SKILL.md](SKILL.md).
+Context profiles, the self-reference escape hatch, the seam rules, the two-question delivery gate, and the completeness verifier that closes every rewrite and detect are in [SKILL.md](SKILL.md).
 
 ## It protects your voice
 
 A de-slop pass that runs at full strength on everything will sand a real writer down to the same flat statistical profile it is supposed to fix. Deliberate fragments, an "And" opener, a signature phrase, an uneven cadence: those are what keep text human.
 
-anti-slop separates the two jobs. The floor strips general tells. A per-byline protect list says what must survive, and `onboarding/` carries the two instruments that build one: a manifest for finding the writing corpus already on your machine, and a taste interview for the judgment layer no sample can show. `references/protect-list.md` ships as a fill-in template, and its companion onboarding skill, [voice-dna-builder](https://github.com/kjmagnan1s/claude-skills/tree/main/skills/voice-dna-builder), builds your personal voice spec and protect list from your own writing samples. When a floor flag collides with one of your signatures, the skill surfaces the collision instead of editing it.
+anti-slop separates the two jobs. The floor strips general tells. A per-byline protect list says what must survive, and `onboarding/` carries the two instruments that build one: a manifest for finding the writing corpus already on your machine, and a taste interview for the judgment layer no sample can show. `references/protect-list.md` ships as a fill-in template (a filled-in `references/protect-list.local.md` replaces it when present and stays gitignored), and its companion onboarding skill, [voice-dna-builder](https://github.com/kjmagnan1s/claude-skills/tree/main/skills/voice-dna-builder), builds your personal voice spec and protect list from your own writing samples. When a floor flag collides with one of your signatures, the skill surfaces the collision instead of editing it.
 
 ## The living corpus (the moat)
 
@@ -104,7 +104,7 @@ All four only propose. Filing requires the writer's approval plus the regression
 ## What is inside
 
 ```
-SKILL.md                       The skill: modes, the spine, the seam rules, the delivery gate
+SKILL.md                       The skill: modes, the spine, the seam rules, the delivery gate, the verifier
 references/patterns.md         The deduped rule library (the floor) and the context-profile matrix
 references/living-corpus.md    Dated tells caught in the wild, with mechanism tags
 references/ingestion.md        The curation flow for memorializing new slop
