@@ -181,7 +181,8 @@ Give the subagent:
 - the active context profile, so it holds the same strictness bar.
 
 Brief it to walk the original independently and surface only tells this pass
-FAILED to catch or fix: any em dash (glyph or `--`), any "not X, it's Y" /
+FAILED to catch or fix: any em dash (glyph or `--`) beyond what the active
+profile allows (zero on a byline whose voice spec bans it), any "not X, it's Y" /
 binary-contrast variant (FATAL on a byline whose spec bans it), copula
 avoidance, false agency, significance inflation, three-in-a-row uniform sentence
 length, synonym cycling, chatbot artifacts / sycophancy / validation tails /
