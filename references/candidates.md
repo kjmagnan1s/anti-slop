@@ -2566,12 +2566,15 @@ attempted. Step 6 ran to completion locally and then stopped at the push.
   with the round commit cherry-picked and two commits on it: `8fe8c4b` (this
   inbox section) and `d01a969` (the rule edits plus the eval report at
   `evals/reports/scout-2026-09.md`).
-- `git push origin loop/scout-2026-09` was **refused**: the command needs an
-  approval this non-interactive session could not grant. The standing
-  `loop/`-branch push exception decided 2026-08-27 is a repo policy, not a
-  session permission, and this run shows the two are not the same thing. This is
-  the same class of blocker as the harvest fetch-back, which has now failed
-  seven consecutive rounds for a permission reason rather than a technical one.
+- `git push origin loop/scout-2026-09` was **refused**, and the refusal is a
+  configuration failure rather than a missing decision. This repo's
+  `.claude/settings.local.json` already carries `Bash(git push origin loop/:*)`,
+  which is exactly this command, so the standing 2026-08-27 exception is
+  configured and did not take effect in this headless run. `gh pr create:*` sits
+  in the same allow list and was never reached. Diagnose it there before adding
+  a broader permission. This is the same class of blocker as the harvest
+  fetch-back, which has now failed seven consecutive rounds for a permission
+  reason rather than a technical one.
 - No PR was opened. Nothing was pushed. `main` was not pushed and no other
   branch was touched.
 - The eval gate DID run, locally and in full, before the push attempt: all 8
@@ -2585,7 +2588,9 @@ attempted. Step 6 ran to completion locally and then stopped at the push.
   the push and re-run the loop, which will find the branch already built.
 
 Note for the writer: two of the four legs of this loop now end at a permission
-boundary in a headless run. Either the scheduled session gets `git push origin
-loop/*` and a wider directory scope, or `weekly-loop.md` should say plainly that
-step 6 stops at a local branch when run unattended, so a future round does not
-report a PR it did not open.
+boundary in a headless run, and in both cases the boundary is not where the
+docs assume it is. Harvest fails on directory scope, not on a command allowlist
+(corrected 2026-08-25). Step 6 fails with the correct allowlist entry already in
+place. Until the headless session actually honors `.claude/settings.local.json`,
+`weekly-loop.md` step 6 should say plainly that an unattended run stops at a
+local branch, so a future round does not report a PR it did not open.
