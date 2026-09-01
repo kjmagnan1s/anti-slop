@@ -2556,3 +2556,36 @@ rule-off generation pass for our own base rate.
    `locally-plausible-globally-incoherent` with this round's test attached, the
    zero-ballast three-way merge, and the binary-contrast discrete pass from round
    note 3, which remains the cheapest unactioned item in the file.
+
+### Round 2026-09-01 addendum: PR leg drafted, not opened
+
+Correcting the round summary above, which was written before the push was
+attempted. Step 6 ran to completion locally and then stopped at the push.
+
+- Branch `loop/scout-2026-09` exists **locally only**, cut from `origin/main`,
+  with the round commit cherry-picked and two commits on it: `8fe8c4b` (this
+  inbox section) and `d01a969` (the rule edits plus the eval report at
+  `evals/reports/scout-2026-09.md`).
+- `git push origin loop/scout-2026-09` was **refused**: the command needs an
+  approval this non-interactive session could not grant. The standing
+  `loop/`-branch push exception decided 2026-08-27 is a repo policy, not a
+  session permission, and this run shows the two are not the same thing. This is
+  the same class of blocker as the harvest fetch-back, which has now failed
+  seven consecutive rounds for a permission reason rather than a technical one.
+- No PR was opened. Nothing was pushed. `main` was not pushed and no other
+  branch was touched.
+- The eval gate DID run, locally and in full, before the push attempt: all 8
+  `evals/slop/` fixtures still catch, and the golden side has one P1 hit
+  (`golden-05`, offset 884) that predates this PR and comes from the untouched
+  signposting rule. The report on the branch records both, including the
+  limitation that both new rules were filed at P2 and therefore could not have
+  failed the golden side.
+- To finish the leg by hand: `git push origin loop/scout-2026-09`, then
+  `gh pr create` with the body drafted in the branch's commit message. Or grant
+  the push and re-run the loop, which will find the branch already built.
+
+Note for the writer: two of the four legs of this loop now end at a permission
+boundary in a headless run. Either the scheduled session gets `git push origin
+loop/*` and a wider directory scope, or `weekly-loop.md` should say plainly that
+step 6 stops at a local branch when run unattended, so a future round does not
+report a PR it did not open.
