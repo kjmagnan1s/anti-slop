@@ -69,3 +69,39 @@ can see how fast a tell rises and falls.
   do the work. If you have not stated one, the tail is the only content you had,
   which means there is no reply worth posting.
 - Source: caught in the wild in the owner's own draft reply, 2026-07-24
+
+---
+
+### mannered prose
+
+- Added: 2026-09-02  |  Tier: 1
+- Mechanism: reward-tuning (vivid phrasing rated as "engaging"), with a
+  density side effect on Fable-class models
+- Context: Anthropic's own prompting guide for Claude Fable 5.1 names two
+  regressions relative to Fable 5: prose that is denser (longer sentences,
+  fewer paragraph breaks) and a habit of substituting metaphor and flourish
+  for direct statement. Their definition: "Mannered prose substitutes metaphor
+  and flourish for direct statement... The phrases exist to display the writer,
+  not to convey the idea, and readers can tell... Metaphors drag in
+  connotations the writer did not choose and cannot control. The fix is to say
+  what you mean. When a literal phrase is available, use it." This is the
+  mechanism the skill's scattered metaphor rows (landscape, symphony, embrace,
+  ecosystem) and the fake-profound kicker were examples of. It also collides
+  with spine rule 8 (sterile is also slop) unless that rule says where a pulse
+  comes from: a position, never a flourish. NOT this pattern: a plain idiom
+  with one fixed meaning that a byline lists as a signature ("lock in",
+  "playbook"); those carry no uncontrolled connotation.
+- Before: "Temperature is a dial worth turning here, and the caching layer
+  earns its keep once the corpus grows past a few thousand documents, which is
+  the point at which the naive approach starts to buckle under its own weight."
+- After: "Temperature is a parameter worth varying here. The caching layer
+  still matters once the corpus passes a few thousand documents. Past that,
+  the naive approach gets slow."
+- Rule: When a literal phrase is available, use it. Replace a metaphor that
+  stands in for a statement with the statement. Separately, break a sentence at
+  its second clause and a paragraph at its second idea when the text runs
+  dense. Short prompt form for ad hoc use: "Remove all mannered prose. Say what
+  you mean. When a literal phrase is available, use it."
+- Source: Anthropic, "Prompting Claude Fable 5.1", Writing density section,
+  https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1#writing-density
+  (read 2026-09-02)

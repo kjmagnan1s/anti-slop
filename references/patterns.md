@@ -235,6 +235,19 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
 - **Sentence- and paragraph-length uniformity.** The metronome. Mix short (3-8
   words) with long (20+). Some one-sentence paragraphs. Read-aloud test: if a TTS
   engine could read it without sounding odd, it is too uniform.
+- **Density.** Sentences that run long and paragraphs that rarely break, even
+  when the rhythm varies. The reader has to hold too much at once. Break the
+  long sentence at its second clause; break the paragraph at its second idea.
+  Documented by Anthropic as a Fable 5.1 regression (2026-09-02); retest on
+  each model change. Full entry in `living-corpus.md`.
+- **Mannered prose.** Metaphor or flourish standing in for a direct statement:
+  "a dial worth turning" for "a parameter worth varying", "earns its keep" for
+  "still matters". The phrase exists to display the writer, not to carry the
+  idea, and it drags in connotations the writer did not choose. When a literal
+  phrase is available, use it. This is the mechanism behind the metaphor rows in
+  the vocabulary tiers (landscape, symphony, embrace, ecosystem) and the
+  fake-profound kicker. Not this pattern: a plain idiom with one fixed meaning
+  on a byline's protect list. Full entry in `living-corpus.md`.
 
 ## Communication / filler patterns
 
