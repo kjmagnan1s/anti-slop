@@ -239,15 +239,17 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   when the rhythm varies. The reader has to hold too much at once. Break the
   long sentence at its second clause; break the paragraph at its second idea.
   Documented by Anthropic as a Fable 5.1 regression (2026-09-02); retest on
-  each model change. Full entry in `living-corpus.md`.
+  each model change. Full entry: `mannered prose` in `living-corpus.md`.
 - **Mannered prose.** Metaphor or flourish standing in for a direct statement:
   "a dial worth turning" for "a parameter worth varying", "earns its keep" for
   "still matters". The phrase exists to display the writer, not to carry the
   idea, and it drags in connotations the writer did not choose. When a literal
   phrase is available, use it. This is the mechanism behind the metaphor rows in
   the vocabulary tiers (landscape, symphony, embrace, ecosystem) and the
-  fake-profound kicker. Not this pattern: a plain idiom with one fixed meaning
-  on a byline's protect list. Full entry in `living-corpus.md`.
+  fake-profound kicker. Not this pattern: any phrase on a byline's protect
+  list, including pet metaphors and coined terms ("lock in", "playbook"), is
+  exempt from this rule; do not surface it as a collision. Full entry:
+  `mannered prose` in `living-corpus.md`.
 
 ## Communication / filler patterns
 
@@ -319,6 +321,12 @@ everywhere.
 | Promotional | relaxed | strict | strict | extra strict | strict | skip |
 | Copula avoidance | skip | strict | relaxed | strict | skip | skip |
 | Generic conclusions | skip | strict | strict | extra strict | skip | skip |
+| Mannered prose | strict | strict | strict | strict | partial | skip |
+| Density | strict | strict | relaxed | strict | skip | skip |
+
+Mannered prose on docs fires only when a metaphor replaces a definable term.
+Density on technical-blog is relaxed: flag only paragraphs over ~150 words with
+no break.
 
 Technical-blog word exceptions (legit technical meaning): robust, comprehensive,
 seamless, ecosystem, leverage (platform/API), facilitate, underpin, streamline.
@@ -333,10 +341,10 @@ blocks = technical-blog; salutation + fundraising = investor-email; step-by-step
 - **P0, credibility killers:** cutoff disclaimers, chatbot artifacts, vague
   attributions, significance inflation on routine events.
 - **P1, obvious AI smell:** Tier 1 word hits, template phrases, "let's" openers,
-  synonym cycling, formulaic openings, bold overuse, em dash frequency, the
-  binary-contrast family.
+  synonym cycling, formulaic openings, bold overuse, em dash frequency, mannered
+  prose, the binary-contrast family.
 - **P2, stylistic polish:** generic conclusions, rule of three, uniform paragraph
-  length, copula avoidance, transition phrases.
+  length, density, copula avoidance, transition phrases.
 
 Quick passes do P0+P1. Full audit covers all three.
 
