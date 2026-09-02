@@ -75,6 +75,16 @@ file is honesty about lineage: the rule lists are not original to anti-slop.
   data). The questions in that file are original, and the corpus-first trim
   is ours.
 
+### Prompting Claude Fable 5.1 (model documentation)
+- Author: Anthropic, Writing density section
+  (https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1#writing-density),
+  read 2026-09-02.
+- Contributed (2026-09-02): the definition of mannered prose behind the
+  `mannered prose` corpus entry and the `Mannered prose` and `Dense prose`
+  bullets in `references/patterns.md`. That definition is quoted verbatim in
+  `references/living-corpus.md` for attribution and commentary; the rule text
+  around the quote, the tiering, and the examples are our own.
+
 ## What anti-slop adds
 
 - One deduplicated rule library instead of six overlapping ones: three
