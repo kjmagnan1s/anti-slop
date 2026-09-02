@@ -235,7 +235,7 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
 - **Sentence- and paragraph-length uniformity.** The metronome. Mix short (3-8
   words) with long (20+). Some one-sentence paragraphs. Read-aloud test: if a TTS
   engine could read it without sounding odd, it is too uniform.
-- **Density.** Sentences that run long and paragraphs that rarely break, even
+- **Dense prose.** Sentences that run long and paragraphs that rarely break, even
   when the rhythm varies. The reader has to hold too much at once. Break the
   long sentence at its second clause; break the paragraph at its second idea.
   Documented by Anthropic as a Fable 5.1 regression (2026-09-02); retest on
@@ -246,10 +246,12 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   idea, and it drags in connotations the writer did not choose. When a literal
   phrase is available, use it. This is the mechanism behind the metaphor rows in
   the vocabulary tiers (landscape, symphony, embrace, ecosystem) and the
-  fake-profound kicker. Not this pattern: any phrase on a byline's protect
-  list, including pet metaphors and coined terms ("lock in", "playbook"), is
-  exempt from this rule; do not surface it as a collision. Full entry:
-  `mannered prose` in `living-corpus.md`.
+  fake-profound kicker. Per-word exemptions in the vocabulary tiers and the
+  profile matrix win over this rule; a word with a legitimate technical meaning
+  in context (ecosystem on technical-blog) is not mannered prose. Not this
+  pattern: any phrase on a byline's protect list, including pet metaphors and
+  coined terms ("lock in", "playbook"), is exempt from this rule; do not surface
+  it as a collision. Full entry: `mannered prose` in `living-corpus.md`.
 
 ## Communication / filler patterns
 
@@ -322,11 +324,11 @@ everywhere.
 | Copula avoidance | skip | strict | relaxed | strict | skip | skip |
 | Generic conclusions | skip | strict | strict | extra strict | skip | skip |
 | Mannered prose | strict | strict | strict | strict | partial | skip |
-| Density | strict | strict | relaxed | strict | skip | skip |
+| Dense prose | strict | strict | relaxed | strict | skip | skip |
 
 Mannered prose on docs fires only when a metaphor replaces a definable term.
-Density on technical-blog is relaxed: flag only paragraphs over ~150 words with
-no break.
+Dense prose on technical-blog is relaxed: flag only paragraphs over ~150 words
+with no break.
 
 Technical-blog word exceptions (legit technical meaning): robust, comprehensive,
 seamless, ecosystem, leverage (platform/API), facilitate, underpin, streamline.
@@ -344,7 +346,7 @@ blocks = technical-blog; salutation + fundraising = investor-email; step-by-step
   synonym cycling, formulaic openings, bold overuse, em dash frequency, mannered
   prose, the binary-contrast family.
 - **P2, stylistic polish:** generic conclusions, rule of three, uniform paragraph
-  length, density, copula avoidance, transition phrases.
+  length, dense prose, copula avoidance, transition phrases.
 
 Quick passes do P0+P1. Full audit covers all three.
 

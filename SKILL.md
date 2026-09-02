@@ -145,7 +145,7 @@ Before delivering prose, run the pass:
 - Reads like clean TTS with no rhythm? It is too uniform. Add disfluency.
 - Metaphor standing in for a statement ("a dial worth turning", "earns its
   keep")? Say what you mean. When a literal phrase is available, use it.
-- Sentences run long and paragraphs rarely break? Density is a tell on its
+- Sentences run long and paragraphs rarely break? Dense prose is a tell on its
   own. Break the sentence at its second clause, the paragraph at its second
   idea.
 
@@ -193,9 +193,10 @@ profile allows (zero on a byline whose voice spec bans it), any "not X, it's Y" 
 binary-contrast variant (FATAL on a byline whose spec bans it), copula
 avoidance, false agency, significance inflation, three-in-a-row uniform sentence
 length, synonym cycling, mannered prose (metaphor standing in for a literal
-statement) and dense unbroken paragraphs, chatbot artifacts / sycophancy /
-validation tails / cutoff disclaimers, and any Tier 1 vocab left standing. It must also flag
-over-correction: a real signature or intended fragment the pass wrongly stripped.
+statement) and dense prose (long sentences, unbroken paragraphs), chatbot
+artifacts / sycophancy / validation tails / cutoff disclaimers, and any Tier 1
+vocab left standing. It must also flag over-correction: a real signature or
+intended fragment the pass wrongly stripped.
 
 Required return: a list of misses only, most-severe first, each with the exact
 quoted span and the rule it violates; empty list if the pass was clean. No

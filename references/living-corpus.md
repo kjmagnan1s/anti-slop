@@ -76,7 +76,7 @@ can see how fast a tell rises and falls.
 
 - Added: 2026-09-02  |  Tier: 1
 - Mechanism: reward-tuning (vivid phrasing rated as "engaging"), with a
-  density side effect on Fable-class models
+  dense-prose side effect on Fable-class models
 - Context: Anthropic's own prompting guide for Claude Fable 5.1 names two
   regressions relative to Fable 5: prose that is denser (longer sentences,
   fewer paragraph breaks) and a habit of substituting metaphor and flourish
