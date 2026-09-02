@@ -250,9 +250,11 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   idea, and it drags in connotations the writer did not choose. When a literal
   phrase is available, use it. This is the mechanism behind the metaphor rows
   in the vocabulary tiers (landscape, symphony, embrace, ecosystem) and the
-  fake-profound kicker. Sub-patterns with their own rule and matrix row
-  (fake-profound kicker, the metaphor vocabulary rows) keep their own tier and
-  profile; this bullet names the shared mechanism and does not relax them.
+  fake-profound kicker. Named sub-patterns keep their own strength: the
+  fake-profound kicker keeps its own rule, which the matrix does not list, so it
+  stays at full strength on every profile, and the metaphor vocabulary rows keep
+  their tier and the `Word tables` row; this bullet names the shared mechanism
+  and does not relax them.
   Per-word exemptions in the vocabulary tiers and the profile matrix win over
   this rule; a word with a legitimate technical meaning in context (ecosystem
   on technical-blog) is not mannered prose. Not this pattern: any phrase on a

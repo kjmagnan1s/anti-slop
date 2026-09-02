@@ -100,9 +100,13 @@ can see how fast a tell rises and falls.
   still matters once the corpus passes a few thousand documents. Past that,
   the naive approach gets slow."
 - Rule: When a literal phrase is available, use it. Replace a metaphor that
-  stands in for a statement with the statement. Separately, break a sentence at
-  its second clause and a paragraph at its second idea when the text runs
-  dense. Short prompt form for ad hoc use: "Remove all mannered prose. Say what
+  stands in for a statement with the statement. Separately, the dense-prose half
+  fires when a paragraph runs past ~100 words with no break AND its sentences
+  average over ~30 words; technical-blog relaxes the paragraph bar to ~150. Past
+  that bar, break a sentence at its second clause and a paragraph at its second
+  idea. The Before/After pair above illustrates mannered prose only; the
+  dense-prose half is exercised by `evals/slop/slop-09-technical-blog.md`.
+  Short prompt form for ad hoc use: "Remove all mannered prose. Say what
   you mean. When a literal phrase is available, use it."
 - Source: Anthropic, "Prompting Claude Fable 5.1", Writing density section,
   https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1#writing-density

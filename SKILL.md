@@ -145,9 +145,10 @@ Before delivering prose, run the pass:
 - Reads like clean TTS with no rhythm? It is too uniform. Add disfluency.
 - Metaphor standing in for a statement ("a dial worth turning", "earns its
   keep")? Say what you mean. When a literal phrase is available, use it.
-- Sentences run long and paragraphs rarely break? Dense prose is a tell on its
-  own. Break the sentence at its second clause, the paragraph at its second
-  idea.
+- A paragraph past ~100 words with no break and sentences averaging over ~30
+  words (~150 on technical-blog)? Dense prose is a tell on its own. Break the
+  sentence at its second clause, the paragraph at its second idea. Long
+  sentences mixed with short ones are the uniformity cure, not this tell.
 
 ## The gate (before delivery)
 
