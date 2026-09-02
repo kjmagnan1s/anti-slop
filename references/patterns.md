@@ -235,23 +235,30 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
 - **Sentence- and paragraph-length uniformity.** The metronome. Mix short (3-8
   words) with long (20+). Some one-sentence paragraphs. Read-aloud test: if a TTS
   engine could read it without sounding odd, it is too uniform.
-- **Dense prose.** Sentences that run long and paragraphs that rarely break, even
-  when the rhythm varies. The reader has to hold too much at once. Break the
-  long sentence at its second clause; break the paragraph at its second idea.
-  Documented by Anthropic as a Fable 5.1 regression (2026-09-02); retest on
-  each model change. Full entry: `mannered prose` in `living-corpus.md`.
+- **Dense prose.** Sentences that run long and paragraphs that rarely break,
+  even when the rhythm varies. The reader has to hold too much at once. Fires
+  when a paragraph runs past ~100 words with no break AND its sentences average
+  over ~30 words; technical-blog relaxes the paragraph bar to ~150. Long
+  sentences mixed with short ones are the uniformity rule's cure, not this
+  tell; this tell is when the long ones dominate. Break the long sentence at
+  its second clause; break the paragraph at its second idea. Documented by
+  Anthropic as a Fable 5.1 regression (2026-09-02); retest on each model
+  change. Full entry: `mannered prose` in `living-corpus.md`.
 - **Mannered prose.** Metaphor or flourish standing in for a direct statement:
   "a dial worth turning" for "a parameter worth varying", "earns its keep" for
   "still matters". The phrase exists to display the writer, not to carry the
   idea, and it drags in connotations the writer did not choose. When a literal
-  phrase is available, use it. This is the mechanism behind the metaphor rows in
-  the vocabulary tiers (landscape, symphony, embrace, ecosystem) and the
-  fake-profound kicker. Per-word exemptions in the vocabulary tiers and the
-  profile matrix win over this rule; a word with a legitimate technical meaning
-  in context (ecosystem on technical-blog) is not mannered prose. Not this
-  pattern: any phrase on a byline's protect list, including pet metaphors and
-  coined terms ("lock in", "playbook"), is exempt from this rule; do not surface
-  it as a collision. Full entry: `mannered prose` in `living-corpus.md`.
+  phrase is available, use it. This is the mechanism behind the metaphor rows
+  in the vocabulary tiers (landscape, symphony, embrace, ecosystem) and the
+  fake-profound kicker. Sub-patterns with their own rule and matrix row
+  (fake-profound kicker, the metaphor vocabulary rows) keep their own tier and
+  profile; this bullet names the shared mechanism and does not relax them.
+  Per-word exemptions in the vocabulary tiers and the profile matrix win over
+  this rule; a word with a legitimate technical meaning in context (ecosystem
+  on technical-blog) is not mannered prose. Not this pattern: any phrase on a
+  byline's protect list, including pet metaphors and coined terms ("lock in",
+  "playbook"), is exempt from this rule; do not surface it as a collision. Full
+  entry: `mannered prose` in `living-corpus.md`.
 
 ## Communication / filler patterns
 
@@ -327,8 +334,8 @@ everywhere.
 | Dense prose | strict | strict | relaxed | strict | skip | skip |
 
 Mannered prose on docs fires only when a metaphor replaces a definable term.
-Dense prose on technical-blog is relaxed: flag only paragraphs over ~150 words
-with no break.
+Dense prose fires on the two-part bar defined in its bullet; `relaxed` on
+technical-blog raises the paragraph half of that bar to ~150 words.
 
 Technical-blog word exceptions (legit technical meaning): robust, comprehensive,
 seamless, ecosystem, leverage (platform/API), facilitate, underpin, streamline.

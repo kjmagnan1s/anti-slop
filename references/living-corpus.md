@@ -74,7 +74,8 @@ can see how fast a tell rises and falls.
 
 ### mannered prose
 
-- Added: 2026-09-02  |  Tier: 1
+- Added: 2026-09-02  |  Tier: 1 (mannered prose); the dense-prose half is P2
+  with the profile carve-outs in patterns.md
 - Mechanism: reward-tuning (vivid phrasing rated as "engaging"), with a
   dense-prose side effect on Fable-class models
 - Context: Anthropic's own prompting guide for Claude Fable 5.1 names two
