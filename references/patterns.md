@@ -235,15 +235,15 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
 - **Sentence- and paragraph-length uniformity.** The metronome. Mix short (3-8
   words) with long (20+). Some one-sentence paragraphs. Read-aloud test: if a TTS
   engine could read it without sounding odd, it is too uniform.
-- **Dense prose.** Sentences that run long and paragraphs that rarely break,
-  even when the rhythm varies. The reader has to hold too much at once. Fires
-  when a paragraph runs past ~100 words with no break AND its sentences average
-  over ~30 words; technical-blog relaxes the paragraph bar to ~150. Long
-  sentences mixed with short ones are the uniformity rule's cure, not this
-  tell; this tell is when the long ones dominate. Break the long sentence at
-  its second clause; break the paragraph at its second idea. Documented by
-  Anthropic as a Fable 5.1 regression (2026-09-02); retest on each model
-  change. Full entry: `mannered prose` in `living-corpus.md`.
+- **Dense prose.** Sentences that run long and paragraphs that rarely break.
+  The reader has to hold too much at once. Fires when a paragraph runs past
+  ~100 words with no break (~150 on technical-blog) and more than half its
+  sentences run over ~30 words. Long sentences mixed with short ones are the
+  uniformity rule's cure, not this tell; this tell is when the long ones
+  dominate. Break the long sentence at its second clause; break the paragraph
+  at its second idea. Documented by Anthropic as a Fable 5.1 regression
+  (2026-09-02); retest on each model change. Full entry: `mannered prose` in
+  `living-corpus.md`.
 - **Mannered prose.** Metaphor or flourish standing in for a direct statement:
   "a dial worth turning" for "a parameter worth varying", "earns its keep" for
   "still matters". The phrase exists to display the writer, not to carry the

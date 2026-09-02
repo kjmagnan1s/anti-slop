@@ -100,9 +100,9 @@ can see how fast a tell rises and falls.
   the naive approach gets slow."
 - Rule: When a literal phrase is available, use it. Replace a metaphor that
   stands in for a statement with the statement. Separately, the dense-prose half
-  fires when a paragraph runs past ~100 words with no break AND its sentences
-  average over ~30 words; technical-blog relaxes the paragraph bar to ~150. Past
-  that bar, break a sentence at its second clause and a paragraph at its second
+  fires when a paragraph runs past ~100 words with no break (~150 on
+  technical-blog) and more than half its sentences run over ~30 words. Past that
+  bar, break a sentence at its second clause and a paragraph at its second
   idea. The Before/After pair above illustrates mannered prose only; the
   dense-prose half is exercised by `evals/slop/slop-09-technical-blog.md`.
   Short prompt form for ad hoc use: "Remove all mannered prose. Say what

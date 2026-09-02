@@ -1,9 +1,11 @@
 # Gate run: mannered prose and dense prose
 
 Branch: `feat/mannered-prose-density`
-Commit under test: `bf3da4a`
+Commit under test: the branch head at the time of this report, see PR
 Run date: 2026-09-02
-Run by: repo owner, manual detect pass against the local golden set
+Run by: the authoring agent (Claude Code, driven by the repo owner), manual
+read of the owner's local golden set; the golden files are gitignored so this
+half is reproducible only on the owner's machine
 
 Candidate under gate: the `mannered prose` corpus entry and the two pattern
 bullets it files, `Mannered prose` (P1) and `Dense prose` (P2).
@@ -44,10 +46,11 @@ statement, so it is not flagged.
 
 Dense prose at P2: zero hits. Longest sentence in the set is 41 words. Densest
 paragraph is 143 words at 20 words per sentence. That paragraph exceeds the
-~100-word half of the bar, but its 20-word sentence average is under the
-~30-word half, and the bar requires both, so it does not fire. It is the one
-golden data point already over half the bar; a later revision that lowers the
-sentence-average half or switches the AND to an OR flags it.
+~100-word half of the bar, but at a 20-word average it does not carry a
+majority of sentences over ~30 words, so the second half is not met and the bar
+does not fire. It is the one golden data point already over half the bar; a
+later revision that lowers the ~30-word sentence bar, drops the majority
+requirement, or switches the AND to an OR flags it.
 
 ## Result
 
