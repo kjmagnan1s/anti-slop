@@ -37,7 +37,7 @@ lost to the two new matrix rows.
 | golden-03 | 0 | 0 | none |
 | golden-04 | 0 | 0 | none |
 | golden-05 | 0 | 0 | none |
-| golden-06 | 0 | 0 | none |
+| golden-06 | 0 | 0 | 434 (P2) |
 
 Mannered prose at P1: zero hits across all six files. No span where a metaphor
 stands in for a direct statement is present in the set. The nearest candidate
