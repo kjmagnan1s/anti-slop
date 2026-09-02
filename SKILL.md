@@ -99,8 +99,10 @@ it was supposed to catch. Not skippable. ingest does not need it.
    personal, marketing), the draft needs a position and a pulse: react to
    facts, vary rhythm, let some mess in. Stance content comes from the voice
    spec's stance layer; with no spec, sharpen the positions already in the
-   draft, never fabricate new ones. Technical reference and encyclopedic text
-   are exempt: neutral is the correct human voice there.
+   draft, never fabricate new ones. A pulse comes from a position, never from
+   flourish; mannered prose (see `references/patterns.md`) is the wrong fix
+   for sterility. Technical reference and encyclopedic text are exempt: neutral
+   is the correct human voice there.
 9. **Self-reference escape hatch.** When writing ABOUT slop (this file, examples,
    quoted bad writing), do not flag the quoted patterns. Only flag the author's
    own prose.
@@ -141,6 +143,12 @@ Before delivering prose, run the pass:
   it or make it specific.
 - Opinion-genre piece with no position anywhere? A flag, not a virtue.
 - Reads like clean TTS with no rhythm? It is too uniform. Add disfluency.
+- Metaphor standing in for a statement ("a dial worth turning", "earns its
+  keep")? Say what you mean. When a literal phrase is available, use it.
+- A paragraph past ~100 words with no break (~150 on technical-blog) with more
+  than half its sentences over ~30 words? Dense prose is a tell on its own.
+  Break the sentence at its second clause, the paragraph at its second idea.
+  Long sentences mixed with short ones are the uniformity cure, not this tell.
 
 ## The gate (before delivery)
 
@@ -185,9 +193,11 @@ FAILED to catch or fix: any em dash (glyph or `--`) beyond what the active
 profile allows (zero on a byline whose voice spec bans it), any "not X, it's Y" /
 binary-contrast variant (FATAL on a byline whose spec bans it), copula
 avoidance, false agency, significance inflation, three-in-a-row uniform sentence
-length, synonym cycling, chatbot artifacts / sycophancy / validation tails /
-cutoff disclaimers, and any Tier 1 vocab left standing. It must also flag
-over-correction: a real signature or intended fragment the pass wrongly stripped.
+length, synonym cycling, mannered prose (metaphor standing in for a literal
+statement) and dense prose (long sentences, unbroken paragraphs), chatbot
+artifacts / sycophancy / validation tails / cutoff disclaimers, and any Tier 1
+vocab left standing. It must also flag over-correction: a real signature or
+intended fragment the pass wrongly stripped.
 
 Required return: a list of misses only, most-severe first, each with the exact
 quoted span and the rule it violates; empty list if the pass was clean. No

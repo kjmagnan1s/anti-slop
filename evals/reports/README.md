@@ -2,7 +2,8 @@
 
 Committed runs of the regression gate. The monthly PR leg
 (`references/weekly-loop.md`, step 6) writes one file here per PR and links it
-from the PR body.
+from the PR body, and so does any other pull request that changes a rule (see
+the How to run it section of `evals/README.md`).
 
 ## Why the artifact exists
 
@@ -16,7 +17,9 @@ later run can contradict.
 ## Format
 
 One file per PR, named `scout-YYYY-MM.md`. Two tables, plus a header line with
-the branch, the commit under test, and the run date.
+the branch, the commit under test, and the run date. Non-scout PRs that touch
+rules record their gate run as `pr-YYYY-MM-DD-<slug>.md`; `scout-YYYY-MM.md`
+stays reserved for the monthly scout leg.
 
 Slop side, one row per fixture in `evals/slop/`:
 
