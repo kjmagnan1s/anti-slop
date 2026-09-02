@@ -44,15 +44,28 @@ stands in for a direct statement is present in the set. The nearest candidate
 sits in golden-04 and is a literal verdict, not a metaphor standing in for a
 statement, so it is not flagged.
 
-Dense prose at P2: zero hits. Longest sentence in the set is 41 words. Densest
-paragraph is 143 words at 20 words per sentence. That paragraph exceeds the
-~100-word half of the bar, but at a 20-word average it does not carry a
-majority of sentences over ~30 words, so the second half is not met and the bar
-does not fire. It is the one golden data point already over half the bar; a
-later revision that lowers the ~30-word sentence bar, drops the majority
-requirement, or switches the AND to an OR flags it.
+Dense prose at P2: one hit, recorded. Longest sentence in the set is 41 words.
+Per-paragraph counts for every golden paragraph over 90 words, run at the blog
+profile, where the bar is a paragraph past ~100 words with no break and more
+than half its sentences over ~30 words:
+
+- golden-04, paragraph 2: 126 words, 6 sentences, 2 over ~30 words. No
+  majority, so it does not fire.
+- golden-04, paragraph 3: 120 words, 5 sentences, 0 over ~30 words. Does not
+  fire.
+- golden-05, paragraph 3: 143 words, 7 sentences, 1 over ~30 words. Does not
+  fire.
+- golden-06, paragraph 3: 101 words, 3 sentences, 2 over ~30 words, character
+  offset 434. Both halves are met, so this one fires: one P2 golden hit for
+  dense prose.
+
+Per `evals/README.md`, a P2 golden flag is recorded and does not fail the gate.
+That hit is the reason dense prose stays at P2 and not higher: the paragraph
+sits at the approximate ~100-word edge of the bar, so a stricter tier would
+fail the gate on real human prose.
 
 ## Result
 
 Both sides pass. No golden P0 or P1 hit, so the P1 tier on mannered prose
-stands; no missing flag on the slop side.
+stands. One P2 golden hit for dense prose is recorded (golden-06, character
+offset 434) and does not fail the gate. No missing flag on the slop side.

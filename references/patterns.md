@@ -336,8 +336,8 @@ everywhere.
 | Dense prose | strict | strict | relaxed | strict | skip | skip |
 
 Mannered prose on docs fires only when a metaphor replaces a definable term.
-Dense prose fires on the two-part bar defined in its bullet; `relaxed` on
-technical-blog raises the paragraph half of that bar to ~150 words.
+Dense prose: see the Dense prose bullet for the bar, including what `relaxed`
+on technical-blog changes.
 
 Technical-blog word exceptions (legit technical meaning): robust, comprehensive,
 seamless, ecosystem, leverage (platform/API), facilitate, underpin, streamline.
