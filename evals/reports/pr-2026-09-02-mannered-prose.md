@@ -38,16 +38,18 @@ lost to the two new matrix rows.
 | golden-06 | 0 | 0 | none |
 
 Mannered prose at P1: zero hits across all six files. No span where a metaphor
-stands in for a direct statement is present in the set. The nearest candidate is
-a literal verdict, "terrific and terrifying", in the golden-04 region; it states
-the writer's judgment rather than substituting for a statement, so it is not
-flagged.
+stands in for a direct statement is present in the set. The nearest candidate
+sits in golden-04 and is a literal verdict, not a metaphor standing in for a
+statement, so it is not flagged.
 
 Dense prose at P2: zero hits. Longest sentence in the set is 41 words. Densest
-paragraph is 143 words at 20 words per sentence, under both halves of the bar
-(~100 words with no break AND a sentence average over ~30 words).
+paragraph is 143 words at 20 words per sentence. That paragraph exceeds the
+~100-word half of the bar, but its 20-word sentence average is under the
+~30-word half, and the bar requires both, so it does not fire. It is the one
+golden data point already over half the bar; a later revision that lowers the
+sentence-average half or switches the AND to an OR flags it.
 
 ## Result
 
-Both halves pass. No golden P0 or P1 hit, so the P1 tier on mannered prose
+Both sides pass. No golden P0 or P1 hit, so the P1 tier on mannered prose
 stands; no missing flag on the slop side.

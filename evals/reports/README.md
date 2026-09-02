@@ -16,7 +16,9 @@ later run can contradict.
 ## Format
 
 One file per PR, named `scout-YYYY-MM.md`. Two tables, plus a header line with
-the branch, the commit under test, and the run date.
+the branch, the commit under test, and the run date. Non-scout PRs that touch
+rules record their gate run as `pr-YYYY-MM-DD-<slug>.md`; `scout-YYYY-MM.md`
+stays reserved for the monthly scout leg.
 
 Slop side, one row per fixture in `evals/slop/`:
 

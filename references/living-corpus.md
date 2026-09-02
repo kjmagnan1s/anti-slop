@@ -89,10 +89,9 @@ can see how fast a tell rises and falls.
   mechanism the skill's scattered metaphor rows (landscape, symphony, embrace,
   ecosystem) and the fake-profound kicker were examples of. It also collides
   with spine rule 8 (sterile is also slop) unless that rule says where a pulse
-  comes from: a position, never a flourish. NOT this pattern: any phrase on a
+  comes from: a position, never a flourish. NOT this pattern: a phrase on the
   byline's protect list, including pet metaphors and coined terms ("lock in",
-  "playbook"); the byline chose those connotations, so do not surface them as a
-  collision.
+  "playbook"). The protect list wins (spine rule 6).
 - Before: "Temperature is a dial worth turning here, and the caching layer
   earns its keep once the corpus grows past a few thousand documents, which is
   the point at which the naive approach starts to buckle under its own weight."

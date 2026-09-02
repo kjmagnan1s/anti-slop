@@ -257,10 +257,10 @@ AI uses this to avoid naming the actor. Name the human, or use "you".
   and does not relax them.
   Per-word exemptions in the vocabulary tiers and the profile matrix win over
   this rule; a word with a legitimate technical meaning in context (ecosystem
-  on technical-blog) is not mannered prose. Not this pattern: any phrase on a
+  on technical-blog) is not mannered prose. Not this pattern: a phrase on the
   byline's protect list, including pet metaphors and coined terms ("lock in",
-  "playbook"), is exempt from this rule; do not surface it as a collision. Full
-  entry: `mannered prose` in `living-corpus.md`.
+  "playbook"). The protect list wins (spine rule 6). Full entry: `mannered
+  prose` in `living-corpus.md`.
 
 ## Communication / filler patterns
 
