@@ -2,7 +2,8 @@
 
 Committed runs of the regression gate. The monthly PR leg
 (`references/weekly-loop.md`, step 6) writes one file here per PR and links it
-from the PR body.
+from the PR body, and so does any other pull request that changes a rule (see
+the How to run it section of `evals/README.md`).
 
 ## Why the artifact exists
 
