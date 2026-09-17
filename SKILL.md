@@ -85,10 +85,15 @@ it was supposed to catch. Not skippable. ingest does not need it.
    exists it replaces the template, and it is gitignored so a filled-in list
    never leaves the machine (canonical: your voice spec). Never strip a
    protected signature. If a flag collides with one, surface it and do not
-   auto-edit. With no voice spec (someone else's draft, an unowned byline), build
-   a throwaway one: before editing, note the core point and 3-5 voice signals in
-   the draft itself (vocabulary, humor, cadence, pet phrases) and preserve them
-   through the rewrite. De-slopped text that lost its author is still a failure.
+   auto-edit. Where the voice spec is a prose document, the list is the section
+   whose heading starts with `protect:`, matched without case, and its
+   top-level bullets are the items. If the spec exists but carries no such
+   section, or the section is empty, say so before editing and do not proceed
+   as if the byline had no signatures; an empty list is a setup failure that
+   looks exactly like a clean run. With no voice spec (someone else's draft,
+   an unowned byline), build a throwaway one: before editing, note the core
+   point and 3-5 voice signals in the draft itself (vocabulary, humor,
+   cadence, pet phrases) and preserve them through the rewrite. De-slopped text that lost its author is still a failure.
 7. **Honesty, both modes.** Detect mode names patterns, never authors: a named
    pattern is checkable evidence, an authorship claim is a guess, so never
    declare a text AI-written. Rewrite mode never invents: no fact, name,
