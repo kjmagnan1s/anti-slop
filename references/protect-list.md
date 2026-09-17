@@ -35,10 +35,6 @@ per bullet, with a quoted example from the writer's own samples. No separate
 machine block is required, and none should be added: the section a person
 writes by hand is the contract.
 
-A voice spec may also carry a section of patterns to remove rather than
-protect. Those win. A pattern named there is a tell on that byline even when
-it reads like a signature.
-
 ### An empty protect list is a finding, not a default
 
 Say so before editing. A missing or empty protect list on a named byline is a
