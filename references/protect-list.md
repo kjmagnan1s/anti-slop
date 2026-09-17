@@ -26,6 +26,26 @@ Rule: before flagging or filing on a byline that has a protect list, load it
 first. Never strip a protected signature. If a floor flag collides with a
 protected item, surface the collision and do not auto-edit.
 
+### Where the list lives in a prose voice spec
+
+A voice spec is often a prose document, not a config file. When it is, the
+protect list is the section whose heading starts with `protect:`, matched
+without case, and the list is that section's top-level bullets. One signature
+per bullet, with a quoted example from the writer's own samples. No separate
+machine block is required, and none should be added: the section a person
+writes by hand is the contract.
+
+### An empty protect list is a finding, not a default
+
+Say so before editing. A missing or empty protect list on a named byline is a
+setup failure, and the symptom is invisible: the floor runs at full strength,
+the flags all look correct, and the writer's real moves come out flattened
+with nothing in the report to show it. Report which spec was read and that it
+carried no protect section, then either get the section written or run in
+detect mode only. Never treat "no protected items" as a clean state. The
+floor at full strength is correct for an unowned byline and wrong for an
+owned one.
+
 ## How to fill this in
 
 For each category, list the specific words, phrases, or moves that are genuinely
