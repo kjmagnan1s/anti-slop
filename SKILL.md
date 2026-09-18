@@ -85,7 +85,10 @@ it was supposed to catch. Not skippable. ingest does not need it.
    exists it replaces the template, and it is gitignored so a filled-in list
    never leaves the machine (canonical: your voice spec). Never strip a
    protected signature. If a flag collides with one, surface it and do not
-   auto-edit. Where the voice spec is a prose document, the list is the section
+   auto-edit. A `## Patterns to remove, not protect` section in the spec is the
+   one exception: it wins over the protect list, so a pattern named in both is
+   still a tell on this byline. Apply the floor to it and report the double
+   naming. Where the voice spec is a prose document, the list is the section
    whose heading starts with `protect:`, matched without case, and its
    top-level bullets are the items. If the spec exists but carries no such
    section, or the section is empty, say so before editing and do not proceed
@@ -190,7 +193,9 @@ Give the subagent:
   what this pass changed or flagged,
 - the rule set to check against: `references/patterns.md` (Tier 1/2/3 vocab,
   false agency, binary-contrast variants) and, on a byline with a voice spec,
-  the protect list plus that spec's runtime checklist,
+  the protect list, that spec's `## Patterns to remove, not protect` section if
+  it has one (that section wins over the protect list), plus its runtime
+  checklist,
 - the active context profile, so it holds the same strictness bar.
 
 Brief it to walk the original independently and surface only tells this pass
