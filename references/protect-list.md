@@ -45,10 +45,12 @@ reads like a signature, and even when the `protect:` list names it too. Apply
 the floor to it and say in the report that the two sections named the same
 pattern.
 
-Carry those patterns into the mirror below, under `Calibration gap to enforce`.
-A mirror that copies the protect half and leaves the remove half behind
-protects the exact patterns the byline asked you to strip, on every pass that
-runs without the spec.
+This rule needs the spec loaded. The mirror below has no slot for a remove
+section and should not grow one: the precedence above is written against the
+spec's own section, so a hand-copied entry in the mirror would sit in the
+protect half and be protected, which is the opposite of what the author asked
+for. On the mirror-only path, treat the protect list as the whole contract and
+say in the report that the spec was not loaded.
 
 ### An empty protect list is a finding, not a default
 
@@ -118,5 +120,3 @@ voice spec may ban it at zero (FATAL). Enforce the stricter setting. List any su
 gaps here so the floor does not silently relax them.
 
 - `<your stricter-than-floor rules, e.g. "binary contrast: zero, not max one">`
-- `<each pattern from the spec's "Patterns to remove, not protect" section, or
-  "none">`
