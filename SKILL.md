@@ -10,7 +10,7 @@ description: >
   general AI-slop floor. On a byline with a personal voice spec, it pairs with
   that voice overlay through the protect-list seam, so it never flattens a
   writer's real signatures.
-version: 0.2.0
+version: 0.2.1
 license: MIT
 metadata:
   replaces: [avoid-ai-writing, humanizer, stop-slop]

@@ -35,6 +35,14 @@ per bullet, with a quoted example from the writer's own samples. No separate
 machine block is required, and none should be added: the section a person
 writes by hand is the contract.
 
+### A remove-pattern beats a protected signature
+
+A voice spec may also carry a `## Patterns to remove, not protect` section.
+That section wins. A pattern named there is a tell on this byline even when it
+reads like a signature, and even when the `protect:` list names it too. Apply
+the floor to it and say in the report that the two sections named the same
+pattern.
+
 ### An empty protect list is a finding, not a default
 
 Say so before editing. A missing or empty protect list on a named byline is a
