@@ -146,10 +146,10 @@ without the weeks of hand work.
   show (beliefs, hard nos, registers under pressure).
 - The **protect list** (`../references/protect-list.md`) is a direct output:
   the signature phrases the user approved in step 6 become protected
-  signatures the de-slop floor must never strip. Write the filled-in list to
-  `../references/protect-list.local.md` (gitignored, replaces the template when
-  present); `protect-list.md` stays the tracked template. Redacted spans and
-  unapproved candidates never reach it.
+  signatures the de-slop floor leaves alone, under the precedence rules in that
+  file. Write the filled-in list to `../references/protect-list.local.md`
+  (gitignored, replaces the template when present); `protect-list.md` stays the
+  tracked template. Redacted spans and unapproved candidates never reach it.
 - The **contamination guard** applies end to end: assistant-generated text is
   never corpus. If a source mixes user and machine text, extract the user
   side only or drop the source.
