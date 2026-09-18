@@ -4,7 +4,7 @@ The deduped union of avoid-ai-writing, humanizer, and stop-slop. Where all three
 overlapped (~70%), there is one entry. Examples are rewritten in our own words
 rather than copied (see CREDITS.md on the Wikipedia lineage). Patterns that
 collide with a writer's voice are cross-referenced to `protect-list.md`; on a
-byline with a protect list, the protect list wins.
+byline with a protect list, the protect list wins (spine rule 6).
 
 Order of operations: structure first (the #1 detection signal), then vocabulary,
 then formatting. Fixing words while leaving robotic rhythm still reads as AI.

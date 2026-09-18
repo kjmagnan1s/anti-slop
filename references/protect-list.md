@@ -24,7 +24,9 @@ anti-slop is reusable across contexts. Each context supplies its own protect lis
 
 Rule: before flagging or filing on a byline that has a protect list, load it
 first. Never strip a protected signature. If a floor flag collides with a
-protected item, surface the collision and do not auto-edit.
+protected item, surface the collision and do not auto-edit. One exception,
+stated below: a pattern the spec also names under `## Patterns to remove, not
+protect`.
 
 ### Where the list lives in a prose voice spec
 
