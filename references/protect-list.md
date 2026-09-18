@@ -43,6 +43,11 @@ reads like a signature, and even when the `protect:` list names it too. Apply
 the floor to it and say in the report that the two sections named the same
 pattern.
 
+Carry those patterns into the mirror below, under `Calibration gap to enforce`.
+A mirror that copies the protect half and leaves the remove half behind
+protects the exact patterns the byline asked you to strip, on every pass that
+runs without the spec.
+
 ### An empty protect list is a finding, not a default
 
 Say so before editing. A missing or empty protect list on a named byline is a
@@ -111,3 +116,5 @@ voice spec may ban it at zero (FATAL). Enforce the stricter setting. List any su
 gaps here so the floor does not silently relax them.
 
 - `<your stricter-than-floor rules, e.g. "binary contrast: zero, not max one">`
+- `<each pattern from the spec's "Patterns to remove, not protect" section, or
+  "none">`
