@@ -49,8 +49,10 @@ This rule needs the spec loaded. The mirror below has no slot for a remove
 section and should not grow one: the precedence above is written against the
 spec's own section, so a hand-copied entry in the mirror would sit in the
 protect half and be protected, which is the opposite of what the author asked
-for. On the mirror-only path, treat the protect list as the whole contract and
-say in the report that the spec was not loaded.
+for. On the mirror-only path, treat the mirror below (the protect list plus the
+calibration gap) as the whole contract and say in the report that the spec was
+not loaded. `SKILL.md` spine rule 6 carries the same instruction, so it holds
+when `references/protect-list.local.md` loads in place of this file.
 
 ### An empty protect list is a finding, not a default
 

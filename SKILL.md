@@ -88,12 +88,15 @@ it was supposed to catch. Not skippable. ingest does not need it.
    auto-edit. A `## Patterns to remove, not protect` section in the spec is the
    one exception: it wins over the protect list, so a pattern named in both is
    still a tell on this byline. Apply the floor to it and report the double
-   naming. Where the voice spec is a prose document, the list is the section
-   whose heading starts with `protect:`, matched without case, and its
-   top-level bullets are the items. If the spec exists but carries no such
-   section, or the section is empty, say so before editing and do not proceed
-   as if the byline had no signatures; an empty list is a setup failure that
-   looks exactly like a clean run. With no voice spec (someone else's draft,
+   naming. That exception needs the spec loaded. When only the mirror is
+   loaded, the mirror (its protect list plus its calibration gap) is the whole
+   contract; say in the report that the spec was not loaded. Where the voice
+   spec is a prose document, the list is the section whose heading starts with
+   `protect:`, matched without case, and its top-level bullets are the items.
+   If the spec exists but carries no such section, or the section is empty,
+   say so before editing and do not proceed as if the byline had no
+   signatures; an empty list is a setup failure that looks exactly like a
+   clean run. With no voice spec (someone else's draft,
    an unowned byline), build a throwaway one: before editing, note the core
    point and 3-5 voice signals in the draft itself (vocabulary, humor,
    cadence, pet phrases) and preserve them through the rewrite. De-slopped text that lost its author is still a failure.
