@@ -24,7 +24,9 @@ anti-slop is reusable across contexts. Each context supplies its own protect lis
 
 Rule: before flagging or filing on a byline that has a protect list, load it
 first. Never strip a protected signature. If a floor flag collides with a
-protected item, surface the collision and do not auto-edit.
+protected item, surface the collision and do not auto-edit. One exception,
+stated below: a pattern the spec also names under `## Patterns to remove, not
+protect`.
 
 ### Where the list lives in a prose voice spec
 
@@ -34,6 +36,19 @@ without case, and the list is that section's top-level bullets. One signature
 per bullet, with a quoted example from the writer's own samples. No separate
 machine block is required, and none should be added: the section a person
 writes by hand is the contract.
+
+### A remove-pattern beats a protected signature
+
+A voice spec may also carry a `## Patterns to remove, not protect` section.
+That section wins. A pattern named there is a tell on this byline even when it
+reads like a signature, and even when the `protect:` list names it too. Apply
+the floor to it and say in the report that the two sections named the same
+pattern.
+
+Carry those patterns into the mirror below, under `Calibration gap to enforce`.
+A mirror that copies the protect half and leaves the remove half behind
+protects the exact patterns the byline asked you to strip, on every pass that
+runs without the spec.
 
 ### An empty protect list is a finding, not a default
 
@@ -103,3 +118,5 @@ voice spec may ban it at zero (FATAL). Enforce the stricter setting. List any su
 gaps here so the floor does not silently relax them.
 
 - `<your stricter-than-floor rules, e.g. "binary contrast: zero, not max one">`
+- `<each pattern from the spec's "Patterns to remove, not protect" section, or
+  "none">`

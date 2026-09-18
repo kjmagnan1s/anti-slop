@@ -58,6 +58,11 @@ contain a phrase on your protect list), STOP.
 Surface the collision and ask before filing. Do not let a slop entry accidentally
 ban your own voice.
 
+One exception: a pattern your spec also names under `## Patterns to remove, not
+protect` is not a collision. That section wins over the protect list (see
+`protect-list.md`), so the byline has already answered the question. File on the
+normal dial below and say that both sections named the pattern.
+
 ## File-step friction (your dial)
 
 - **Deliberate flag** (the user pastes `slop:`): show the proposed entry, file on

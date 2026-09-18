@@ -76,7 +76,7 @@ Nine rules run on every pass. The ones that shape the most edits:
 - **The portability test.** A sentence that could move unchanged to another person, company, or product says nothing about this one. Cut it or make it specific.
 - **Sterile is also slop.** Voiceless, evenly balanced prose is as machine-tellable as delve. On a byline, the draft needs a position and a pulse. Technical reference and encyclopedic text are exempt.
 - **Honesty, both modes.** Detect mode names patterns, never authors. Rewrite mode adds no fact, name, number, date, or quote that is not in the source.
-- **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first and never strips a protected signature.
+- **The protect-list seam.** On a byline with a voice spec, the floor loads the protect list first, so your spec decides which of your signatures survive the pass.
 
 Context profiles, the self-reference escape hatch, the seam rules, the two-question delivery gate, and the completeness verifier that closes every rewrite and detect are in [SKILL.md](SKILL.md).
 
@@ -84,7 +84,7 @@ Context profiles, the self-reference escape hatch, the seam rules, the two-quest
 
 A de-slop pass that runs at full strength on everything will sand a real writer down to the same flat statistical profile it is supposed to fix. Deliberate fragments, an "And" opener, a signature phrase, an uneven cadence: those are what keep text human.
 
-anti-slop separates the two jobs. The floor strips general tells. A per-byline protect list says what must survive, and `onboarding/` carries the two instruments that build one: a manifest for finding the writing corpus already on your machine, and a taste interview for the judgment layer no sample can show. `references/protect-list.md` ships as a fill-in template (a filled-in `references/protect-list.local.md` replaces it when present and stays gitignored), and its companion onboarding skill, [voice-dna-builder](https://github.com/kjmagnan1s/claude-skills/tree/main/skills/voice-dna-builder), builds your personal voice spec and protect list from your own writing samples. When a floor flag collides with one of your signatures, the skill surfaces the collision instead of editing it.
+anti-slop separates the two jobs. The floor strips general tells. A per-byline protect list says what must survive, and `onboarding/` carries the two instruments that build one: a manifest for finding the writing corpus already on your machine, and a taste interview for the judgment layer no sample can show. `references/protect-list.md` ships as a fill-in template (a filled-in `references/protect-list.local.md` replaces it when present and stays gitignored), and its companion onboarding skill, [voice-dna-builder](https://github.com/kjmagnan1s/claude-skills/tree/main/skills/voice-dna-builder), builds your personal voice spec and protect list from your own writing samples. When a floor flag collides with one of your signatures, the skill surfaces the collision instead of editing it. The one exception is a `## Patterns to remove, not protect` section in your spec: a pattern you name there is stripped even when your protect list names it too.
 
 ## The living corpus (the moat)
 
