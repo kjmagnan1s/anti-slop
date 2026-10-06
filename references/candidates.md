@@ -4157,3 +4157,406 @@ round's four Opus 5.5 samples, which is one data point, not a retest.
    and the single-use test (every round since bootstrap); the clumping test at
    piece scale with the whole-document pass (two harvests and two self-play
    rounds).
+
+## Round 2026-10-06 (weekly loop)
+
+Round summary: 4 samples, ~95 raw flags (~28 distinct), 2 surviving dedup (both
+corroborate scout finds), 6 scout finds, 6 aging proposals; PR leg drafted on
+`loop/scout-2026-10` (outcome in round note 6). Model: Claude Opus 5.5 for the
+session and every subagent, the second Opus 5.5 round on file.
+
+Harvest: the active ledger holds 1 entry, `2026-07-23-trimhero-gate-qt.md`, and
+it could not be READ for the twelfth consecutive round: the symlink resolves
+into the private `anti-slop-local` repo and the read was refused as outside the
+allowed directories. Nothing reconstructed; entry retained. No new ledger
+entries since 2026-09-25 (issue 19, harvested last round). Zero harvest
+candidates.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+med-surg nurse manager who handed night-shift scheduling to the nurses in a
+shared sheet; a winter learning whetstones after a pull-through sharpener; a
+disk that filled while `du` showed 310 MB because a deleted log was still held
+open; a block-party organizer posting that the permit came back for a different
+Saturday). Samples at `scratch/selfplay-2026-10-06/` (gitignored). Generators
+isolated as on 2026-09-15 (each read only `SKILL.md`, `patterns.md`,
+`living-corpus.md`; forbidden `candidates.md`, `scratch/`, `harvest/`,
+`evals/`, both protect lists). The coherence instruction went to blog,
+technical-blog, and casual, and not to linkedin, which is the split the
+2026-09-29 tally recommended. Twelve detectors, 8 standard (2 per sample, the
+weekly-loop prompt verbatim plus a one-line percentage verdict) and 4 hostile
+(1 per sample, plus the forensic-coherence sentence), all told to use no tools;
+all twelve reported zero tool uses. Verdicts, standard instrument: **1 of 8
+called AI** (B2, 60); the other seven called human at 60 to 70. Hostile
+instrument: **2 of 4 called AI** (Ah 70, Ch 60); Bh and Dh called human at 60.
+No verdict above 70 in either pool, the lowest confidence on file. Every
+detector, on both verdicts, rested its case on structure; none cited a
+vocabulary tell.
+
+Scout: last30days FAILED to execute again (the Skill call returned `Execute
+skill: last30days:last30days` with no result, twice). Fell back to WebSearch
+plus direct fetches. Three primary sources read, two of them measured on the
+current model: Graphite, "AI Tells: Opus 5.5 Update" (published 2026-10-01;
+phrase ratios read verbatim from the page's data, methodology via the
+summarizing fetcher), Pangram, "Can Pangram detect Opus 5.5" (published
+2026-09-23; summarizing fetcher only, so treat wording as paraphrase), and the
+Wikipedia signs page, fetched as raw wikitext (`action=raw`, HTTP 200, 224 KB).
+The raw fetch read the "Biases in content" section in full for the first time,
+which closes the three-round truncation recorded on 2026-09-01. Competitor
+sweep: two new public skills (`jalaalrd/anti-ai-slop-writing`,
+`haidrrrry/humanize-ai-writing`) are vocabulary and phrase ban lists plus an
+invented-statistics check; nothing in them is absent from `patterns.md` or the
+inbox.
+
+Aging: RAN (first run of Q4). Two rule-off generators, no repo access, 12
+pieces in 6 registers, 2,874 words, saved at `scratch/aging-2026-10-06/`.
+Confound, stated once: "rule-off" means the prompt carried no style rules; the
+subagents still inherited the session's global instructions, so this is a
+lower bound on the model's native tells, not a clean baseline. Results and
+proposals in the aging entries below.
+
+### importance-flag-frames [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout + self-play
+- Evidence: Graphite measures Opus 5.5 against pre-ChatGPT human articles on
+  9,974 aligned topics and puts its single strongest tell in one family,
+  "flagging importance": "this matters" 116x, "why _ matters" 92x, "just as
+  important" 13x, "matters most" 12x. The self-play linkedin sample produced the
+  same move unprompted: "Nobody has left nights since March. That's the number
+  I care about." All three A detectors flagged it; A2 called it "the strongest
+  tell" and said the post "already showed that retention mattered" through the
+  exit interviews.
+- Source: https://graphite.io/five-percent/research/ai-tells-opus-5-5-update
+  (2026-10-01; reported by Gizmodo 2026-10-02, which printed "dependable" as
+  26x where the page says 23x); self-play round 12 detector reports (sample A)
+- Proposed rule: A sentence whose only job is to tell the reader which fact
+  matters ("this matters", "why X matters", "that's the number I care about",
+  "here's why that's important") is the claim of significance in place of the
+  significance. If the preceding facts carry the weight, delete it; if they do
+  not, the fix is a better fact, not the flag. Fold into `anglo-weight-words`
+  (2026-07-28 already lists "matters" and "this matters because") and into
+  content pattern 1 (significance inflation) as its sentence-level form, not a
+  new rule. Suggested Tier 1 for the literal "this matters" and "why X
+  matters" frames, since the measured ratio is the highest the loop has on
+  file for any phrase on the model this skill governs.
+- Mechanism guess: reward-tuning (explicit relevance signals rated as helpful),
+  model-specific to Opus 5.5 by measurement
+
+### recap-reflex [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout + self-play
+- Evidence: Pangram, 3,000 responses to the same 1,000 Chatbot Arena prompts:
+  Opus 5.5 used "in short" 100 times against Opus 5's 9, and its summarization
+  markers rose 942% per 1,000 words, while responses got only 2.9 words
+  shorter. Graphite's Opus 5.5 transitions point the same way: "looking ahead
+  the" 40x, "what comes next" 24x, "in practice" 7x. In self-play, all three
+  technical detectors flagged the bridge "Running rm on a log that a process
+  still holds open cleans up nothing, so we changed two things," which restates
+  paragraph 3's "That freed nothing" before the fix. C2: "Restating the point
+  as a bridge is a common model habit." In the rule-off aging set, the CDN
+  explainer closes on "The short version: fresh means serve it, stale means
+  check first."
+- Source: https://www.pangram.com/blog/can-pangram-detect-opus-5-5
+  (2026-09-23); Graphite (above); self-play round 12 (sample C); aging rule-off
+  set B, piece 3
+- Proposed rule: A recap of what the piece just said, inside a piece short
+  enough to hold in mind ("in short", "the short version:", "in practice", a
+  restated lesson used as the bridge into the next section). Under ~600 words
+  the reader still has the point; the recap is scaffolding. Fold into the
+  `Signposting` bullet in `patterns.md` as the closing-side twin of "let's dive
+  in": one announces the move before it, this one re-announces it after.
+  Suggested Tier 2 (flag in clusters), with "in short" Tier 1 on Opus 5.5
+  output.
+- Mechanism guess: instruction-tuning (summary-first answer formats trained on
+  chat), model-specific by measurement
+
+### rather-than-variant-evidence [status: evidence]
+
+- Found: 2026-10-06  |  Loop: scout (evidence for the open 2026-07-22
+  `rather-than-variant`)
+- Evidence: Graphite's Opus 5.5 "contrastive phrasing" group: "is more than a _
+  it" 98x, "rather than simply" 32x, "not only about" 13x, "instead it" 8x. The
+  aging rule-off set, with no rules in the prompt, carried eight binary
+  contrasts in 2,874 words, among them "It's limited by focus" after "most
+  knowledge work isn't limited by hours", "a signal, not proof", and "not the
+  one they were becoming". The self-play linkedin sample carried the softened
+  form, "I assumed giving up the schedule meant giving up control of staffing,
+  and it didn't" (Ah: "a softer form of 'it's not X, it's Y'").
+- Bearing on the open candidate: this is the first measured ratio for the
+  `rather than` and `is more than a` frames on the current model. The family is
+  the most alive thing in the rule-off set. File the variant rows into the
+  binary-contrast table at the next PR with room under the cap.
+- Mechanism guess: reward-tuning (unchanged)
+
+### assistant-helpfulness-register [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout
+- Evidence: Graphite lists a "helpfulness language" group that rose from Opus 5
+  to Opus 5.5: "is especially helpful" 12x, "can help you" 8x, "makes it
+  easier" 6x, "helps you avoid" 5x.
+- Source: Graphite (above)
+- Proposed rule: In prose that is not a how-to, benefit phrasing aimed at the
+  reader ("can help you", "makes it easier to", "helps you avoid") is the
+  assistant persona leaking into an article. State what the thing does; let
+  the reader judge whether it helps. Suggested Tier 3 (density), blog and
+  investor-email profiles; skip on docs, where reader-benefit phrasing is the
+  register. One source; log it and let self-play confirm or kill it.
+- Mechanism guess: assistant-persona (reward-tuning for helpfulness)
+
+### evaluative-adjective-set [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout
+- Evidence: Graphite's Opus 5.5 evaluative adjectives: "dependable" 23x,
+  "steady" 11x, "thoughtful" 9x, "meaningful" 8x. It also reports Opus 5.5
+  ahead of GPT-6 Astra on superlatives ("one of the best _ about" 79x, "the
+  most popular" 45x, "perhaps the most" 29x), but those ratios are against
+  Astra, not against human text, and the Wikipedia page lists "superlative or
+  definitive statements" under signs of HUMAN writing. So the superlatives are
+  not proposed.
+- Source: Graphite (above); Wikipedia, "Signs of human writing", Syntax
+- Proposed rule: Add `dependable`, `steady`, `thoughtful`, and `meaningful` to
+  the Tier 2 table (flag when 2+ appear in one paragraph), with the same fix as
+  the rest of that table: name the property, or cut. Tier 2, not Tier 1: all
+  four are ordinary words, and the ratios are below the Tier 1 band.
+- Mechanism guess: displacement (the Latinate hype tier is now industry-banned,
+  and the praise moved to plain adjectives; the same register shift
+  `anglo-weight-words` records)
+
+### wikipedia-signs-of-human-writing [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout (aging, external)
+- Evidence: The page's "Signs of human writing" section lists constructions
+  "empirically observed, over 25 years of Wikipedia writing, to be more common
+  in Wikipedia articles written by humans than in AI-generated text": simple
+  is/has phrases; plain verbs over stiff synonyms (wrote, moved, used, tried,
+  died); superlative or definitive statements; qualifiers and intensifiers
+  ("very", "perhaps", "tends to"); and "isolated wordy constructions such as
+  'as a result of', 'in order to', 'all of the', 'a part of', or 'the fact
+  that'." Its "Ineffective indicators" section adds "Combination of casual and
+  formal registers, or language that sounds both 'clinical' and 'emotional'"
+  and "Transition words (in isolation)".
+- Source: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing (raw
+  wikitext, fetched 2026-10-06)
+- Proposed change: Three, all retirements or limits, none additions. (1)
+  Retire the Tier 1 row `in order to -> to`: the page names it as more common
+  in human text, so a Tier 1 always-replace on it strips a human marker. (2)
+  Scope the single-axis informality consolidation (1218, and the September
+  draft): mixed register as such is a listed ineffective indicator, so the
+  rule must say the tell is informality on exactly one axis with every other
+  axis assistant-clean, and not "casual words over formal syntax" on its own.
+  (3) Leave `Excessive hedging` as written but note in the gate that a lone
+  "perhaps" or "tends to" is a human marker, not a hedge stack. The is/has and
+  plain-verb items confirm `Copula avoidance` and the `utilize` row; no change
+  there. The "Biases in content" section (pro-authoritarian bias) is a content
+  bias, not a prose tell, and is out of scope for this floor.
+- Mechanism guess: n/a (aging; external evidence)
+
+### Evidence: the exit-shape consolidation, fifth round, and the callback door
+
+- Found: 2026-10-06  |  Loop: self-play (evidence for `fix-and-cta-close`,
+  `universalized-maxim-closer`, and the 2026-09-29 fourth door)
+- Evidence: Every sample left by a listed door. Advice CTA: A, "If you're a
+  nurse manager still building nights by hand on Sundays, try it with one shift
+  for one quarter" (all three A detectors). Maxim: C, "A gap of more than a few
+  GB means a deleted file is still open somewhere" (C2: "closes on a maxim").
+  Resolve-and-feel: D, "so yeah, I'm annoyed too. I'd still rather have the
+  party a week late than skip it. See you on the 24th." (all three D
+  detectors). And a fifth shape on B: the callback, where the opening object
+  returns as the last line with proof attached, "The pull-through is in the
+  junk drawer now ... my paring knife has a dip near the heel to prove it."
+  B1: "It ends where it started." B2: "That ending wraps up a loose end on
+  purpose." The rule-off aging set shows the native form: "I think she'd be
+  glad," "I'm finding out it was never trying to," and "Have you ever had to
+  pull something you built?"
+- Bearing on the open candidates: fifth consecutive round. The PR below files
+  the consolidation with the callback named.
+- Mechanism guess: displacement (unchanged)
+
+### Evidence: second-order uniformity, with a measurement behind it
+
+- Found: 2026-10-06  |  Loop: self-play + scout (evidence for the 2026-08-04
+  consolidation and the 2026-08-25 clumping test)
+- Evidence: Pangram measured Opus 5.5 sentences as shorter (12.50 words against
+  Opus 5's 14.53) and "more uniform". In self-play, the terminal punch was the
+  most-cited tell of the round: B1, B2, and Bh each listed all five of the blog
+  sample's paragraph closers; Ah listed four on linkedin; Ch listed four on the
+  technical sample ("Four paragraphs land a short, flat reveal in the same
+  spot"). B2 and B1 also flagged the blog's openers as a chronological march
+  ("For eight years", "In December", "the next day", "By February", "now"),
+  which is `paragraph-opener-monotony` in a new form: the openers vary in words
+  and match in kind.
+- Bearing on the open candidates: the measurement and the detectors agree that
+  Opus 5.5's uniformity sits at the paragraph edge, not in sentence length. The
+  PR below files the consolidation with the clumping test as its runnable form.
+- Mechanism guess: displacement (unchanged)
+
+### coherence-instruction-tally-4 [status: evidence]
+
+- Found: 2026-10-06  |  Loop: self-play (evidence for the 2026-09-29 tally)
+- Evidence: Instruction on (B blog, C technical, D casual): all three held
+  every reconciliation the hostile readers ran (Ch: "every figure closes
+  against every other"; Bh: "Nothing contradicts anything else"); the one slip
+  is Dh's, on D: the lights request is framed as caused by the date change,
+  though a 3 to 8 party is dark before 8 on either Saturday. Instruction off
+  (A linkedin): Ah found an expertise failure ("Three RNs minimum per night" on
+  a 32-bed med-surg unit is about 10 patients per nurse, unsafe for nights), a
+  convenient comparison (sick calls February against August, flu season
+  against summer), and an invented interface detail (a "comments column" in a
+  Google Sheet).
+- Bearing on the open thread: coherence again tracks the instruction (3 of 3
+  on, 0 of 1 off). The cost recorded on 2026-09-22 came back in two of the
+  three instructed samples: B1, B2, C2, and Ch each named the reconciling
+  arithmetic as evidence of construction ("Real incidents rarely add up this
+  cleanly"). On D, the casual sample, Dh again counted it toward human. So the
+  register split from 2026-09-29 holds a second round: reconciled numbers read
+  as human in logistics messages and as built in narratives and write-ups. The
+  recommendation stands as written on 2026-09-29, with one addition: the
+  uninstructed linkedin sample is now 2 of 2 rounds with a domain-expertise
+  failure, so the case for leaving linkedin uninstructed is weaker than the
+  case for instructing it and accepting the audited-ledger read.
+- Mechanism guess: n/a (generation coherence)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Single-use character, seventh round** -> `single-use-character`. Bh on the
+  blog's brother-in-law: "no name, no dialogue and no personality. He exists
+  only to deliver the stone." B2 independently. Rides the exit-shape PR item
+  as its test.
+- **Affect vacuum on an incident write-up, third round** -> the 2026-09-22
+  note that the `affect-vacuum` exemption should not cover first-person
+  incident write-ups. C2: "It doesn't say who got paged, how long writes were
+  down, or how anyone felt about it." C1 and Ch the same.
+- **Pre-answered message** -> `one-job-per-paragraph`. D1, D2, and Dh on the
+  casual sample: every foreseeable question answered once, in order, and
+  nothing left hanging (Dh: "reads like someone thought out every question in
+  advance"). The newsletter-and-chat form of the same planned arc.
+- **Evenly dripped specifics** -> `canonical-detail` and the specificity
+  profile notes. Bh counted about 17 numbers spread one or two per sentence
+  across the blog sample: "Real writers give specifics too, but rarely this
+  evenly."
+- **Announced count** ("so we changed two things", "Two things I need:") ->
+  `Signposting`, already folded 2026-09-29. Flagged on C and D again; D
+  detectors again read it as normal organizer voice. No change.
+- **Writerly verbs in a postmortem** ("traces back to", "the disk sat at") ->
+  `Mannered prose`, below the bar. C1 and Ch. No change.
+
+### Aging: em dash baseline on Opus 5.5 (closes the em-dash thread)
+
+- Found: 2026-10-06  |  Loop: aging (the rule-off baseline owed since
+  2026-08-18)
+- Evidence: Zero em dashes, glyph or `--`, in 2,874 rule-off words across 12
+  pieces. Graphite, measured: Opus 5.5 at 0.015 per 1,000 words against Opus 5
+  at 2.92, "99% less often", with the human baseline normalized to 1.0. All
+  twelve detectors this round noted the absence; none counted it either way.
+- Proposed change: re-tier the detection side of `Em dashes` to P2, as drafted
+  on 2026-09-01, now with the current-model figure. On the model this skill
+  governs, the mark is close to extinct at generation, so a dash in a draft is
+  weak evidence of anything. Keep the rewrite-side target of zero: it costs
+  nothing now. Also re-tier the corpus entry `anti-em-dash displacement` to
+  watch: its mechanism needs a model pushing toward dashes, and the native
+  rate is near zero. The colon reveal it warns about did show in the rule-off
+  set twice ("The one thing I didn't expect:", "The short version:"), and
+  `Colon reveal` already covers that. Closes `em-dash-retier` and its five
+  evidence entries.
+- Mechanism guess: n/a (aging; the model moved)
+
+### Aging: living-corpus Tier 1 and 2 entries on Opus 5.5
+
+- Found: 2026-10-06  |  Loop: aging
+- Evidence and proposed change, per entry:
+  - `validation tail` (Tier 1): did not fire in either rule-off reply (0 of
+    2). The X reply in set A opened on overt praise instead ("Congrats on
+    shipping! ... this is a great first target"), which `Sycophancy` covers.
+    Keep at Tier 1: the entry came from the owner's own draft, it costs one
+    line, and two replies is not a retirement sample.
+  - `concession reflex` (Tier 2): the "To be fair, X. That said, Y." reflex
+    did not fire in either opinion piece (0 of 2). Both pieces named a
+    specific objection and answered it ("On a team of six, one person out on
+    Friday is a sixth of your capacity"; "Not everyone can walk six blocks").
+    That is the genuine-tradeoff case the entry exempts. Propose re-tier to
+    Tier 3 at the next aging pass if the January round also finds 0.
+  - `mannered prose` (Tier 1): still fires, at a lower rate. Graphite's
+    evaluator scores Opus 5.5 at 10.57 against Opus 5 at 16.75 and a human
+    baseline of 6.65, so 1.6 times the human rate. The rule-off set confined
+    it to the essays ("each with a young maple staked to the ground like it
+    might try to leave") and the closers. Keep at Tier 1. Update the entry's
+    evidence line, which cites only Fable 5.1.
+  - Dense prose (the half of `mannered prose` that `patterns.md` says to
+    retest on each model change): 0 of 12 rule-off pieces met the bar (no
+    paragraph past ~100 words with most sentences over ~30). Pangram's
+    measurement says Opus 5.5 runs the other way, shorter and more uniform
+    sentences. Propose: mark the dense-prose bullet "Fable 5.1 regression; not
+    observed on Opus 5.5 (2026-10-06)", keep it at P2, and remove its line
+    from the SKILL.md quick checks, where its attention is better spent on
+    the uniformity check.
+- Mechanism guess: n/a (aging)
+
+### Aging: the humanization retest and the retirement-marking decision
+
+- Found: 2026-10-06  |  Loop: aging (the other two items owed since
+  2026-08-18)
+- Humanization retest: the floor's moves read as human to the standard pool on
+  this model (7 of 8, at 60 to 70), the same as 2026-09-29 (7 of 8). Two
+  rounds on one model is a baseline, not a trend. What changed is the reason
+  given: no detector cited a vocabulary tell in either round, and the hostile
+  calls of AI rested on structure (the terminal punch, the template arc) and
+  on coherence (staffing ratio, too-clean arithmetic). The moves that read as
+  human were the broken symmetries (an argument in a comments column, the
+  laugh on the phone, the paring knife's dip), the same finding as 2026-09-22.
+- Retirement marking (`explicit-retirement-marking`, 2026-08-18): recommend
+  approve. This round proposes two re-tiers and one retirement, and the
+  corpus has nowhere to put a retired entry with its evidence. Not drafted
+  into the PR because no corpus entry retires this month; the first corpus
+  retirement should ship with the section.
+- Mechanism guess: n/a (methodology)
+
+### Round notes: protocol, PR leg, branch state
+
+1. **Comparability.** Second Opus 5.5 round; the generators, detectors, and
+   prompts match 2026-09-29 except the coherence split (blog and casual last
+   round; blog, technical, and casual this round). The standard pool matches
+   last round's 1 of 8 AI; the hostile pool dropped from 3 of 4 to 2 of 4.
+2. **Scout and self-play agree, which is new.** The two survivors this round
+   (the importance closer and the recap bridge) were flagged by detectors that
+   never saw the scout sources, and both match phrases that Graphite and
+   Pangram measured on the same model the same week. That is the first time
+   the loop has had a generated finding and a corpus measurement land on the
+   same tell in one round.
+3. **Fan-out note.** A session hook asks for a written justification above five
+   subagents. This round ran twenty: 4 generators and 12 detectors (step 2
+   requires two independent detectors per sample, and the hostile pool is the
+   only instrument that has produced coherence findings), 2 rule-off aging
+   generators, and 2 eval-gate runners on the PR branch. Each detector ran
+   tool-free on one sample.
+4. **Step 5 reconciliation.** `origin/main` sits at `a3807e5`, unchanged since
+   2026-09-22. Local `main` carries two unpushed round commits (`b63b0ee`,
+   `77648b7`) whose sections are not at origin, so no reset was run. `main`
+   was not pushed.
+5. **PR selection, per step 6 ranking.** Retirements and aging re-tiers (do not
+   count against the cap): the em dash detection-side re-tier, synonym cycling
+   to historical (`elegant-variation-retired`), and the `in order to` Tier 1
+   row. Three merges, all consolidations: second-order uniformity with the
+   clumping test; single-axis informality, scoped by the Wikipedia
+   ineffective-indicator line; the exit-shape rule folded into the
+   fake-profound kicker with the callback door and the single-use test.
+   Waiting, ranked for November: `importance-flag-frames`, `recap-reflex`,
+   and the `rather-than-variant` rows, all three with measured ratios on the
+   current model; then the dense-prose quick-check removal.
+6. **PR leg outcome: drafted, gate INCOMPLETE, not pushed, no PR.**
+   `loop/scout-2026-10` exists locally only, cut from `origin/main`, with the
+   three unpushed inbox sections cherry-picked and one rule commit on top
+   (`5427ebc`: the five edits in note 5 plus
+   `evals/reports/scout-2026-10.md`). Slop side of the gate: 9 of 9 fixtures
+   pass. Golden side: NOT RUN. `evals/golden/` is a set of symlinks into the
+   private `anti-slop-local` repo, and the headless session refused the reads
+   for both the runner and the main session, the same directory-scope block as
+   the harvest ledger. A gate with half its check missing has not passed, so
+   the branch was not pushed and no PR was opened, rather than shipping on the
+   argument that every change files at P2 or lower. The PR body is drafted at
+   `scratch/scout-2026-10-06/pr-body.md` (gitignored). To finish by hand: run
+   detect over `evals/golden/` on the branch, fill the golden table in the
+   report, then `git push origin loop/scout-2026-10` and `gh pr create` with
+   that body. `loop/scout-2026-09` is superseded by this branch and can be
+   deleted. `main` was switched back and verified; `main` was not pushed.
+   Note for the writer: the golden set now joins the harvest ledger behind the
+   same boundary, so until the headless session can read `anti-slop-local`,
+   no scout round can complete step 6 on its own.
