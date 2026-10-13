@@ -4560,3 +4560,200 @@ proposals in the aging entries below.
    Note for the writer: the golden set now joins the harvest ledger behind the
    same boundary, so until the headless session can read `anti-slop-local`,
    no scout round can complete step 6 on its own.
+
+## Round 2026-10-13 (weekly loop)
+
+Round summary: 4 samples, ~75 raw flags (~20 distinct), 1 surviving dedup, 0
+scout finds (not a scout round), 0 aging proposals (not an aging round); PR leg
+not run (step 6 runs only in a scout round). Model: Claude Opus 5.5 for the
+session and every subagent, the third Opus 5.5 round on file.
+
+Harvest: 2 active ledger entries. `2026-10-11-max-team-api-credits-claim-flow.md`
+(tweet, logged as approved unedited) was fetched back through the fxtwitter
+JSON API with curl (`api.fxtwitter.com/<user>/status/<id>`, HTTP 200, full
+note-tweet text). The published text matches the ledger word for word; the
+only difference is X expanding `claude.ai` into a link. Zero hunks, zero
+candidates. The entry was moved to `harvest/harvested/` (not deleted). This is
+the first X fetch-back that has worked headless; the earlier route, x.com
+through WebFetch, returned 402. `2026-07-23-trimhero-gate-qt.md` could not be
+read for the thirteenth consecutive round: the symlink resolves into the
+private `anti-slop-local` repo and the read was refused as outside the allowed
+directories. Nothing reconstructed; entry retained.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+small-town library director two years into lending tools from a back room; a
+hobbyist's week on the sticking carriage of a 1972 Smith-Corona; a nightly test
+that failed only on March 8 because a fixture added 86,400 seconds across the
+spring-forward transition; a bouldering group-chat carpool change while the
+writer's car is in the shop). Samples at `scratch/selfplay-2026-10-13/`
+(gitignored). Generators isolated as on 2026-09-15 (each read only `SKILL.md`,
+`patterns.md`, `living-corpus.md`; forbidden `candidates.md`, `scratch/`,
+`harvest/`, `evals/`, both protect lists). The coherence instruction went to
+all four, linkedin included, which is the change the 2026-10-06 tally
+recommended. Twelve detectors, 8 standard (2 per sample, the weekly-loop prompt
+verbatim plus a one-line percentage verdict) and 4 hostile (1 per sample, plus
+the forensic-coherence sentence), all told to use no tools; all twelve reported
+zero tool uses. Verdicts, standard instrument: **2 of 8 called AI** (B1 65, C1
+60); the other six called human at 60 to 80. Hostile instrument: **2 of 4
+called AI** (Bh 70, Ch 55); Ah and Dh called human at 60. No verdict above 70
+on an AI call. As on 2026-10-06, no detector cited a vocabulary tell; every
+case rested on structure.
+
+Scout: not run. The 2026-10-06 round was the first run of October and ran it.
+Aging: not run. The 2026-10-06 round was the first run of Q4 and ran it.
+
+### self-verdict-tag [status: proposed]
+
+- Found: 2026-10-13  |  Loop: self-play
+- Evidence: "I marked it flaky and reran it. I'm not proud of that." All three
+  technical detectors flagged it, and two ranked it first. C1: "a stock
+  confession: three words of regret and then straight back to business. A human
+  usually says what was embarrassing ... or skips the line." C2: "a stock
+  confession beat ... It carries no information, and it's the most
+  template-like line in the piece." Ch: "Models drop in lines like this to
+  sound humble." The blog sample carried the same move twice in a wry key: "I
+  felt clever until Tuesday night" (B1: "a stock way to hint that something bad
+  is coming") and "I read that and oiled it anyway" (B1: "a short confession
+  that ends the paragraph with a punch"; Bh: "a planted confession").
+- Source: self-play round 2026-10-13 detector reports (samples B, C)
+- Dedup: not covered by the open `hollow confession` fold (2026-09-15), whose
+  test is that a confession must contain the thing confessed. This one passes
+  that test: the sentence before it states the act. The tell is the short
+  self-judgment appended after a confession that already landed. The reader
+  can see the act was a mistake; the tag says so again.
+- Proposed rule: After a sentence that admits a mistake, a short line that
+  grades it ("I'm not proud of that", "not my finest hour", "I felt clever
+  until...", "lesson learned") restates the admission as an emotion label.
+  Delete the tag and let the act stand. Fold into `scheduled-humility-beat` as
+  its third test, beside position (2026-07-28) and content (2026-09-15), rather
+  than as a new rule. Suggested Tier 2: flag on a byline when it appears, since
+  one per piece is already the pattern.
+- Mechanism guess: displacement. `SKILL.md` principle 8 ("react to facts ...
+  let some mess in") asks for a pulse, and the cheapest pulse that names no
+  new fact is a one-line self-verdict. The technical-blog profile drew the
+  plain form; the blog profile drew the wry form.
+
+### Evidence: the exit-shape consolidation, sixth round
+
+- Found: 2026-10-13  |  Loop: self-play (evidence for `fix-and-cta-close`,
+  `universalized-maxim-closer`, and the callback door from 2026-10-06)
+- Evidence: Three of four samples left by a listed door. Advice CTA: A, "If
+  your library has a room full of equipment nobody uses, I'd put tools in it
+  before you plan another program" (A1, A2, Ah; Ah: "the standard
+  lesson-plus-takeaway LinkedIn close"). Lesson: B, "Next time I'll find out
+  what's wrong before I add anything to it" (B1, B2, Bh; B1 and B2 each called
+  it "the strongest single tell"). Callback: C, "November 1 would have failed
+  the other way. That day has 25 hours" mirrors "That Sunday had 23 hours"
+  (C1: "a neat bookend"; Ch: "Ending on the mirror case closes the piece very
+  neatly"). The casual sample, D, ended on a plain logistics line and no
+  detector flagged its close. C2 counted C's ending as a human signal ("ends
+  on a fact, not a lesson"), so the callback door reads both ways when the
+  mirrored item carries new information.
+- Bearing on the open candidates: sixth consecutive round. The consolidation
+  is drafted on the unpushed `loop/scout-2026-10` branch.
+- Mechanism guess: displacement (unchanged)
+
+### Evidence: the calendar march, second round
+
+- Found: 2026-10-13  |  Loop: self-play (evidence for
+  `paragraph-opener-monotony` and the 2026-10-06 chronological-march note)
+- Evidence: B opens its paragraphs "On Monday", "Thursday went to", "Cleaner",
+  "Sunday I typed", with "until Tuesday night", "By Wednesday", and "On
+  Saturday" inside. All three blog detectors named it, two as the first tell.
+  B1: "each day gets exactly one plot step. Real repair logs wander. This one
+  marches." Bh: "Real repair stories ... lose track of which day was which."
+  The skipped Friday was read both ways: B2 and B1 as a realistic gap, Bh as
+  "a deliberate break in an otherwise perfect day-by-day pattern."
+- Bearing on the open candidate: second round in a row that a blog sample
+  marched its openers by time stamp, and detectors flagged it in both rounds.
+  Add the time-stamp form to the opener test: openers that differ in words but
+  all mark time are one opener repeated.
+- Mechanism guess: displacement (unchanged)
+
+### coherence-instruction-tally-5 [status: evidence]
+
+- Found: 2026-10-13  |  Loop: self-play (evidence for the 2026-09-29 tally)
+- Evidence: Instruction on all four, linkedin included for the first time.
+  Every hostile reconciliation held on the numbers: Ah checked 230 of 9,000
+  and 72 at $60; Ch walked both DST offsets through UTC; Dh rebuilt both car
+  manifests; Bh confirmed the mainspring direction. The slips found were not
+  arithmetic. Ah: "230 people have signed up for their first library card"
+  sits against men who "hadn't been inside the building since grade school,"
+  many of whom would have had a card as children. Bh: no diagnosis step before
+  "That one was the mainspring," and "skimmed" next to "I read that." C2 and Ch
+  found a loose end ("the second time" with no second failure stated) and both
+  counted it toward human.
+- Bearing on the open thread: the cost recorded on 2026-09-22 and 2026-10-06
+  (reconciled arithmetic read as evidence of construction) did not appear this
+  round. All three linkedin detectors and all three casual detectors counted
+  the arithmetic toward human, and no technical detector called it too clean.
+  The uninstructed-linkedin expertise failure, seen in 2 of 2 earlier rounds,
+  did not recur with the instruction on. One round; but it supports instructing
+  all four from here on and reporting the tally as on, not split.
+- Mechanism guess: n/a (generation coherence)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Mid-piece maxim, third round** -> the 2026-09-15 fold into
+  `universalized-maxim-closer`. C1, C2, and Ch on "An error of one hour in date
+  code almost always means a clock change" ("a tidy rule of thumb set alone
+  between the story beats"); B1 and B2 on "Oil plus fifty years of dust makes
+  a paste" ("a tidy little rule of thumb inside the story").
+- **Fronted cleft** -> `fronted-cleft-syntax` (2026-07-28). C1 and C2 on "What
+  stopped me the second time was the size of the diff" (C1: "built to deliver
+  a reveal"; C2: "A plainer writer would say 'The diff was exactly 3,600
+  seconds, and that stopped me.'"). The open candidate already covers wh-clefts;
+  this is a fresh instance on the current model.
+- **Colon punchline paragraph** -> `Colon reveal`. A1, A2, and Ah on "Total
+  damage in two years: one dead drill battery and a bent ladder" (Ah: "the
+  strongest tell in the post"). Covered; no change.
+- **Short contrast pair** -> `matched-antithesis-pairs` (2026-07-28). B1, B2,
+  and Bh on "The keys worked. The carriage didn't." Covered by the open entry.
+- **Subject-first entries** -> `paragraph-opener-monotony`. C2 and Ch on the
+  run of "The fixture built", "The code under test", "The assertion printed",
+  "The fix builds". Covered.
+- **Anonymous one-line conversion story** -> `single-use-character`, eighth
+  round. Ah on "One of them now checks out an audiobook every week": "A real
+  librarian might say 'a guy named Dale' or say nothing."
+- **Lowercase at the edges** -> the single-axis informality consolidation. Dh
+  noticed the lowercase fell only at the opening, after "sorry man.", and on
+  the last line: "Fake casualness is usually placed at the edges of the
+  message like this." D1 and D2 read the same drift as human. Same edge shape
+  D1 described on 2026-09-15 ("the costume is all in the first two
+  paragraphs"); no change.
+- **Pre-answered logistics and the "That leaves Alex." bridge** ->
+  `one-job-per-paragraph` and `Signposting`. All three D detectors flagged the
+  bridge, and all three called it normal organizer voice. Below the bar again.
+- **Appositive restatement** ("One test failed, the one that checks when an
+  invoice comes due") -> the corpus appositive-metronome entry, which fires
+  only on repetition. One instance; below the bar.
+
+### Round notes: protocol and branch state
+
+1. **Comparability.** Third Opus 5.5 round. Generators, detectors, and prompts
+   match 2026-10-06 except the coherence instruction, which went to all four
+   samples instead of three. Standard pool: 2 of 8 AI against 1 of 8 last
+   round. Hostile pool: 2 of 4, unchanged. The two AI calls in the standard
+   pool both landed on samples with a time-stamped or bookended structure (B
+   and C), and both rested on structure.
+2. **Generators ran their own verifier.** Three of the four generators
+   (linkedin, technical-blog, casual) ran the skill's fresh-context verifier
+   subagent before returning, as `SKILL.md` allows; the blog generator did not,
+   since the skill requires the verifier only for rewrite and detect jobs. The
+   linkedin verifier caught a gross-versus-net savings claim and a
+   false-agency closer, both fixed before the sample was saved. So this round's
+   samples are the floor plus its own check, which is what the floor ships.
+3. **Fan-out note.** A session hook asks for a written justification above five
+   subagents. This round ran 16 directly (4 generators and 12 detectors; step 2
+   requires two independent detectors per sample, and the hostile pool is the
+   only instrument that has produced coherence findings), plus the 3 verifier
+   subagents the generators spawned. Each detector ran tool-free on one sample.
+4. **Step 5 reconciliation.** `origin/main` sits at `a3807e5`, unchanged since
+   2026-09-22. Local `main` carries three unpushed round commits (`b63b0ee`,
+   `77648b7`, `8984c63`) whose sections are not at origin, so no reset was
+   run. `main` was not pushed.
+5. **The October PR is still waiting on the writer.** `loop/scout-2026-10`
+   exists locally only (rule commit `5427ebc`), with the golden half of its
+   eval gate not run, per 2026-10-06 note 6. Nothing in this round changes it.
+   The November scout round will hit the same golden-set block unless the
+   headless session can read `anti-slop-local`.
