@@ -3386,3 +3386,1374 @@ October round, which owes the three things listed on 2026-08-18.
    with a side effect already visible to outsiders. File it with
    `stance-discharged-at-hook`, or add the guard to the mannered-prose entry,
    before the next scout PR adds anything else.
+
+## Round 2026-09-22 (weekly loop)
+
+Harvest: the active ledger holds 1 entry, `2026-07-23-trimhero-gate-qt.md`,
+and it could not be READ for the tenth consecutive round: the symlink resolves
+into the private `anti-slop-local` repo and the session's read permission for
+that path was not granted (a read request was made and refused this round).
+Nothing reconstructed; entry retained; the 2026-08-25 note stands. The two
+newsletter entries harvested on 2026-09-15 sit in `harvest/harvested/` and were
+not re-harvested. No new ledger entries since 2026-09-11. Zero harvest
+candidates.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+40-person fab shop that replaced its Monday all-hands with a Friday memo; a
+$60 1984 Trek 610 commuted through one winter; a catalog-API cache stampede
+after a TTL cut to 60 seconds; a community-garden chat post about late blight
+on plot 14). Samples and a detector digest at `scratch/selfplay-2026-09-22/`
+(gitignored). Generators isolated as on 2026-09-15 (each read only `SKILL.md`,
+`patterns.md`, `living-corpus.md`; forbidden `candidates.md`, `scratch/`,
+`harvest/`, `evals/`, both protect lists). The split test the 2026-09-15 note 1
+asked for was run: the coherence instruction went to the linkedin and
+technical generators only; the blog and casual generators got none. Twelve
+detectors as before: 8 standard (2 per sample, weekly-loop prompt verbatim plus
+a one-line percentage verdict), 4 hostile (1 per sample, plus the forensic
+sentence), all told to use no tools and read no files, given only the sample
+text. Subagents ran on the session default, Claude Fable 5.1. Verdicts,
+standard instrument: **4 of 8 called AI**, and the split is exact: both
+detectors on each instructed sample said AI (A: 82, 80; C: 82, 78), both
+detectors on each uninstructed sample said human (B: 80, 72; D: 85, 80).
+Hostile instrument: **4 of 4 called AI** (83, 72, 93, 82). ~140 raw flags, ~34
+distinct tells, 2 survivors after dedup, 4 evidence entries against open
+threads, and 9 fold-only proposals. Every detector that called AI rested the
+verdict on structure and read the clean vocabulary surface as evidence of a
+de-slopping pass; every detector that called human cited a broken symmetry
+(an inert canoe, "a couple of Romas" beside two exact counts, a lost thread) as
+its lead reason.
+
+Scout: SKIPPED. Not the first run of the month; the 2026-09-01 round ran it.
+
+Aging: SKIPPED. Not the first run of the quarter. Q4 opens with the first
+October round, which owes the three things listed on 2026-08-18.
+
+### register-ceiling [status: proposed]
+
+- Found: 2026-09-22  |  Loop: self-play
+- Evidence: Two detectors on the linkedin sample, independently, on the same
+  two words. A1: "'which jobs we screwed up and why': sanitized blue-collar
+  register. A guy running a shear at 6:15 a.m. does not write 'screwed up.' He
+  names the job, the customer, or swears." Ah: "'screwed up': the PG-13 shop
+  floor. A guy who runs a shear says blew, scrapped, or something
+  unprintable." Both read the word not as wrong but as the safe version of the
+  right one, and both placed it beside the sample's zero proper nouns as the
+  same avoidance.
+- Source: self-play round 10 detector reports (sample A)
+- Proposed rule: The vernacular a first-person narrator uses stops at the line
+  a general-audience assistant would draw, regardless of who the narrator is.
+  A shop owner, a nurse, a line cook each has a register with a floor below
+  "screwed up", and the floor's own vocabulary never gets there: the slang is
+  present, so the register reads as attempted, and it is uniformly the mild
+  form, so it reads as filtered. Test: for each vernacular word, ask whether
+  the narrator as described would say that word or a stronger one. If every
+  instance is the printable version, the register has a ceiling. Fix is not to
+  add profanity; it is to use the narrator's actual nouns instead of the mild
+  verb ("we scrapped the Kenworth brackets" instead of "we screwed up a job"),
+  which the open `named-entity-vacuum` entry already asks for. Suggested Tier
+  3, linkedin, blog, and casual profiles, first-person tradespeople and
+  operators hardest. One sample, two detectors: log it, and let the next round
+  confirm or kill it rather than rediscover it.
+- Mechanism guess: instruction-tuning (safety and general-audience tuning cap
+  the register at the mild form, and the sound-like-a-person instruction
+  supplies slang without lifting the cap)
+
+### rhythm-over-mechanism [status: proposed]
+
+- Found: 2026-09-22  |  Loop: self-play (hostile instrument + standard)
+- Evidence: Two samples, three detectors, the same failure from two sides. Ch
+  on the technical sample: "'Once a minute, on the minute' is wrong. Redis
+  TTLs are relative to write time, not wall-clock aligned. The cycle would be
+  pinned to the 2:12 deploy plus refill drift, landing at some arbitrary
+  offset. 'On the minute' means :00 seconds. That phrase was written for
+  rhythm and never checked against the mechanism the post itself describes."
+  Both standard detectors on the same sample had already flagged the phrase as
+  a rhythmic button (C1: "rhymes with the title... doing zero informational
+  work"; C2: "the single most overused LLM rhythm move: long sentence, then a
+  clipped echo") without noticing it was false. A1 and A2 on the linkedin
+  closer "try four Fridays of writing it down instead": "'Four' appears
+  nowhere else and connects to nothing. It's alliteration with 'Fridays.' A
+  number invented for rhythm inside a post whose entire credibility rests on
+  numbers being real"; "'Four Fridays' is alliterative and arbitrary."
+- Source: self-play round 10 detector reports (samples A, C)
+- Proposed rule: A phrase chosen for its sound that the text's own facts do
+  not support. Distinct from `rhetorical-figure-flourish` (the figure is the
+  tell) and from `instrumentless-precision` (the figure has no source): here
+  the cadence is the cause of the error. The generator picks the clipped echo
+  or the alliterative number first and the claim inherits whatever the phrase
+  asserts, and nobody checks the phrase because it reads as style rather than
+  as a claim. Test: for each rhythmic beat (fragment echo, alliterated figure,
+  matched pair), read it as a literal claim and check it against the mechanism
+  or the numbers the piece has already given. "On the minute" is a claim about
+  expiry alignment; "four Fridays" is a claim about a trial length. Fix: keep
+  the beat only if the claim survives, otherwise say the true thing plainly
+  and let the rhythm go. Recommend filing as the fifth shape of the
+  `locally-plausible-globally-incoherent` runnable test, beside the four on
+  file (contradiction, fix-vs-cause, prose-vs-code, expertise), rather than as
+  a new entry: it is the same end-to-end read with a named trigger, and it is
+  checkable by a non-domain reader in the "four Fridays" case. Suggested Tier
+  2, all profiles. Note for the writer: this is the first coherence failure
+  the loop can trace to a style move rather than to a planning move, which
+  means the rewrite pass itself can introduce it when it adds a beat.
+- Mechanism guess: displacement (the vary-rhythm and dramatic-fragmentation
+  guidance asks for beats; the coherence instruction, where given, checks
+  figures against figures and never checks a beat as a claim)
+
+### coherence-instruction-tally-2 [status: evidence]
+
+- Found: 2026-09-22  |  Loop: self-play (evidence for the open
+  `locally-plausible-globally-incoherent` amendments and the 2026-09-15 tally)
+- Evidence: The split the 2026-09-15 note 1 asked for. Instruction on (A, C):
+  6 of 6 standard and hostile verdicts AI. Instruction off (B, D): 4 of 4
+  standard verdicts human, 2 of 2 hostile verdicts AI. On the cost side, all
+  three linkedin detectors cited the reconciling arithmetic as evidence of
+  generation (A1: "40 people x 30 minutes = 20 hours. Six months = 26 weeks,
+  minus 2 skipped = 24 memos. Every number cross-checks against every other
+  number... This has an audited ledger"; A2: "Clean closure means the detail
+  was constructed backward from the claim"; Ah: "Two independent numeric
+  chains, both flawless... a sign the numbers were designed to survive exactly
+  this audit", and "The dad's hip exists to make the subtraction work"). On
+  the benefit side, the technical sample FAILED the coherence read again with
+  the instruction on, and harder than 2026-09-15: Ch found an unexplained
+  eight-minute gap between the 2:12 deploy and the 2:20 symptoms, a cold start
+  described as painless in the paragraph before the same condition is called
+  catastrophic, a 9-second p99 under an 8-second timeout, a 502 where the
+  described chain produces 504 or 500, a 250ms loser budget that stampedes the
+  database under exactly the load the lock exists for, a lock that is never
+  released, a missing rollback, and a missing motive for the TTL change. C2,
+  standard, found the timeline gap and the missing rollback independently. The
+  linkedin sample, also instructed, carried soft cracks Ah listed: "They never
+  got the Monday meeting" against "A few used to come in early for it"; second
+  shift attending a 6:15am meeting is not "coming in early"; the denominator
+  of "a good third of the shop" floats. The two uninstructed samples: B held
+  on arithmetic and timeline, and Bh found one expertise incoherence (a pin
+  spanner is the non-drive-side tool; the drive-side cup is fixed and
+  reverse-threaded, and the reverse-thread memory is absent); D held on
+  arithmetic, timeline, and narrator knowledge, and Dh found one ("sunken
+  brown spots on fruit" is anthracnose or early-blight fruit rot, not late
+  blight).
+- Source: self-play round 10 detector reports (all samples)
+- Bearing on the open thread: the tally on the technical register is now 1 of
+  3 with the instruction on (coherent 2026-09-08; failed 2026-09-15 and
+  2026-09-22). The instruction does not deliver coherence on the register it
+  was written for, and on the register where it is not needed (linkedin) its
+  cost is the first thing every detector cites. Confound stated plainly: the
+  split was by sample, so instruction and register moved together (linkedin
+  and technical instructed, blog and casual not), and blog and casual have
+  drawn the loop's human verdicts before (2026-08-04, 2026-08-18). The
+  2026-09-15 round, where all four were instructed, put blog and casual at AI
+  from 6 of 6 detectors, which is the closest thing to a control on file: same
+  isolation, same registers, instruction on, AI; instruction off, human. One
+  round, one confound. The next round should cross the split (instruct blog
+  and casual, not linkedin and technical) before the instruction is written
+  into `weekly-loop.md` in either direction. The expertise shape (fourth) held
+  in both uninstructed samples, found only by the hostile instrument, which is
+  the argument for keeping that instrument regardless of what happens to the
+  generator instruction.
+- Mechanism guess: n/a (generation coherence), with the displacement note from
+  2026-09-15 now corroborated on a second sample
+
+### contraction-register-mismatch-evidence-2 [status: evidence]
+
+- Found: 2026-09-22  |  Loop: self-play (evidence for the open 2026-07-28
+  entry)
+- Evidence: Fourth round. Three of four samples shipped with zero or near-zero
+  contractions in first person; six detectors flagged it, two as the strongest
+  single tell. A2 on the linkedin sample: "four uncontracted forms in the most
+  colloquial positions in the post. The only contraction in the entire piece
+  is 'most didn't bother.' A guy who writes 'which jobs we screwed up' says
+  'That's twenty labor hours' and 'Nobody's asked.' The vocabulary is
+  vernacular; the syntax is formal. That mismatch is the single hardest thing
+  to fake." A1 and Ah flagged the same four spans. B1 on the blog sample:
+  "Zero contractions in fourteen sentences... 'did not love it,' 'I have no
+  idea,' 'he also never used.'" C2 on the technical sample: "'cannot' not
+  'can't.' Across five paragraphs there is not one contraction, in a piece
+  that otherwise uses casual fragments." The casual sample contracted
+  normally ("I'd", "he's", "what's", "I'm") and drew two human verdicts.
+- Source: self-play round 10 detector reports (samples A, B, C)
+- Bearing on the open candidate: the linkedin sample is the mismatch form
+  (one contraction, in an aside, against four uncontracted load-bearing
+  lines), which is the exact shape the 2026-07-28 entry describes. Four
+  rounds of evidence (2026-07-28, 2026-08-11, 2026-09-15, 2026-09-22), the
+  floor still carries no contraction rule, and the generators were isolated,
+  so this is the floor's gap and not the inbox leaking. The 2026-09-15 note
+  said it should ride the next PR beside `single-use-character`; that stands.
+- Mechanism guess: pretraining-register (unchanged)
+
+### affect-vacuum-evidence [status: evidence]
+
+- Found: 2026-09-22  |  Loop: self-play (evidence for the open 2026-09-15
+  entry, with a displacement warning)
+- Evidence: Two findings that pull in opposite directions. First, the vacuum
+  itself, on a register the entry exempted. C1 on the technical incident
+  write-up: "No feeling. Not one beat of embarrassment, and the root cause
+  was self-inflicted 8 minutes earlier." Ah on the linkedin sample: the dad's
+  hip replacement "appears once, does arithmetic, and vanishes, no feeling
+  attached, no callback, no consequence for the shop." Second, the reaction
+  slot filled, and read as a slot. The uninstructed casual sample supplied one
+  reaction: "Bagged them for the trash instead of the compost pile, which felt
+  worse than the pulling." D1 read it as the piece's best human signal ("The
+  emotion lands in the wrong place... Oblique attachment like that is human").
+  D2 and Dh, independently, read the shape: "The appended reflective relative
+  clause is a model habit: state the action, then bolt on how it felt"; "small
+  concrete action plus appended comparative-emotion tag. This is the single
+  most trained-in humanization move there is. It's the sentence that's
+  supposed to convince me a person wrote this, and it's the sentence that
+  convinces me one didn't."
+- Source: self-play round 10 detector reports (samples A, C, D)
+- Bearing on the open candidate: the entry's exemption for technical
+  reference should not extend to first-person incident write-ups, where C1
+  expected embarrassment for a self-inflicted outage and found none; the
+  exemption is for neutral genres, not for the technical-blog profile as a
+  whole. And the entry's own warning ("Do not manufacture one") now has a
+  named shape to guard against: the action-plus-", which felt X"-tag. A
+  reaction reported in a subordinate clause bolted to the action it reacts to
+  is the reaction as a slot-fill. If the rule is filed, it should say where a
+  reaction goes when it is real: usually its own sentence, often later than
+  the event, sometimes as a decision rather than a feeling word ("I bagged
+  them and did not go back to the plot for a week"). One of three detectors
+  read the tagged form as human, so the evidence is contested on the casual
+  sample, which is the register where the entry expects the most latitude.
+- Mechanism guess: displacement (unchanged; the reaction-tag shape is the
+  rule's predicted side effect, arriving before the rule is filed)
+
+### Amendment: the clumping test at piece scale (revives lone-flourish as an instance)
+
+- Found: 2026-09-22  |  Loop: self-play (amends the 2026-08-25 clumping-test
+  amendment; evidence for `single-use-character`, fifth round)
+- Evidence: Four detectors on three samples measured the same thing at the
+  scale of the whole piece rather than the paragraph: a humanizing device
+  present exactly once. Bh on the blog sample: "Precision is uniform except
+  for one placed hedge... Then exactly one uncertainty: 'I have no idea what
+  week it gave up,' positioned as the last line. Uncertainty-as-authenticity,
+  deployed once, at maximum leverage." Dh on the casual sample: "'is it a pile
+  of mealy nothing?' is genuinely good, and it's the only figurative language
+  in the entire message. Zero metaphor anywhere else, then one perfectly
+  formed coinage. Real voice doesn't arrive alone and pre-polished." Ah on the
+  linkedin sample: "'6:15' is the lone non-round value, the anti-roundness
+  token, doing conspicuous authenticity work." Ch on the technical sample:
+  "The 130ms to 140ms return is the studied imperfection move: close but not
+  identical, calibrated to read as candid." And the fifth consecutive round
+  for the character form: Dh, "Bill supplies authority. Ray supplies
+  corroboration and spread. Each is named, used exactly once, and dropped."
+- Source: self-play round 10 detector reports (samples A, B, C, D)
+- Proposed change: The 2026-08-25 clumping test counts a device per
+  paragraph or section and flags a uniform count. Add the degenerate case:
+  count per piece, and flag a count of exactly one. One hedge, one figurative
+  word, one odd number, one imperfect measurement, one named person, one
+  inert detail: each is the minimum that satisfies an instruction ("let some
+  mess in", "vary", "be concrete", "hedge where unsure") and the minimum reads
+  as a token. The same measurement explains why `lone-flourish` (2026-07-28,
+  recommended reject on contested evidence) keeps recurring: it was never a
+  diction rule, it was n=1 on the diction axis, and it has now been observed
+  on the hedge axis, the number axis, the character axis, and the diction
+  axis across 2026-08-25, 2026-09-15, and this round. Fold it here rather
+  than reviving it as its own entry. The fix direction matters and is not
+  "add more": a singleton is a tell because the piece has one of each; two
+  hedges in one paragraph and none elsewhere is not. That is the clumping
+  test already, applied to the whole document.
+- Mechanism guess: displacement (already named by the parent; this round only
+  extends the scale of the measurement)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Category without instance** -> fold into `named-entity-vacuum` as the
+  clearest statement of "one notch above concrete" the loop has recorded.
+  Ah on the linkedin sample: "the post claims a weekly ritual of publicly
+  admitting error, and then never gives a single example. Twenty-four memos,
+  fifty-plus admitted mistakes available, and the writer picks none... A
+  model generates the category, 'admit a mistake' is a template slot, and has
+  no instance to fill it with. Same failure at 'which jobs we screwed up and
+  why': category, no case." Also C2: Redis is never named though `SET NX EX`
+  is Redis-specific, "the way a generic worked example avoids committing to
+  specifics it can't defend." Test to add: for each slot that names a class
+  of thing (a mistake, a job, a stack), does the piece supply one member?
+- **Asymmetric accounting** -> fold into `zero-residue-argument` beside its
+  self-inoculation check. Ah: "The labor-hours argument counts the meeting's
+  cost (20 hours/week) and never counts the memo's. Forty-plus people now
+  read a page, that's real time, and it's silently dropped. The post performs
+  accounting rigor on the side that helps it and waives it on the side that
+  doesn't." Test: where the piece quantifies a cost it removed, does it
+  quantify the cost it added?
+- **The self-neutralizing downside** -> one more example for the same entry's
+  timing check. A1: "'which I should have been doing anyway': the concession
+  that costs nothing. It admits a downside and neutralizes it in the same
+  clause." Ah: "The single downside is introduced and neutralized inside the
+  same paragraph, and the neutralization makes him look better... A genuine
+  cost is left bleeding. This one gets converted to an asset in seven words."
+- **Clue-labeling and the detour that never happened** -> fold into
+  `monotonic-recall-order` as an example, and into `subtext-vacuum` as the
+  narrated-reasoning form. C1: "'The period was the clue.' A
+  detection-narrative device: the writer announcing that their reasoning was
+  clean and linear. Real engineers write 'someone noticed it was hitting on
+  the minute,' they don't label their own clue." C2: "The causal chain is
+  perfectly linear: saw it, understood it, fixed it. No wasted twenty minutes
+  chasing the wrong service." C1 and Ch also flagged the missing rollback as
+  the objection any on-call reader raises first.
+- **Motive missing** -> fold into `actorless-scene` as one more thing only a
+  present person supplies. Ch: "It says they cut TTL to 60 and bumped the
+  prefix to `catalog:v4`. It never says why. Every real writeup says what the
+  change was for, because the author lived through wanting it." The entry
+  lists a name, a quote, an observed particular, a dead end; add the reason
+  for a decision the narrator claims to have made.
+- **Contrast density** -> a countable test for `matched-antithesis-pairs` and
+  `rather-than-variant`, filed together as the 2026-07-28 entry asked. Dh on
+  the casual sample counted "seven oppositions in ~250 words" ("Watered at
+  the soil, never overhead"; "trash instead of the compost pile"; "an ugly
+  tomato that makes it to September over another August"; "Otherwise I'm
+  doing peppers") and named it "the 'not X, but Y' reflex wearing seven
+  different costumes. Every beat is built on a pivot; the prose never sits
+  still and just states something. Humans go flat for stretches." D1 named
+  the X-over-Y line the strongest AI tell in the piece. The FATAL family
+  shipped nowhere this round (third clean round of ten); this is where it
+  went. Test: count the pivots per 100 words.
+- **Audience leak** -> fold into `reply-shaped-registers` beside the
+  empty-ask test. Dh: "'Bad news from plot 14.' In a chat where everyone
+  knows his name and his plot, he'd say 'well, my tomatoes are done.' The plot
+  number is set dressing for a reader outside the room." The empty ask omits
+  what a responder needs; this supplies what the recipients already have.
+  Test: does the message tell its actual readers anything they already know?
+- **Deadpan litotes as the humanizer register** -> one example for the
+  single-axis humanization consolidation's voice-token list. Bh on "did not
+  love it": "litotes as wry voice. Contemporary and well-placed, but it is the
+  single most common 'humanizing' register a de-slopped draft lands in." B1
+  read the same span as human and deliberate. Contested; log as an example,
+  not a rule.
+- **Title formula, third example** -> for the 2026-09-08 title-template note:
+  C2, "'60 seconds of everything expiring at once.' Evocative abstract-noun
+  headline rather than the boring real-world form ('Catalog 502s, Tuesday')."
+
+### Round notes: the split, misses, harvest, branch state
+
+1. **The split test ran and the result is clean on its face and confounded
+   underneath.** Instructed samples: 6 of 6 AI. Uninstructed samples: 4 of 4
+   human on the standard instrument. Register moved with the instruction, so
+   this round cannot say which one did it; the `coherence-instruction-tally-2`
+   entry above lays out the closest control on file (2026-09-15) and asks the
+   next round to cross the split. Two things the round can say. The
+   instruction's cost is real and named by every detector that saw an
+   instructed sample. And the hostile instrument called all four AI
+   regardless, on structure in every case, which means the standard pool's
+   human verdicts were bought by broken symmetries (the canoe, "a couple of
+   Romas", the uncounted bottom-bracket parts) that the hostile readers
+   discounted as too few and too well placed. The floor has learned to leave
+   one thing loose. It has not learned to leave several.
+2. **The FATAL binary-contrast family did not ship in any sample.** Third
+   clean round of ten (2026-09-01, 2026-09-15, 2026-09-22), all under isolated
+   generators. The displaced form did ship, as the contrast-density fold
+   records: seven non-negated pivots in the casual sample, the "X over Y"
+   closer, the twinned "used to / Now" paragraphs in linkedin, the "Jitter
+   handles / The lock handles" couplet in technical (flagged by all three
+   detectors on that sample). The discrete-pass recommendation from
+   2026-07-28 remains unactioned; three clean rounds are now enough to say the
+   negated form is under control and the non-negated form is not.
+3. **Generation-side misses: three rules on the books shipped through
+   isolated generators.** Rule-of-three (content pattern 9): two tricolons in
+   adjacent sentences in the blog sample (B2, Bh) and two inside 80 words in
+   the technical sample (C2). Dramatic fragmentation: "Once a minute, on the
+   minute." (C1, C2, Ch) and the "Bad news from plot 14. My tomatoes are
+   done." opener (D2). Paragraph-length uniformity: the technical sample's
+   five paragraphs at 32 to 67 words with three sentences as the default (C1,
+   C2). All three are on file in `patterns.md`; the generators read it. As
+   with the binary-contrast miss in July, the rule is not the problem, and the
+   same discrete-pass argument applies.
+4. **One-job-per-paragraph and the designed terminal beat were flagged by
+   every detector again.** Twelve of twelve, on all four samples, for the
+   third consecutive round. `one-job-per-paragraph` (2026-08-04) and
+   `punchline-terminal-paragraphs` (2026-07-22) are the two oldest unfiled
+   threads with the most consistent evidence in the inbox, and neither has
+   ridden a PR. Whatever the next scout PR carries, it should carry one of
+   them.
+5. **Harvest.** The x.com entry is blocked as before, tenth round. The
+   newsletter path confirmed on 2026-09-15 had nothing new to fetch: no ledger
+   entry has been written since 2026-09-11. The `harvest.md` edit that note 3
+   of 2026-09-15 asked for (curl the page, grep the story bodies, do not rely
+   on WebFetch for a diff) is still not made; it belongs on a loop branch or
+   in the writer's hands, not on main from this loop.
+6. **Step 5 reconciliation.** `origin/main` and local `main` both sit at
+   `a3807e5` (PR #7 merged). Every round section on local main is present at
+   origin, verified by listing `origin/main:references/candidates.md` headers,
+   so no reset was needed and none was run. This round's commit carries this
+   section only. `main` was not pushed.
+7. **Step 6 SKIPPED (not a scout round), and the drafted branch is still
+   stale.** `loop/scout-2026-09` exists locally only, in the state the
+   2026-09-08 note 3 and 2026-09-15 note 5 describe. Its merge base now
+   predates PRs #3 through #7. Not touched this round. The first October
+   round runs scout and owes the PR leg; it should cut `loop/scout-2026-10`
+   fresh from `origin/main` rather than rebase the September branch.
+8. **Inbox state.** This round adds 2 candidates, 4 evidence entries (one an
+   amendment), and 9 fold-only proposals, and closes nothing. The drain queue
+   for the next PR, ranked per step 6: the single-axis humanization
+   consolidation (three retirements, four rounds of evidence);
+   `contraction-register-mismatch` (four rounds); `single-use-character` (five
+   rounds, now folded under the clumping test at piece scale);
+   `one-job-per-paragraph` with `punchline-terminal-paragraphs` (every round
+   since bootstrap). `affect-vacuum` should not be filed without the
+   reaction-tag guard recorded above.
+
+## Round 2026-09-29 (weekly loop)
+
+Harvest: 2 ledger entries. `2026-09-25-issue-19.md` (newsletter, Naperthrill
+issue 19) arrived with an in-session classification already written into the
+ledger by the editor pass; this round did the fetch-back on the 2026-09-15
+path. Fetch-back SUCCEEDED: curl with a browser user agent on
+`www.naperthrill.co/p/lucha-libre-at-the-arboretum-a-cars-night-at-the-museum-and-a-free-repair-fair`
+returned HTTP 200 (145 KB, no challenge), and per-story text extraction by
+opening phrase found the forecast, the From Kevin note, all 19 story bodies,
+all 19 headlines, and the Your Turn block identical to the ledger's SHIPPED
+text. Zero post-send prose edits. One field differs, the same class as
+2026-09-15: the web page's H1, subtitle, JSON-LD headline, and URL slug carry
+the PRE-review subject and preview ("a Cars night at the museum", "a free
+empanada class"), while the ledger says the sent subject was "a Cars-themed
+museum night" and "a from-scratch empanada class". Classified as a content edit
+in fields the body paste does not carry; no prose signal. The in-session
+capture's five missed-tell hunks are filed below (one new candidate, two
+evidence entries, two generation-side misses of rules already on file). Entry
+harvested and moved to `harvest/harvested/` (the deletion guard still refuses
+`rm`). `2026-07-23-trimhero-gate-qt.md` could not be READ for the eleventh
+consecutive round: the symlink resolves into the private `anti-slop-local`
+repo, and the read was refused as outside the allowed directories. Nothing
+reconstructed; entry retained.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+credit-union loan officer who dropped the cover letter from small-business
+applications; a $200 1974 Kimball upright with 14 sticking keys; a nightly
+billing job that ran twice at the DST fall-back and double-charged 312
+customers; a youth-soccer parents' chat after a rainout). Samples and a
+detector digest at `scratch/selfplay-2026-09-29/` (gitignored). Same isolation
+as 2026-09-15 and 2026-09-22. The split was crossed as the 2026-09-22 tally
+asked: the coherence instruction went to blog and casual only. Twelve
+detectors as before (8 standard, 4 hostile), all tool-free, all given only the
+sample text; all twelve reported zero tool uses. **Model change: this round's
+subagents ran on the session default, Claude Opus 5.5. Every prior round on
+file ran on Claude Fable 5.1.** Generator and detector both changed, so no
+verdict count below is comparable round-over-round. Verdicts, standard
+instrument: **1 of 8 called AI** (C2, 65); the other seven called human at 60
+to 85. Hostile instrument: **3 of 4 called AI** (70, 65, 60), and Dh called the
+casual sample human at 80. ~110 raw flags, ~30 distinct tells, 2 survivors
+after dedup (one from self-play, one from harvest), 5 evidence entries against
+open threads, and 7 fold-only proposals. Confidence ran lower than any round
+on file: no verdict above 85, and five of twelve at 60 to 65.
+
+Scout: SKIPPED. Not the first run of the month; the 2026-09-01 round ran it.
+The next round (2026-10-06) is the first October run and owes scout and the PR
+leg.
+
+Aging: SKIPPED. Not the first run of the quarter. The 2026-10-06 round is the
+first Q4 run and owes the aging pass listed on 2026-08-18. It should also
+retest `dense prose`, which `patterns.md` documents as a Fable 5.1 regression
+to retest on each model change: no detector flagged dense prose on any of this
+round's four Opus 5.5 samples, which is one data point, not a retest.
+
+### convenient-anomaly [status: proposed]
+
+- Found: 2026-09-29  |  Loop: self-play (hostile instrument + standard)
+- Evidence: The technical sample's causal chain needs two unusual facts, and
+  states both flat. Ch: "Card-charge webhooks normally arrive in seconds.
+  Having 312 of them take over an hour is unusual, and a real engineer would
+  say why (bank transfers, a processor outage, queue backlog). Here it reads
+  like a detail placed just to make the cause work." And the detection gap,
+  flagged by all three detectors on the sample: charges at 1:30 a.m. Sunday,
+  first customer email "around 7 a.m. Monday", about 29 hours with no
+  comment. C2: "A human who lived through it would likely explain the gap. A
+  model wouldn't notice it." C1 read the same gap the other way ("A writer who
+  knows the story leaves that kind of gap"), so the gap alone is contested; the
+  webhook delay is not.
+- Source: self-play round 11 detector reports (sample C)
+- Proposed rule: A fact the plot needs, unusual enough that its cause would be
+  the first thing a present narrator explains, asserted with no cause. The
+  generator works backward from the outcome (a double charge needs open
+  invoices; open invoices need slow webhooks) and supplies the enabling
+  condition at the size the outcome requires, but never the reason the
+  condition held, because there was no world in which it held. Distinct from
+  `instrumentless-precision` (the number has no source) and from
+  `actorless-scene` (no person present): here the fact is sourced and plausible
+  in isolation, and the tell is that it is the load-bearing anomaly and is
+  left unexamined. Test: list the conditions the story's outcome depends on.
+  For each one that a domain reader would call unusual, does the piece say why
+  it held? If not, either give the reason or say plainly that the team does
+  not know yet, which is itself what a real write-up says. Suggested Tier 3,
+  technical-blog and incident registers, where the causal chain is the point.
+  One sample, one uncontested detector and two on the adjacent gap: log it,
+  and let the next round confirm or kill it.
+- Mechanism guess: n/a (generation coherence; the backward-from-outcome
+  planning that `locally-plausible-globally-incoherent` names), surfaced as a
+  prose tell because the missing cause is visible to a domain reader
+
+### logistics-first-lead [status: proposed]
+
+- Found: 2026-09-29  |  Loop: shipped-diff harvest
+- Evidence: The issue's feature story (THE READ) shipped from the draft as
+  "Celebración de los Árboles runs Saturday and Sunday from 9 a.m. at the
+  Morton Arboretum in Lisle, and the headliner is Lucha Libre: ..." The editor
+  pass rewrote the opening to "There's a wrestling ring at the Morton
+  Arboretum this weekend." and moved the event name, days, and time to the
+  second sentence. No fact added or removed in the hunk; only the order and
+  the first sentence's job changed.
+- Source: `harvest/harvested/2026-09-25-issue-19.md`, THE READ (draft ->
+  shipped, in-session capture 2026-09-25, confirmed at fetch-back 2026-09-29)
+- Proposed rule: In a feature slot, the opening sentence carries the
+  logistics (event name, day, time, place) and the angle arrives late or not at
+  all. The draft's first sentence is a listing entry, and the story's reason to
+  exist (a wrestling ring in an arboretum) is buried in a colon clause.
+  Test: read only the first sentence. Does it tell the reader why this item
+  got the feature slot rather than a roundup line? If it could be pasted into
+  a calendar, it is a listing, not a lead. Fix: open on the one concrete image
+  that makes the item unusual, then give the logistics. Scope: feature and
+  lead-story slots only; roundup items and HEADS UP notices are logistics by
+  design and should lead with them. Suggested Tier 3, newsletter and blog
+  profiles. One instance; the ledger also records it as the issue's only
+  feature-slot edit.
+- Mechanism guess: pretraining-register (the who-what-when-where news lead is
+  the dominant template for event copy, and a generator summarizing an event
+  page reproduces the page's own order)
+
+### Evidence: the clumping test at piece scale, from a shipped diff
+
+- Found: 2026-09-29  |  Loop: shipped-diff harvest (evidence for the
+  2026-09-22 amendment "the clumping test at piece scale")
+- Evidence: The editor pass on issue 19 found five repeats that no per-story
+  pass could see, all fixed before send: "Bring the dog." (Barkapalooza) beside
+  "Bring the broken lamp." (repair fair); "It's included with zoo admission."
+  beside "It's included with museum admission or membership."; two adjacent
+  headlines shaped "X has A, B, and C"; "runs" as the main verb about ten times
+  across items; and three HEADS UP items all built on "registration closes".
+  Each was fine in its own story. The ledger's own note: "last night's pass ran
+  per story; every missed tell above except false agency is only visible at
+  issue scale."
+- Source: `harvest/harvested/2026-09-25-issue-19.md`, review diff
+  classification
+- Bearing on the open amendment: the 2026-09-22 amendment counts a humanizing
+  device per piece and flags a count of one. This is the other end of the same
+  measurement in a multi-item document: a template, a closer, or a default verb
+  counted per issue, flagged at a count of two or more across adjacent items.
+  With `quantity-means-implication` (2026-09-11, same newsletter, same
+  per-document shape) this is the third harvest finding that only an
+  issue-scale read catches. The fix is procedural before it is a rule: on
+  multi-item surfaces, run one whole-document pass after the per-item passes.
+  Recommend the next PR that files the clumping amendment carry that sentence
+  into the SKILL.md workflow, not only into `patterns.md`.
+- Mechanism guess: n/a (a detection-scope gap, not a generation mechanism)
+
+### second-person-conditional-premise-evidence-3 [status: evidence]
+
+- Found: 2026-09-29  |  Loop: shipped-diff harvest (evidence for the open
+  2026-09-04 entry)
+- Evidence: Knoch Park story, draft: "If you've got kids who've already worn
+  out every other playground in the rotation, this one is worth a Saturday
+  detour." Cut in the editor pass. The verifier then judged the full cut an
+  over-correction and restored the observation without the premise: "so
+  there's finally something in the rotation the kids haven't worn out."
+- Source: `harvest/harvested/2026-09-25-issue-19.md`, Knoch Park story
+- Bearing on the open candidate: third issue in a row with an instance. The
+  shipped fix is the rule's own fix shape (state the thing, drop the premise
+  about the reader's household), and the restoration shows the flattened-voice
+  risk the entry should name: the clause about kids wearing out playgrounds was
+  voice; only the `If you've got` wrapper was the tell. When filed, the rule
+  should say to keep the observation and remove the conditional, not to cut the
+  sentence.
+- Mechanism guess: second-person engagement training (unchanged)
+
+### coherence-instruction-tally-3 [status: evidence]
+
+- Found: 2026-09-29  |  Loop: self-play (evidence for the open
+  `locally-plausible-globally-incoherent` amendments and the 2026-09-22 tally)
+- Evidence: The crossed split. Instruction on (B blog, D casual): standard 4 of
+  4 human (75, 80, 75, 85); hostile Bh AI 65, Dh human 80. Coherence: D held
+  completely, and all three D detectors verified it independently (dates,
+  8-day gap, headcount 12 minus 2 against 9 needed, nets at 12:15 against a
+  40-minute setup for a 1:00 game); B held except one soft slip Bh found (the
+  piece redefines the piano's cost as $350, then calls $180 "almost what I paid
+  for the piano", which is only true against $200). Instruction off (A
+  linkedin, C technical): standard 3 of 4 human, 1 AI; hostile 2 of 2 AI. A
+  carried a wrong inference (below) and an expertise slip (Ah: loan
+  requirements are set by the institution, not "our branch"); C carried the
+  `convenient-anomaly` pair above and an expertise overclaim (Ch: an
+  idempotency key does not make the processor refuse a rerun days later;
+  processors expire keys, around 24 hours for the one Ch named).
+- Source: self-play round 11 detector reports (all samples)
+- Bearing on the open thread: two findings, both under the model-change
+  confound. First, the cost the 2026-09-22 round recorded did not recur. On
+  linkedin last round, reconciling arithmetic was the first thing every
+  detector cited as evidence of generation; this round, on casual, all three
+  detectors cited reconciling arithmetic as evidence of a HUMAN writer (D1:
+  "AI texts often slip on this kind of calendar and number bookkeeping. This
+  one doesn't."). So the arithmetic signal flips by register: in a logistics
+  message, numbers that reconcile read as a person who has to make the day
+  work; in an argument post, they read as numbers built to survive an audit.
+  Second, the benefit held where the instruction went: both instructed samples
+  cohered, both uninstructed samples failed a coherence read. Across two
+  crossed rounds, instruction status does not predict the verdict (on: 6 of 6
+  AI last round, 4 of 4 standard human this round), and it does predict
+  coherence on every register except technical, where the tally stays 1 of 3
+  with the instruction on and 0 of 1 without. Recommendation, stated with the
+  confound: write the instruction into `weekly-loop.md` for the blog, casual,
+  and technical generators, and leave it off linkedin until a round shows the
+  argument register can take it without the audited-ledger read. That edit
+  belongs on a loop branch, not on main.
+- Mechanism guess: n/a (generation coherence)
+
+### Evidence: the exit-shape consolidation (fix-and-cta-close), a fourth door
+
+- Found: 2026-09-29  |  Loop: self-play (evidence for `fix-and-cta-close`,
+  `universalized-maxim-closer`, and `punchline-terminal-paragraphs`)
+- Evidence: Three of four samples left by one of the doors the 2026-07-28
+  consolidation names, and the fourth door showed up. Maxim: A, "If nobody on
+  your team reads a step to make the decision, cut it." (all three A
+  detectors; A1: "the most common LinkedIn and AI ending"). Advice CTA: C, "If
+  your scheduler runs on local time, check what it does at 1:30 a.m. on the
+  first Sunday in November." (all three C detectors). Quiet image: B, "My
+  daughter plays 'Heart and Soul' on it every morning." B1: "Ending on a
+  quiet, warm image with no stated lesson is a known move for models trained
+  to 'show, don't tell.'" Bh: "The daughter appears only here; before this
+  there are just 'the kids.' She's brought in to deliver the ending." Only
+  the casual sample, which has no argument to close, ended on a throwaway
+  (the borrowed chair), and every D detector counted that as human. The
+  terminal-punch count ran with it: A1 counted 5 of 8 paragraphs, Ah 7 of 8,
+  Bh 5 of 5.
+- Source: self-play round 11 detector reports (samples A, B, C, D)
+- Bearing on the open candidates: the consolidation names three doors
+  (fake-profound kicker, universalized maxim, resolve-and-advise). The quiet
+  concrete image is the fourth, and it is the one the floor's own advice
+  produces: every other door is banned, and "end on the last concrete point"
+  read as a style instruction yields a concrete image chosen for its landing.
+  Test to add: is the person or object in the last line introduced for the
+  last line? If it first appears there (the daughter), or appears earlier only
+  generically (the kids), the ending was built backward. This is also the
+  sixth consecutive round of `single-use-character` evidence, at the closing
+  position. Recommend these ride together: the exit-shape rule, the
+  terminal-punch rule, and the single-use test, as one PR item.
+- Mechanism guess: displacement (the three banned exits route to the one the
+  rules still allow)
+
+### quantity-means-implication-evidence [status: evidence]
+
+- Found: 2026-09-29  |  Loop: self-play (evidence for the open 2026-09-11
+  entry; the first instance outside the newsletter)
+- Evidence: Linkedin sample: "Over the summer, applications went from about 11
+  a month to 17. Our approval rate barely moved. So the extra applicants were
+  mostly people who qualified." All three detectors flagged the third
+  sentence. A1: "The writer spells out the conclusion instead of letting the
+  numbers speak." A2: "11 to 17 a month over one summer is a small sample. A
+  loan officer might hedge here." Ah showed it is also false: a stable approval
+  rate means the new applicants qualified at the old rate, which says "mostly"
+  only if that rate is above 50 percent, and the post never gives it. Ah also
+  flagged the precision split inside the same line: "The before number is
+  fuzzy ('about 11') but the after number is exact (17). That's a common
+  made-up-stat pattern: hedge the starting figure, state the result
+  precisely."
+- Source: self-play round 11 detector reports (sample A)
+- Bearing on the open candidate: the 2026-09-11 shape is `<quantity> means
+  <reader inference>`; this is `So <inference>` after two figures, the same
+  bridge from datum to takeaway with a different connective. Widen the family
+  to include `So` and `which means` sentence openers after figures, and add
+  the check this instance fails: does the inference follow from the figures
+  given, or from figures the piece never states? The hedged-baseline,
+  exact-result split is a separate one-line addition for
+  `uniform-hedge-per-number` (its inverse case, where only the figure that
+  flatters the claim is exact).
+- Mechanism guess: thin-source compensation (unchanged), with a coherence
+  failure riding on the manufactured takeaway
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Callback aimed at the flattering referent** -> second instance for
+  `rhythm-over-mechanism` (2026-09-22), and it widens that entry from rhythm to
+  callbacks. B: the piece establishes the piano's cost as $350, then "almost
+  what I paid for the piano" compares $180 against $200, because $350 would
+  not make "almost" true (Bh). A: "tells me more than a page about passion
+  ever did" mocks the letters for "passion" after describing them as
+  "hardworking and ready to grow" (Ah: "picked because it's the cliché it
+  wanted to mock, not because it matches what the post said before"). Same
+  test as the parent: read the echo as a literal claim and check it against
+  what the piece already said.
+- **Announced count** ("We changed two things.", "Two asks:") -> covered by
+  `Signposting` in `patterns.md`; flagged by all six detectors on C and D,
+  and read as ordinary organizer voice on D. No change; the casual
+  reading argues against tightening it.
+- **Peer-audience explainer** -> fold into the `Audience leak` fold from
+  2026-09-22 (`reply-shaped-registers`). C2 and Ch on "UTC, which never
+  repeats or skips an hour": explaining UTC to engineers. The newsletter form
+  told readers what they already had; this tells a technical audience what it
+  already knows.
+- **Mirrored paragraph counts** -> one example for the second-order
+  uniformity consolidation. C1 and C2 counted the technical sample's sentences
+  per paragraph as 1-6-2-6-1 and 1-7-2-7-1: a one-line open and close
+  bracketing two dense blocks around a short one. Palindromic, not uniform,
+  which is why the length rule does not see it.
+- **Subject-first openings** -> fourth example for `paragraph-opener-monotony`
+  and `flat-syntactic-spine`, sentence scale. C1, C2, and Ch listed the
+  technical sample's openers ("Our in-house scheduler", "The clocks",
+  "Nothing in the job", "The scheduler now", "Billing drifts", "Every charge
+  also"). Ch: "Almost nothing starts with a time, a condition or a reaction."
+- **Affect vacuum on the incident write-up** -> second round for the
+  2026-09-22 note that the `affect-vacuum` exemption should not cover
+  first-person incident write-ups. C1: "no apology, no blame, no named person,
+  no aside and no feeling at any point." Ch: "People who just double-charged
+  312 customers usually let some of that through." B2 raised it on the blog
+  sample too and weighed it as consistent with a dry human writer.
+- **Named-entity vacuum, technical form** -> one example. C2: "No names, no
+  tools, no processor, no scheduler product. Real engineers name the thing
+  ('our cron wrapper,' 'Stripe')." Ch framed it as inverted precision: exact
+  customer count, no processor, no dollar total.
+
+### Round notes: model change, verdicts, misses, harvest, branch state
+
+1. **This round is not comparable to the ten before it.** The session and its
+   subagents ran on Claude Opus 5.5, not Claude Fable 5.1. The standard pool's
+   1 of 8 AI is the lowest on file, and it cannot be credited to the floor:
+   the generator changed, the detectors changed, and the detectors' confidence
+   dropped with them (five of twelve verdicts at 60 to 65, none above 85).
+   Future rounds should record the model in the round summary as a matter of
+   course, and the aging pass on 2026-10-06 should treat this round as the
+   first Opus 5.5 baseline rather than as a trend point.
+2. **Generation-side misses from the harvest: two rules on file shipped
+   through last night's per-story pass.** False agency ("Last weekend's rain
+   moved Oktoberfest ... into the Tavern Room", fixed to "Two Brothers moved
+   ... when it rained") is on file in `patterns.md` as its own structure
+   family. Sentence-length uniformity shipped in the forecast (three
+   day-by-day sentences of 16, 17, and 18 words, each opening "<Day> <verb>").
+   Neither needs a new rule; both are evidence for the discrete-pass
+   recommendation from 2026-07-28, which is still unactioned.
+3. **Binary-contrast family: fourth clean round** (2026-09-01, 2026-09-15,
+   2026-09-22, 2026-09-29). A1 and A2 read "I never approved or denied a loan
+   because of one. I decided on the numbers" as the softened two-sentence
+   form, which is the displaced shape the 2026-09-22 contrast-density fold
+   describes, at much lower density than last round's seven pivots.
+4. **One-job-per-paragraph and the terminal punch, fourth consecutive round.**
+   Every A detector and Bh described the template arc; C1 and C2 called the
+   technical sample "a textbook postmortem outline". The drain-queue
+   recommendation from 2026-09-22 note 8 stands unchanged, with the exit-shape
+   evidence above now attached to the terminal-punch item.
+5. **Harvest.** The newsletter path worked again on the curl-plus-grep route,
+   with one change worth recording: the post page embeds the email as escaped
+   HTML, so extraction stops at `&` rather than `<`
+   (`grep -o -E "(<opening phrase>)([^&]|&#x27;|&amp;|&quot;)*"`); the
+   `[^<]*` pattern from 2026-09-15 ran to the end of the page. The `harvest.md`
+   edit asked for on 2026-09-15 note 3 is still owed and belongs on a loop
+   branch. The x.com entry is blocked for the eleventh round.
+6. **Fan-out note.** A session hook asks for a written justification above
+   five subagents. This round ran sixteen (4 generators, 12 detectors) because
+   step 2 requires two independent detectors per sample and the hostile pool
+   is the only instrument that has produced coherence findings (2026-09-22
+   note 1). Each detector ran tool-free on one sample.
+7. **Step 5 reconciliation.** `origin/main` sits at `a3807e5`, unchanged
+   since the 2026-09-22 round. Local `main` carries one unpushed round commit
+   (`b63b0ee`, 2026-09-22), whose section is not yet at origin, so no reset was
+   run. This round's commit carries this section only. `main` was not pushed.
+   The 2026-10-06 PR leg's `git cherry-pick origin/main..main` brings both
+   sections over.
+8. **Step 6 SKIPPED (not a scout round).** `loop/scout-2026-09` is still
+   local-only and stale; not touched. The 2026-10-06 round should cut
+   `loop/scout-2026-10` fresh from `origin/main`.
+9. **Inbox state.** This round adds 2 candidates (`convenient-anomaly`,
+   `logistics-first-lead`), 5 evidence entries, and 7 fold-only proposals, and
+   closes nothing. Drain queue for the 2026-10-06 PR, ranked per step 6: the
+   single-axis humanization consolidation (three retirements);
+   `contraction-register-mismatch` (four rounds; this round the linkedin,
+   blog, and casual samples contracted normally, and only the technical sample
+   drew the flag, from C2: "Only one contraction ('haven't') appears in the
+   whole post"); the exit-shape consolidation with `punchline-terminal-paragraphs`
+   and the single-use test (every round since bootstrap); the clumping test at
+   piece scale with the whole-document pass (two harvests and two self-play
+   rounds).
+
+## Round 2026-10-06 (weekly loop)
+
+Round summary: 4 samples, ~95 raw flags (~28 distinct), 2 surviving dedup (both
+corroborate scout finds), 6 scout finds, 6 aging proposals; PR leg drafted on
+`loop/scout-2026-10` (outcome in round note 6). Model: Claude Opus 5.5 for the
+session and every subagent, the second Opus 5.5 round on file.
+
+Harvest: the active ledger holds 1 entry, `2026-07-23-trimhero-gate-qt.md`, and
+it could not be READ for the twelfth consecutive round: the symlink resolves
+into the private `anti-slop-local` repo and the read was refused as outside the
+allowed directories. Nothing reconstructed; entry retained. No new ledger
+entries since 2026-09-25 (issue 19, harvested last round). Zero harvest
+candidates.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+med-surg nurse manager who handed night-shift scheduling to the nurses in a
+shared sheet; a winter learning whetstones after a pull-through sharpener; a
+disk that filled while `du` showed 310 MB because a deleted log was still held
+open; a block-party organizer posting that the permit came back for a different
+Saturday). Samples at `scratch/selfplay-2026-10-06/` (gitignored). Generators
+isolated as on 2026-09-15 (each read only `SKILL.md`, `patterns.md`,
+`living-corpus.md`; forbidden `candidates.md`, `scratch/`, `harvest/`,
+`evals/`, both protect lists). The coherence instruction went to blog,
+technical-blog, and casual, and not to linkedin, which is the split the
+2026-09-29 tally recommended. Twelve detectors, 8 standard (2 per sample, the
+weekly-loop prompt verbatim plus a one-line percentage verdict) and 4 hostile
+(1 per sample, plus the forensic-coherence sentence), all told to use no tools;
+all twelve reported zero tool uses. Verdicts, standard instrument: **1 of 8
+called AI** (B2, 60); the other seven called human at 60 to 70. Hostile
+instrument: **2 of 4 called AI** (Ah 70, Ch 60); Bh and Dh called human at 60.
+No verdict above 70 in either pool, the lowest confidence on file. Every
+detector, on both verdicts, rested its case on structure; none cited a
+vocabulary tell.
+
+Scout: last30days FAILED to execute again (the Skill call returned `Execute
+skill: last30days:last30days` with no result, twice). Fell back to WebSearch
+plus direct fetches. Three primary sources read, two of them measured on the
+current model: Graphite, "AI Tells: Opus 5.5 Update" (published 2026-10-01;
+phrase ratios read verbatim from the page's data, methodology via the
+summarizing fetcher), Pangram, "Can Pangram detect Opus 5.5" (published
+2026-09-23; summarizing fetcher only, so treat wording as paraphrase), and the
+Wikipedia signs page, fetched as raw wikitext (`action=raw`, HTTP 200, 224 KB).
+The raw fetch read the "Biases in content" section in full for the first time,
+which closes the three-round truncation recorded on 2026-09-01. Competitor
+sweep: two new public skills (`jalaalrd/anti-ai-slop-writing`,
+`haidrrrry/humanize-ai-writing`) are vocabulary and phrase ban lists plus an
+invented-statistics check; nothing in them is absent from `patterns.md` or the
+inbox.
+
+Aging: RAN (first run of Q4). Two rule-off generators, no repo access, 12
+pieces in 6 registers, 2,874 words, saved at `scratch/aging-2026-10-06/`.
+Confound, stated once: "rule-off" means the prompt carried no style rules; the
+subagents still inherited the session's global instructions, so this is a
+lower bound on the model's native tells, not a clean baseline. Results and
+proposals in the aging entries below.
+
+### importance-flag-frames [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout + self-play
+- Evidence: Graphite measures Opus 5.5 against pre-ChatGPT human articles on
+  9,974 aligned topics and puts its single strongest tell in one family,
+  "flagging importance": "this matters" 116x, "why _ matters" 92x, "just as
+  important" 13x, "matters most" 12x. The self-play linkedin sample produced the
+  same move unprompted: "Nobody has left nights since March. That's the number
+  I care about." All three A detectors flagged it; A2 called it "the strongest
+  tell" and said the post "already showed that retention mattered" through the
+  exit interviews.
+- Source: https://graphite.io/five-percent/research/ai-tells-opus-5-5-update
+  (2026-10-01; reported by Gizmodo 2026-10-02, which printed "dependable" as
+  26x where the page says 23x); self-play round 12 detector reports (sample A)
+- Proposed rule: A sentence whose only job is to tell the reader which fact
+  matters ("this matters", "why X matters", "that's the number I care about",
+  "here's why that's important") is the claim of significance in place of the
+  significance. If the preceding facts carry the weight, delete it; if they do
+  not, the fix is a better fact, not the flag. Fold into `anglo-weight-words`
+  (2026-07-28 already lists "matters" and "this matters because") and into
+  content pattern 1 (significance inflation) as its sentence-level form, not a
+  new rule. Suggested Tier 1 for the literal "this matters" and "why X
+  matters" frames, since the measured ratio is the highest the loop has on
+  file for any phrase on the model this skill governs.
+- Mechanism guess: reward-tuning (explicit relevance signals rated as helpful),
+  model-specific to Opus 5.5 by measurement
+
+### recap-reflex [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout + self-play
+- Evidence: Pangram, 3,000 responses to the same 1,000 Chatbot Arena prompts:
+  Opus 5.5 used "in short" 100 times against Opus 5's 9, and its summarization
+  markers rose 942% per 1,000 words, while responses got only 2.9 words
+  shorter. Graphite's Opus 5.5 transitions point the same way: "looking ahead
+  the" 40x, "what comes next" 24x, "in practice" 7x. In self-play, all three
+  technical detectors flagged the bridge "Running rm on a log that a process
+  still holds open cleans up nothing, so we changed two things," which restates
+  paragraph 3's "That freed nothing" before the fix. C2: "Restating the point
+  as a bridge is a common model habit." In the rule-off aging set, the CDN
+  explainer closes on "The short version: fresh means serve it, stale means
+  check first."
+- Source: https://www.pangram.com/blog/can-pangram-detect-opus-5-5
+  (2026-09-23); Graphite (above); self-play round 12 (sample C); aging rule-off
+  set B, piece 3
+- Proposed rule: A recap of what the piece just said, inside a piece short
+  enough to hold in mind ("in short", "the short version:", "in practice", a
+  restated lesson used as the bridge into the next section). Under ~600 words
+  the reader still has the point; the recap is scaffolding. Fold into the
+  `Signposting` bullet in `patterns.md` as the closing-side twin of "let's dive
+  in": one announces the move before it, this one re-announces it after.
+  Suggested Tier 2 (flag in clusters), with "in short" Tier 1 on Opus 5.5
+  output.
+- Mechanism guess: instruction-tuning (summary-first answer formats trained on
+  chat), model-specific by measurement
+
+### rather-than-variant-evidence [status: evidence]
+
+- Found: 2026-10-06  |  Loop: scout (evidence for the open 2026-07-22
+  `rather-than-variant`)
+- Evidence: Graphite's Opus 5.5 "contrastive phrasing" group: "is more than a _
+  it" 98x, "rather than simply" 32x, "not only about" 13x, "instead it" 8x. The
+  aging rule-off set, with no rules in the prompt, carried eight binary
+  contrasts in 2,874 words, among them "It's limited by focus" after "most
+  knowledge work isn't limited by hours", "a signal, not proof", and "not the
+  one they were becoming". The self-play linkedin sample carried the softened
+  form, "I assumed giving up the schedule meant giving up control of staffing,
+  and it didn't" (Ah: "a softer form of 'it's not X, it's Y'").
+- Bearing on the open candidate: this is the first measured ratio for the
+  `rather than` and `is more than a` frames on the current model. The family is
+  the most alive thing in the rule-off set. File the variant rows into the
+  binary-contrast table at the next PR with room under the cap.
+- Mechanism guess: reward-tuning (unchanged)
+
+### assistant-helpfulness-register [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout
+- Evidence: Graphite lists a "helpfulness language" group that rose from Opus 5
+  to Opus 5.5: "is especially helpful" 12x, "can help you" 8x, "makes it
+  easier" 6x, "helps you avoid" 5x.
+- Source: Graphite (above)
+- Proposed rule: In prose that is not a how-to, benefit phrasing aimed at the
+  reader ("can help you", "makes it easier to", "helps you avoid") is the
+  assistant persona leaking into an article. State what the thing does; let
+  the reader judge whether it helps. Suggested Tier 3 (density), blog and
+  investor-email profiles; skip on docs, where reader-benefit phrasing is the
+  register. One source; log it and let self-play confirm or kill it.
+- Mechanism guess: assistant-persona (reward-tuning for helpfulness)
+
+### evaluative-adjective-set [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout
+- Evidence: Graphite's Opus 5.5 evaluative adjectives: "dependable" 23x,
+  "steady" 11x, "thoughtful" 9x, "meaningful" 8x. It also reports Opus 5.5
+  ahead of GPT-6 Astra on superlatives ("one of the best _ about" 79x, "the
+  most popular" 45x, "perhaps the most" 29x), but those ratios are against
+  Astra, not against human text, and the Wikipedia page lists "superlative or
+  definitive statements" under signs of HUMAN writing. So the superlatives are
+  not proposed.
+- Source: Graphite (above); Wikipedia, "Signs of human writing", Syntax
+- Proposed rule: Add `dependable`, `steady`, `thoughtful`, and `meaningful` to
+  the Tier 2 table (flag when 2+ appear in one paragraph), with the same fix as
+  the rest of that table: name the property, or cut. Tier 2, not Tier 1: all
+  four are ordinary words, and the ratios are below the Tier 1 band.
+- Mechanism guess: displacement (the Latinate hype tier is now industry-banned,
+  and the praise moved to plain adjectives; the same register shift
+  `anglo-weight-words` records)
+
+### wikipedia-signs-of-human-writing [status: proposed]
+
+- Found: 2026-10-06  |  Loop: scout (aging, external)
+- Evidence: The page's "Signs of human writing" section lists constructions
+  "empirically observed, over 25 years of Wikipedia writing, to be more common
+  in Wikipedia articles written by humans than in AI-generated text": simple
+  is/has phrases; plain verbs over stiff synonyms (wrote, moved, used, tried,
+  died); superlative or definitive statements; qualifiers and intensifiers
+  ("very", "perhaps", "tends to"); and "isolated wordy constructions such as
+  'as a result of', 'in order to', 'all of the', 'a part of', or 'the fact
+  that'." Its "Ineffective indicators" section adds "Combination of casual and
+  formal registers, or language that sounds both 'clinical' and 'emotional'"
+  and "Transition words (in isolation)".
+- Source: https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing (raw
+  wikitext, fetched 2026-10-06)
+- Proposed change: Three, all retirements or limits, none additions. (1)
+  Retire the Tier 1 row `in order to -> to`: the page names it as more common
+  in human text, so a Tier 1 always-replace on it strips a human marker. (2)
+  Scope the single-axis informality consolidation (1218, and the September
+  draft): mixed register as such is a listed ineffective indicator, so the
+  rule must say the tell is informality on exactly one axis with every other
+  axis assistant-clean, and not "casual words over formal syntax" on its own.
+  (3) Leave `Excessive hedging` as written but note in the gate that a lone
+  "perhaps" or "tends to" is a human marker, not a hedge stack. The is/has and
+  plain-verb items confirm `Copula avoidance` and the `utilize` row; no change
+  there. The "Biases in content" section (pro-authoritarian bias) is a content
+  bias, not a prose tell, and is out of scope for this floor.
+- Mechanism guess: n/a (aging; external evidence)
+
+### Evidence: the exit-shape consolidation, fifth round, and the callback door
+
+- Found: 2026-10-06  |  Loop: self-play (evidence for `fix-and-cta-close`,
+  `universalized-maxim-closer`, and the 2026-09-29 fourth door)
+- Evidence: Every sample left by a listed door. Advice CTA: A, "If you're a
+  nurse manager still building nights by hand on Sundays, try it with one shift
+  for one quarter" (all three A detectors). Maxim: C, "A gap of more than a few
+  GB means a deleted file is still open somewhere" (C2: "closes on a maxim").
+  Resolve-and-feel: D, "so yeah, I'm annoyed too. I'd still rather have the
+  party a week late than skip it. See you on the 24th." (all three D
+  detectors). And a fifth shape on B: the callback, where the opening object
+  returns as the last line with proof attached, "The pull-through is in the
+  junk drawer now ... my paring knife has a dip near the heel to prove it."
+  B1: "It ends where it started." B2: "That ending wraps up a loose end on
+  purpose." The rule-off aging set shows the native form: "I think she'd be
+  glad," "I'm finding out it was never trying to," and "Have you ever had to
+  pull something you built?"
+- Bearing on the open candidates: fifth consecutive round. The PR below files
+  the consolidation with the callback named.
+- Mechanism guess: displacement (unchanged)
+
+### Evidence: second-order uniformity, with a measurement behind it
+
+- Found: 2026-10-06  |  Loop: self-play + scout (evidence for the 2026-08-04
+  consolidation and the 2026-08-25 clumping test)
+- Evidence: Pangram measured Opus 5.5 sentences as shorter (12.50 words against
+  Opus 5's 14.53) and "more uniform". In self-play, the terminal punch was the
+  most-cited tell of the round: B1, B2, and Bh each listed all five of the blog
+  sample's paragraph closers; Ah listed four on linkedin; Ch listed four on the
+  technical sample ("Four paragraphs land a short, flat reveal in the same
+  spot"). B2 and B1 also flagged the blog's openers as a chronological march
+  ("For eight years", "In December", "the next day", "By February", "now"),
+  which is `paragraph-opener-monotony` in a new form: the openers vary in words
+  and match in kind.
+- Bearing on the open candidates: the measurement and the detectors agree that
+  Opus 5.5's uniformity sits at the paragraph edge, not in sentence length. The
+  PR below files the consolidation with the clumping test as its runnable form.
+- Mechanism guess: displacement (unchanged)
+
+### coherence-instruction-tally-4 [status: evidence]
+
+- Found: 2026-10-06  |  Loop: self-play (evidence for the 2026-09-29 tally)
+- Evidence: Instruction on (B blog, C technical, D casual): all three held
+  every reconciliation the hostile readers ran (Ch: "every figure closes
+  against every other"; Bh: "Nothing contradicts anything else"); the one slip
+  is Dh's, on D: the lights request is framed as caused by the date change,
+  though a 3 to 8 party is dark before 8 on either Saturday. Instruction off
+  (A linkedin): Ah found an expertise failure ("Three RNs minimum per night" on
+  a 32-bed med-surg unit is about 10 patients per nurse, unsafe for nights), a
+  convenient comparison (sick calls February against August, flu season
+  against summer), and an invented interface detail (a "comments column" in a
+  Google Sheet).
+- Bearing on the open thread: coherence again tracks the instruction (3 of 3
+  on, 0 of 1 off). The cost recorded on 2026-09-22 came back in two of the
+  three instructed samples: B1, B2, C2, and Ch each named the reconciling
+  arithmetic as evidence of construction ("Real incidents rarely add up this
+  cleanly"). On D, the casual sample, Dh again counted it toward human. So the
+  register split from 2026-09-29 holds a second round: reconciled numbers read
+  as human in logistics messages and as built in narratives and write-ups. The
+  recommendation stands as written on 2026-09-29, with one addition: the
+  uninstructed linkedin sample is now 2 of 2 rounds with a domain-expertise
+  failure, so the case for leaving linkedin uninstructed is weaker than the
+  case for instructing it and accepting the audited-ledger read.
+- Mechanism guess: n/a (generation coherence)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Single-use character, seventh round** -> `single-use-character`. Bh on the
+  blog's brother-in-law: "no name, no dialogue and no personality. He exists
+  only to deliver the stone." B2 independently. Rides the exit-shape PR item
+  as its test.
+- **Affect vacuum on an incident write-up, third round** -> the 2026-09-22
+  note that the `affect-vacuum` exemption should not cover first-person
+  incident write-ups. C2: "It doesn't say who got paged, how long writes were
+  down, or how anyone felt about it." C1 and Ch the same.
+- **Pre-answered message** -> `one-job-per-paragraph`. D1, D2, and Dh on the
+  casual sample: every foreseeable question answered once, in order, and
+  nothing left hanging (Dh: "reads like someone thought out every question in
+  advance"). The newsletter-and-chat form of the same planned arc.
+- **Evenly dripped specifics** -> `canonical-detail` and the specificity
+  profile notes. Bh counted about 17 numbers spread one or two per sentence
+  across the blog sample: "Real writers give specifics too, but rarely this
+  evenly."
+- **Announced count** ("so we changed two things", "Two things I need:") ->
+  `Signposting`, already folded 2026-09-29. Flagged on C and D again; D
+  detectors again read it as normal organizer voice. No change.
+- **Writerly verbs in a postmortem** ("traces back to", "the disk sat at") ->
+  `Mannered prose`, below the bar. C1 and Ch. No change.
+
+### Aging: em dash baseline on Opus 5.5 (closes the em-dash thread)
+
+- Found: 2026-10-06  |  Loop: aging (the rule-off baseline owed since
+  2026-08-18)
+- Evidence: Zero em dashes, glyph or `--`, in 2,874 rule-off words across 12
+  pieces. Graphite, measured: Opus 5.5 at 0.015 per 1,000 words against Opus 5
+  at 2.92, "99% less often", with the human baseline normalized to 1.0. All
+  twelve detectors this round noted the absence; none counted it either way.
+- Proposed change: re-tier the detection side of `Em dashes` to P2, as drafted
+  on 2026-09-01, now with the current-model figure. On the model this skill
+  governs, the mark is close to extinct at generation, so a dash in a draft is
+  weak evidence of anything. Keep the rewrite-side target of zero: it costs
+  nothing now. Also re-tier the corpus entry `anti-em-dash displacement` to
+  watch: its mechanism needs a model pushing toward dashes, and the native
+  rate is near zero. The colon reveal it warns about did show in the rule-off
+  set twice ("The one thing I didn't expect:", "The short version:"), and
+  `Colon reveal` already covers that. Closes `em-dash-retier` and its five
+  evidence entries.
+- Mechanism guess: n/a (aging; the model moved)
+
+### Aging: living-corpus Tier 1 and 2 entries on Opus 5.5
+
+- Found: 2026-10-06  |  Loop: aging
+- Evidence and proposed change, per entry:
+  - `validation tail` (Tier 1): did not fire in either rule-off reply (0 of
+    2). The X reply in set A opened on overt praise instead ("Congrats on
+    shipping! ... this is a great first target"), which `Sycophancy` covers.
+    Keep at Tier 1: the entry came from the owner's own draft, it costs one
+    line, and two replies is not a retirement sample.
+  - `concession reflex` (Tier 2): the "To be fair, X. That said, Y." reflex
+    did not fire in either opinion piece (0 of 2). Both pieces named a
+    specific objection and answered it ("On a team of six, one person out on
+    Friday is a sixth of your capacity"; "Not everyone can walk six blocks").
+    That is the genuine-tradeoff case the entry exempts. Propose re-tier to
+    Tier 3 at the next aging pass if the January round also finds 0.
+  - `mannered prose` (Tier 1): still fires, at a lower rate. Graphite's
+    evaluator scores Opus 5.5 at 10.57 against Opus 5 at 16.75 and a human
+    baseline of 6.65, so 1.6 times the human rate. The rule-off set confined
+    it to the essays ("each with a young maple staked to the ground like it
+    might try to leave") and the closers. Keep at Tier 1. Update the entry's
+    evidence line, which cites only Fable 5.1.
+  - Dense prose (the half of `mannered prose` that `patterns.md` says to
+    retest on each model change): 0 of 12 rule-off pieces met the bar (no
+    paragraph past ~100 words with most sentences over ~30). Pangram's
+    measurement says Opus 5.5 runs the other way, shorter and more uniform
+    sentences. Propose: mark the dense-prose bullet "Fable 5.1 regression; not
+    observed on Opus 5.5 (2026-10-06)", keep it at P2, and remove its line
+    from the SKILL.md quick checks, where its attention is better spent on
+    the uniformity check.
+- Mechanism guess: n/a (aging)
+
+### Aging: the humanization retest and the retirement-marking decision
+
+- Found: 2026-10-06  |  Loop: aging (the other two items owed since
+  2026-08-18)
+- Humanization retest: the floor's moves read as human to the standard pool on
+  this model (7 of 8, at 60 to 70), the same as 2026-09-29 (7 of 8). Two
+  rounds on one model is a baseline, not a trend. What changed is the reason
+  given: no detector cited a vocabulary tell in either round, and the hostile
+  calls of AI rested on structure (the terminal punch, the template arc) and
+  on coherence (staffing ratio, too-clean arithmetic). The moves that read as
+  human were the broken symmetries (an argument in a comments column, the
+  laugh on the phone, the paring knife's dip), the same finding as 2026-09-22.
+- Retirement marking (`explicit-retirement-marking`, 2026-08-18): recommend
+  approve. This round proposes two re-tiers and one retirement, and the
+  corpus has nowhere to put a retired entry with its evidence. Not drafted
+  into the PR because no corpus entry retires this month; the first corpus
+  retirement should ship with the section.
+- Mechanism guess: n/a (methodology)
+
+### Round notes: protocol, PR leg, branch state
+
+1. **Comparability.** Second Opus 5.5 round; the generators, detectors, and
+   prompts match 2026-09-29 except the coherence split (blog and casual last
+   round; blog, technical, and casual this round). The standard pool matches
+   last round's 1 of 8 AI; the hostile pool dropped from 3 of 4 to 2 of 4.
+2. **Scout and self-play agree, which is new.** The two survivors this round
+   (the importance closer and the recap bridge) were flagged by detectors that
+   never saw the scout sources, and both match phrases that Graphite and
+   Pangram measured on the same model the same week. That is the first time
+   the loop has had a generated finding and a corpus measurement land on the
+   same tell in one round.
+3. **Fan-out note.** A session hook asks for a written justification above five
+   subagents. This round ran twenty: 4 generators and 12 detectors (step 2
+   requires two independent detectors per sample, and the hostile pool is the
+   only instrument that has produced coherence findings), 2 rule-off aging
+   generators, and 2 eval-gate runners on the PR branch. Each detector ran
+   tool-free on one sample.
+4. **Step 5 reconciliation.** `origin/main` sits at `a3807e5`, unchanged since
+   2026-09-22. Local `main` carries two unpushed round commits (`b63b0ee`,
+   `77648b7`) whose sections are not at origin, so no reset was run. `main`
+   was not pushed.
+5. **PR selection, per step 6 ranking.** Retirements and aging re-tiers (do not
+   count against the cap): the em dash detection-side re-tier, synonym cycling
+   to historical (`elegant-variation-retired`), and the `in order to` Tier 1
+   row. Three merges, all consolidations: second-order uniformity with the
+   clumping test; single-axis informality, scoped by the Wikipedia
+   ineffective-indicator line; the exit-shape rule folded into the
+   fake-profound kicker with the callback door and the single-use test.
+   Waiting, ranked for November: `importance-flag-frames`, `recap-reflex`,
+   and the `rather-than-variant` rows, all three with measured ratios on the
+   current model; then the dense-prose quick-check removal.
+6. **PR leg outcome: drafted, gate INCOMPLETE, not pushed, no PR.**
+   `loop/scout-2026-10` exists locally only, cut from `origin/main`, with the
+   three unpushed inbox sections cherry-picked and one rule commit on top
+   (`5427ebc`: the five edits in note 5 plus
+   `evals/reports/scout-2026-10.md`). Slop side of the gate: 9 of 9 fixtures
+   pass. Golden side: NOT RUN. `evals/golden/` is a set of symlinks into the
+   private `anti-slop-local` repo, and the headless session refused the reads
+   for both the runner and the main session, the same directory-scope block as
+   the harvest ledger. A gate with half its check missing has not passed, so
+   the branch was not pushed and no PR was opened, rather than shipping on the
+   argument that every change files at P2 or lower. The PR body is drafted at
+   `scratch/scout-2026-10-06/pr-body.md` (gitignored). To finish by hand: run
+   detect over `evals/golden/` on the branch, fill the golden table in the
+   report, then `git push origin loop/scout-2026-10` and `gh pr create` with
+   that body. `loop/scout-2026-09` is superseded by this branch and can be
+   deleted. `main` was switched back and verified; `main` was not pushed.
+   Note for the writer: the golden set now joins the harvest ledger behind the
+   same boundary, so until the headless session can read `anti-slop-local`,
+   no scout round can complete step 6 on its own.
+
+## Round 2026-10-13 (weekly loop)
+
+Round summary: 4 samples, ~75 raw flags (~20 distinct), 1 surviving dedup, 0
+scout finds (not a scout round), 0 aging proposals (not an aging round); PR leg
+not run (step 6 runs only in a scout round). Model: Claude Opus 5.5 for the
+session and every subagent, the third Opus 5.5 round on file.
+
+Harvest: 2 active ledger entries. `2026-10-11-max-team-api-credits-claim-flow.md`
+(tweet, logged as approved unedited) was fetched back through the fxtwitter
+JSON API with curl (`api.fxtwitter.com/<user>/status/<id>`, HTTP 200, full
+note-tweet text). The published text matches the ledger word for word; the
+only difference is X expanding `claude.ai` into a link. Zero hunks, zero
+candidates. The entry was moved to `harvest/harvested/` (not deleted). This is
+the first X fetch-back that has worked headless; the earlier route, x.com
+through WebFetch, returned 402. `2026-07-23-trimhero-gate-qt.md` could not be
+read for the thirteenth consecutive round: the symlink resolves into the
+private `anti-slop-local` repo and the read was refused as outside the allowed
+directories. Nothing reconstructed; entry retained.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+small-town library director two years into lending tools from a back room; a
+hobbyist's week on the sticking carriage of a 1972 Smith-Corona; a nightly test
+that failed only on March 8 because a fixture added 86,400 seconds across the
+spring-forward transition; a bouldering group-chat carpool change while the
+writer's car is in the shop). Samples at `scratch/selfplay-2026-10-13/`
+(gitignored). Generators isolated as on 2026-09-15 (each read only `SKILL.md`,
+`patterns.md`, `living-corpus.md`; forbidden `candidates.md`, `scratch/`,
+`harvest/`, `evals/`, both protect lists). The coherence instruction went to
+all four, linkedin included, which is the change the 2026-10-06 tally
+recommended. Twelve detectors, 8 standard (2 per sample, the weekly-loop prompt
+verbatim plus a one-line percentage verdict) and 4 hostile (1 per sample, plus
+the forensic-coherence sentence), all told to use no tools; all twelve reported
+zero tool uses. Verdicts, standard instrument: **2 of 8 called AI** (B1 65, C1
+60); the other six called human at 60 to 80. Hostile instrument: **2 of 4
+called AI** (Bh 70, Ch 55); Ah and Dh called human at 60. No verdict above 70
+on an AI call. As on 2026-10-06, no detector cited a vocabulary tell; every
+case rested on structure.
+
+Scout: not run. The 2026-10-06 round was the first run of October and ran it.
+Aging: not run. The 2026-10-06 round was the first run of Q4 and ran it.
+
+### self-verdict-tag [status: proposed]
+
+- Found: 2026-10-13  |  Loop: self-play
+- Evidence: "I marked it flaky and reran it. I'm not proud of that." All three
+  technical detectors flagged it, and two ranked it first. C1: "a stock
+  confession: three words of regret and then straight back to business. A human
+  usually says what was embarrassing ... or skips the line." C2: "a stock
+  confession beat ... It carries no information, and it's the most
+  template-like line in the piece." Ch: "Models drop in lines like this to
+  sound humble." The blog sample carried the same move twice in a wry key: "I
+  felt clever until Tuesday night" (B1: "a stock way to hint that something bad
+  is coming") and "I read that and oiled it anyway" (B1: "a short confession
+  that ends the paragraph with a punch"; Bh: "a planted confession").
+- Source: self-play round 2026-10-13 detector reports (samples B, C)
+- Dedup: not covered by the open `hollow confession` fold (2026-09-15), whose
+  test is that a confession must contain the thing confessed. This one passes
+  that test: the sentence before it states the act. The tell is the short
+  self-judgment appended after a confession that already landed. The reader
+  can see the act was a mistake; the tag says so again.
+- Proposed rule: After a sentence that admits a mistake, a short line that
+  grades it ("I'm not proud of that", "not my finest hour", "I felt clever
+  until...", "lesson learned") restates the admission as an emotion label.
+  Delete the tag and let the act stand. Fold into `scheduled-humility-beat` as
+  its third test, beside position (2026-07-28) and content (2026-09-15), rather
+  than as a new rule. Suggested Tier 2: flag on a byline when it appears, since
+  one per piece is already the pattern.
+- Mechanism guess: displacement. `SKILL.md` principle 8 ("react to facts ...
+  let some mess in") asks for a pulse, and the cheapest pulse that names no
+  new fact is a one-line self-verdict. The technical-blog profile drew the
+  plain form; the blog profile drew the wry form.
+
+### Evidence: the exit-shape consolidation, sixth round
+
+- Found: 2026-10-13  |  Loop: self-play (evidence for `fix-and-cta-close`,
+  `universalized-maxim-closer`, and the callback door from 2026-10-06)
+- Evidence: Three of four samples left by a listed door. Advice CTA: A, "If
+  your library has a room full of equipment nobody uses, I'd put tools in it
+  before you plan another program" (A1, A2, Ah; Ah: "the standard
+  lesson-plus-takeaway LinkedIn close"). Lesson: B, "Next time I'll find out
+  what's wrong before I add anything to it" (B1, B2, Bh; B1 and B2 each called
+  it "the strongest single tell"). Callback: C, "November 1 would have failed
+  the other way. That day has 25 hours" mirrors "That Sunday had 23 hours"
+  (C1: "a neat bookend"; Ch: "Ending on the mirror case closes the piece very
+  neatly"). The casual sample, D, ended on a plain logistics line and no
+  detector flagged its close. C2 counted C's ending as a human signal ("ends
+  on a fact, not a lesson"), so the callback door reads both ways when the
+  mirrored item carries new information.
+- Bearing on the open candidates: sixth consecutive round. The consolidation
+  is drafted on the unpushed `loop/scout-2026-10` branch.
+- Mechanism guess: displacement (unchanged)
+
+### Evidence: the calendar march, second round
+
+- Found: 2026-10-13  |  Loop: self-play (evidence for
+  `paragraph-opener-monotony` and the 2026-10-06 chronological-march note)
+- Evidence: B opens its paragraphs "On Monday", "Thursday went to", "Cleaner",
+  "Sunday I typed", with "until Tuesday night", "By Wednesday", and "On
+  Saturday" inside. All three blog detectors named it, two as the first tell.
+  B1: "each day gets exactly one plot step. Real repair logs wander. This one
+  marches." Bh: "Real repair stories ... lose track of which day was which."
+  The skipped Friday was read both ways: B2 and B1 as a realistic gap, Bh as
+  "a deliberate break in an otherwise perfect day-by-day pattern."
+- Bearing on the open candidate: second round in a row that a blog sample
+  marched its openers by time stamp, and detectors flagged it in both rounds.
+  Add the time-stamp form to the opener test: openers that differ in words but
+  all mark time are one opener repeated.
+- Mechanism guess: displacement (unchanged)
+
+### coherence-instruction-tally-5 [status: evidence]
+
+- Found: 2026-10-13  |  Loop: self-play (evidence for the 2026-09-29 tally)
+- Evidence: Instruction on all four, linkedin included for the first time.
+  Every hostile reconciliation held on the numbers: Ah checked 230 of 9,000
+  and 72 at $60; Ch walked both DST offsets through UTC; Dh rebuilt both car
+  manifests; Bh confirmed the mainspring direction. The slips found were not
+  arithmetic. Ah: "230 people have signed up for their first library card"
+  sits against men who "hadn't been inside the building since grade school,"
+  many of whom would have had a card as children. Bh: no diagnosis step before
+  "That one was the mainspring," and "skimmed" next to "I read that." C2 and Ch
+  found a loose end ("the second time" with no second failure stated) and both
+  counted it toward human.
+- Bearing on the open thread: the cost recorded on 2026-09-22 and 2026-10-06
+  (reconciled arithmetic read as evidence of construction) did not appear this
+  round. All three linkedin detectors and all three casual detectors counted
+  the arithmetic toward human, and no technical detector called it too clean.
+  The uninstructed-linkedin expertise failure, seen in 2 of 2 earlier rounds,
+  did not recur with the instruction on. One round; but it supports instructing
+  all four from here on and reporting the tally as on, not split.
+- Mechanism guess: n/a (generation coherence)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Mid-piece maxim, third round** -> the 2026-09-15 fold into
+  `universalized-maxim-closer`. C1, C2, and Ch on "An error of one hour in date
+  code almost always means a clock change" ("a tidy rule of thumb set alone
+  between the story beats"); B1 and B2 on "Oil plus fifty years of dust makes
+  a paste" ("a tidy little rule of thumb inside the story").
+- **Fronted cleft** -> `fronted-cleft-syntax` (2026-07-28). C1 and C2 on "What
+  stopped me the second time was the size of the diff" (C1: "built to deliver
+  a reveal"; C2: "A plainer writer would say 'The diff was exactly 3,600
+  seconds, and that stopped me.'"). The open candidate already covers wh-clefts;
+  this is a fresh instance on the current model.
+- **Colon punchline paragraph** -> `Colon reveal`. A1, A2, and Ah on "Total
+  damage in two years: one dead drill battery and a bent ladder" (Ah: "the
+  strongest tell in the post"). Covered; no change.
+- **Short contrast pair** -> `matched-antithesis-pairs` (2026-07-28). B1, B2,
+  and Bh on "The keys worked. The carriage didn't." Covered by the open entry.
+- **Subject-first entries** -> `paragraph-opener-monotony`. C2 and Ch on the
+  run of "The fixture built", "The code under test", "The assertion printed",
+  "The fix builds". Covered.
+- **Anonymous one-line conversion story** -> `single-use-character`, eighth
+  round. Ah on "One of them now checks out an audiobook every week": "A real
+  librarian might say 'a guy named Dale' or say nothing."
+- **Lowercase at the edges** -> the single-axis informality consolidation. Dh
+  noticed the lowercase fell only at the opening, after "sorry man.", and on
+  the last line: "Fake casualness is usually placed at the edges of the
+  message like this." D1 and D2 read the same drift as human. Same edge shape
+  D1 described on 2026-09-15 ("the costume is all in the first two
+  paragraphs"); no change.
+- **Pre-answered logistics and the "That leaves Alex." bridge** ->
+  `one-job-per-paragraph` and `Signposting`. All three D detectors flagged the
+  bridge, and all three called it normal organizer voice. Below the bar again.
+- **Appositive restatement** ("One test failed, the one that checks when an
+  invoice comes due") -> the corpus appositive-metronome entry, which fires
+  only on repetition. One instance; below the bar.
+
+### Round notes: protocol and branch state
+
+1. **Comparability.** Third Opus 5.5 round. Generators, detectors, and prompts
+   match 2026-10-06 except the coherence instruction, which went to all four
+   samples instead of three. Standard pool: 2 of 8 AI against 1 of 8 last
+   round. Hostile pool: 2 of 4, unchanged. The two AI calls in the standard
+   pool both landed on samples with a time-stamped or bookended structure (B
+   and C), and both rested on structure.
+2. **Generators ran their own verifier.** Three of the four generators
+   (linkedin, technical-blog, casual) ran the skill's fresh-context verifier
+   subagent before returning, as `SKILL.md` allows; the blog generator did not,
+   since the skill requires the verifier only for rewrite and detect jobs. The
+   linkedin verifier caught a gross-versus-net savings claim and a
+   false-agency closer, both fixed before the sample was saved. So this round's
+   samples are the floor plus its own check, which is what the floor ships.
+3. **Fan-out note.** A session hook asks for a written justification above five
+   subagents. This round ran 16 directly (4 generators and 12 detectors; step 2
+   requires two independent detectors per sample, and the hostile pool is the
+   only instrument that has produced coherence findings), plus the 3 verifier
+   subagents the generators spawned. Each detector ran tool-free on one sample.
+4. **Step 5 reconciliation.** `origin/main` sits at `a3807e5`, unchanged since
+   2026-09-22. Local `main` carries three unpushed round commits (`b63b0ee`,
+   `77648b7`, `8984c63`) whose sections are not at origin, so no reset was
+   run. `main` was not pushed.
+5. **The October PR is still waiting on the writer.** `loop/scout-2026-10`
+   exists locally only (rule commit `5427ebc`), with the golden half of its
+   eval gate not run, per 2026-10-06 note 6. Nothing in this round changes it.
+   The November scout round will hit the same golden-set block unless the
+   headless session can read `anti-slop-local`.

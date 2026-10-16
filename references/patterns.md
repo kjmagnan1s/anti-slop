@@ -9,6 +9,17 @@ byline with a protect list, the protect list wins (spine rule 6).
 Order of operations: structure first (the #1 detection signal), then vocabulary,
 then formatting. Fixing words while leaving robotic rhythm still reads as AI.
 
+## Contents
+
+- Tier system (vocabulary): Tier 1, Tier 2, Tier 3, template phrases
+- Content patterns
+- Structure patterns: binary contrasts, false agency, other structure tells
+- Communication / filler patterns
+- Style / formatting patterns
+- Context-profile matrix
+- Severity tiers (for triage)
+- Over-polishing warning
+
 ## Tier system (vocabulary)
 
 - **Tier 1: always replace.** Appears 5-20x more in AI text than human text.

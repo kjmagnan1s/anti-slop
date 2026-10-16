@@ -9,6 +9,16 @@ branches through the PR leg (step 6); nothing lands in `living-corpus.md`,
 writer's approval and the ingestion six-step still sit between proposal and
 rules; the PR leg just does the drafting legwork up front.
 
+## Contents
+
+- Step 1: harvest pass
+- Step 2: adversarial self-play
+- Step 3: scout (first run of each calendar month only)
+- Step 4: aging (first run of each quarter only)
+- Step 5: report and commit
+- Step 6: propose-as-PR (only in a round where scout ran)
+- Gate (runs at filing time, not in this loop)
+
 ## Step 1: harvest pass
 
 Run the fetch-back path from `references/harvest.md`. Diff each `harvest/`
