@@ -1,16 +1,16 @@
 ---
 name: anti-slop
 description: >
-  Detect, rewrite, and ingest AI-slop. One maintained spec that consolidates and
-  replaces avoid-ai-writing, humanizer, and stop-slop. Use when drafting,
-  editing, or reviewing any text to remove AI tells; when the user pastes text
-  marked "slop:" to memorialize a new pattern; or when asked to "de-slop",
-  "remove AI-isms", "clean up AI writing", or "audit for AI tells". Also fires
-  on technically clean but voiceless prose that needs a stance. This is the
-  general AI-slop floor. On a byline with a personal voice spec, it pairs with
-  that voice overlay through the protect-list seam, so it never flattens a
-  writer's real signatures.
-version: 0.2.2
+  Detects, rewrites, and ingests AI slop in any text. One maintained spec that
+  consolidates and replaces avoid-ai-writing, humanizer, and stop-slop. Use
+  when drafting, editing, or reviewing any text to remove AI tells; when the
+  user pastes text marked "slop:" to memorialize a new pattern; or when asked
+  to "de-slop", "remove AI-isms", "clean up AI writing", or "audit for AI
+  tells". Also use on technically clean but voiceless prose that needs a
+  stance. It is the general AI-slop floor: on a byline with a personal voice
+  spec, it pairs with that voice overlay through the protect-list seam, so it
+  never flattens a writer's real signatures.
+version: 0.2.3
 license: MIT
 metadata:
   replaces: [avoid-ai-writing, humanizer, stop-slop]
@@ -52,7 +52,7 @@ published text, someone else's writing, or a quick scan. Trigger on "detect",
 "flag only", "audit only", "scan", "what AI patterns are in this".
 
 **ingest**: the curation flow. The user pastes slop (marked `slop:` or "this is
-slop"), or I catch my own. The skill dissects it, names the generative
+slop"), or the agent catches its own. The skill dissects it, names the generative
 mechanism, writes a tiered rule plus a replacement, checks it against the
 protect list, dedups, and files it into the living corpus. Full flow:
 `references/ingestion.md`.
@@ -228,8 +228,8 @@ models change.
 
 ### Size budget (the anti-ratchet rule)
 
-The rule set has a hard ceiling, because a list I cannot hold in attention is a
-list I will not follow, and over-constraint breeds displacement tells. Budget:
+The rule set has a hard ceiling, because a list the agent cannot hold in attention is
+a list it will not follow, and over-constraint breeds displacement tells. Budget:
 `patterns.md` holds at most ~40 mechanism-level rules; the living corpus at
 most ~30 live entries. At budget, filing something new requires merging it into
 an existing mechanism or retiring an entry in the same commit. Fold, don't

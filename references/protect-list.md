@@ -13,6 +13,14 @@ To keep a filled-in list out of a public clone, write it to
 `references/protect-list.local.md` instead. That file is gitignored, and when it
 exists the skill loads it in place of this template.
 
+## Contents
+
+- The mechanism (general): where the list lives in a prose voice spec, why a
+  remove-pattern beats a protected signature, why an empty list is a finding
+- How to fill this in
+- Operational mirror (canonical: your voice spec)
+- Calibration gap to enforce
+
 ## The mechanism (general)
 
 anti-slop is reusable across contexts. Each context supplies its own protect list:

@@ -7,6 +7,9 @@ it. This is the part of the skill that compounds. Grow it with the ingest flow
 Tells age. Re-tier or retire entries as the models change. Note the date so we
 can see how fast a tell rises and falls.
 
+Contents (one `###` entry per mechanism): anti-em-dash displacement, concession
+reflex, validation tail, mannered prose.
+
 ---
 
 ### anti-em-dash displacement
