@@ -4757,3 +4757,267 @@ Aging: not run. The 2026-10-06 round was the first run of Q4 and ran it.
    eval gate not run, per 2026-10-06 note 6. Nothing in this round changes it.
    The November scout round will hit the same golden-set block unless the
    headless session can read `anti-slop-local`.
+
+## Round 2026-10-20 (weekly loop)
+
+Round summary: 4 samples, ~85 raw flags (~22 distinct), 2 surviving dedup, 0
+scout finds (not a scout round), 0 aging proposals (not an aging round); PR leg
+not run (step 6 runs only in a scout round). Model: Claude Opus 5.5 for the
+session and every subagent, the fourth Opus 5.5 round on file.
+
+Harvest: 3 active ledger entries at the start of the round.
+`2026-10-16-issue-22.md` (Naperthrill newsletter) was fetched back with curl
+from `www.naperthrill.co/p/bourbon-by-lantern-in-wheaton-a-brazilian-steakhouse-in-bolingbrook-and-solemn-oath-s-anniversary-be`
+(HTTP 200), found through the archive page. All 18 ledger bodies were
+extracted from the page by opening phrase and read against the ledger. 17
+match word for word. One prose hunk: story 1, "Freaky Fun Friday is the
+no-planning-required option" shipped as "is a no-planning-required option".
+The published issue also adds two stories and a "from Kevin" section that the
+ledger does not carry; those are content edits and were skipped. The entry
+was moved to `harvest/harvested/` (not deleted). `2026-10-15-claude-code-projects-flow.md`
+(tweet) has an empty `url` field and says "not posted yet", so there is
+nothing to fetch; entry retained. `2026-07-23-trimhero-gate-qt.md` could not be
+read for the fourteenth consecutive round (the symlink resolves into the
+private `anti-slop-local` repo, outside the allowed directories). Nothing
+reconstructed; entry retained.
+
+Self-play: 4 samples (linkedin, blog, technical-blog, casual), fresh topics (a
+dental office manager eight months after moving appointment reminders from
+phone calls to two-way texts; a second-year beekeeper combining a weak hive
+into a strong one in October; a nightly vendor CSV import that skipped every
+row after the vendor's export tool started writing a UTF-8 byte-order mark;
+a sibling group chat sorting out a mother's 70th birthday). Samples at
+`scratch/selfplay-2026-10-20/` (gitignored). Generators isolated as on
+2026-09-15 (each read only `SKILL.md`, `patterns.md`, `living-corpus.md`), with
+the coherence instruction on all four, as on 2026-10-13. This is the first
+round on the post-PR-8 `SKILL.md` (v0.2.3, tightened 2026-10-16). Twelve
+detectors, 8 standard (2 per sample, the weekly-loop prompt verbatim plus a
+one-line percentage verdict) and 4 hostile (1 per sample, plus the
+forensic-coherence sentence), all told to use no tools; all twelve reported
+zero tool uses. Verdicts, standard instrument: **5 of 8 called AI** (A1 60,
+B1 65, B2 70, C1 65, C2 70; C2 gave its verdict in its opening line and no
+closing line); the other three called human at 60 to 80 (A2 60, D1 80, D2
+75). Hostile instrument: **3 of 4 called AI** (Ah 60, Bh 65, Ch 65); Dh called
+human at 60. As in the last two rounds, no detector cited a vocabulary tell;
+every case rested on structure.
+
+Scout: not run. The 2026-10-06 round was the first run of October and ran it.
+Aging: not run. The 2026-10-06 round was the first run of Q4 and ran it.
+
+### on-page-derivation [status: proposed]
+
+- Found: 2026-10-20  |  Loop: self-play
+- Evidence: Eight of twelve detectors, across three of four samples, named the
+  arithmetic shown in the text, not the arithmetic itself, as a tell. A:
+  "That's close to 50 calls a day at roughly three minutes each" and "On
+  1,000 appointments, that's 40 fewer empty chairs a month" (Ah: "The same
+  'That's...' move appears twice ... an explainer's habit"; A1: "This looks
+  built so a reader can verify it"). B: "85 pounds of honey, the strong hive's
+  65 plus the weak one's 20" (Bh: "A hobbyist would just say 85. Showing the
+  sum is how a writer makes sure the reader can check it"; B1: "Math spelled
+  out for the reader"; B2: "It walks you through the sum"). D: "the family
+  total is $330. That's $110 each" and, after the split, "Everybody's out
+  $110" (D2: "The math is shown and then checked again in a summary line.
+  That's tidy, teacher-like behavior"; Dh: "The math gets explained twice").
+  C carried no shown sum, and no C detector raised the numbers against it
+  (C1 and Ch checked 3 x ~4,213 = 12,640 and moved on).
+- Source: self-play round 2026-10-20 detector reports (samples A, B, D)
+- Dedup: not covered. The `coherence-instruction-tally` entries record the
+  audited-ledger read (2026-09-22, 2026-10-06) as a cost of numbers that
+  reconcile, and treat it as the price of coherence. This round separates the
+  two: C reconciled just as tightly and drew no audited-ledger read, because
+  the working stayed off the page. The tell is the display, not the
+  consistency. No `patterns.md` or corpus entry covers a derivation the
+  reader did not ask for.
+- Proposed rule: Check the numbers, then show only the result. Flag a
+  sentence whose only job is to derive or restate a figure from figures
+  already given ("That's X each", "On N, that's M fewer", "A's 65 plus B's
+  20"), and a closing tally that repeats a total the reader already has
+  ("Everybody's out $110"). Keep the derivation when the reader needs to act
+  on it (a cost split someone must pay, a dose, a budget line). Suggested
+  Tier 2 on narrative and linkedin profiles; Tier 3 in casual logistics, where
+  D1 still read the split as an organized sibling.
+- Mechanism guess: displacement. The loop's coherence instruction and the
+  skill's verifier both ask the generator to check every number, and the
+  generator proves the check in the prose. The cheapest companion fix is in
+  the generator instruction ("check the arithmetic; keep the working off the
+  page"), which the next round can test against this one.
+
+### announced-counterpoint [status: proposed]
+
+- Found: 2026-10-20  |  Loop: self-play
+- Evidence: "There was a case for waiting. The queen was laying, and maybe
+  she'd catch up in spring. I didn't believe it." All three blog detectors
+  flagged it. B1: "This raises the other side, then knocks it down with a
+  three-word punch. Models use this move all the time to look balanced." B2:
+  "It reads like someone checking a 'consider alternatives' box." Bh: "a
+  textbook steelman followed by a rebuttal. It's a template for looking
+  balanced."
+- Source: self-play round 2026-10-20 detector reports (sample B)
+- Dedup: the corpus `concession reflex` entry covers balance manufactured
+  where no real counterpoint exists, and its rule says "If there is a real
+  counterpoint, name it specifically." This sample did exactly that: the
+  counterpoint is real and specific (a laying queen might recover), and the
+  sentence after the dismissal gives the evidence (brood on one frame against
+  four). The detectors flagged the shape anyway. The open
+  `closed-loop-narrative-economy` argument register (merged 2026-08-25, "every
+  objection gets answered") covers the completeness, not the staging.
+- Proposed rule: Fold into `concession reflex` as a shape test, not a new
+  entry. A real counterpoint goes inside the decision ("The queen was still
+  laying, but on one frame against the strong queen's four"), not in its own
+  announced beat ("There was a case for X") closed by a short flat dismissal
+  ("I didn't believe it", "I wasn't convinced", "It didn't hold up"). Flag the
+  announce-then-dismiss pair. Suggested Tier 3: one sample, one round; watch
+  for a second.
+- Mechanism guess: displacement (`concession reflex`: the rule's own repair,
+  "name it specifically", gets executed as a staged steelman with a
+  punch-line rejection)
+
+### Evidence: self-verdict-tag, second round
+
+- Found: 2026-10-20  |  Loop: self-play (evidence for `self-verdict-tag`,
+  2026-10-13)
+- Evidence: Two samples graded a mistake after it had already landed. C
+  closes on "That check should have shipped with the first version of the
+  import" (C1: "It wraps the piece up with a small admission of fault, the way
+  models like to end"; C2: "Models like to close on a neat takeaway"; Ch:
+  "admits a mistake without any feeling behind it"). B restates "On October
+  6th I pinched her" four sentences later as "I killed a queen on purpose"
+  (B2: "'Pinched her' becomes 'killed a queen' for effect"; Bh: "Short
+  confession plus a 'rather X than Y' kicker is a stock way models end a
+  piece").
+- Bearing on the open candidate: second round in a row, and both forms this
+  round sit at the close, so the tag doubles as the exit beat. The technical
+  form grades a team ("should have shipped") rather than the self; widen the
+  test from "I" to "we".
+- Mechanism guess: displacement (unchanged)
+
+### Evidence: the exit-shape consolidation, seventh round
+
+- Found: 2026-10-20  |  Loop: self-play (evidence for `fix-and-cta-close`,
+  `universalized-maxim-closer`, and the callback door from 2026-10-06)
+- Evidence: Three of four samples left by a listed door again. Advice: A, "If
+  another office manager asked me, I'd say keep a phone list. Mrs. Halvorsen
+  has been a patient since 1994, and she is not going to text us" (A1: "a
+  planted kicker"; A2: "the most polished line in the piece"; Ah: "placed
+  exactly where a model puts it"). Maxim: B, "I'd rather open one hive in
+  March than one hive and a box of dead bees" (B1: "a quotable trade-off. It's
+  the classic AI ending"; B1 also named the callback, "Last fall, my first"
+  set up in paragraph 1 and paid off in the last). Lesson: C, as above. The
+  casual sample, D, ended on a deadline ultimatum ("say so by Friday or I'm
+  booking it") and all three D detectors read the close as human.
+- Bearing on the open candidates: seventh consecutive round. The consolidation
+  is still drafted on the unpushed `loop/scout-2026-10` branch.
+- Mechanism guess: displacement (unchanged)
+
+### coherence-instruction-tally-6 [status: evidence]
+
+- Found: 2026-10-20  |  Loop: self-play (evidence for the 2026-09-29 tally)
+- Evidence: Instruction on all four, second round running. Hostile
+  reconciliations held on every sum (Ah rebuilt 48 calls x 3 minutes and the
+  34-minute after-state; Bh walked the dates and both honey sums; Ch rebuilt
+  the BOM key and the per-night row average; Dh confirmed November 14, 2026
+  is a Saturday). The slips found were not arithmetic. Ah: a patient who
+  texts R is a cancellation, not a no-show, so "40 fewer empty chairs" holds
+  only if every freed slot fills from the waitlist; and Luis, named beside
+  Dana, gets no payoff. Ch: `head -c 3 | xxd` prints
+  `00000000: efbb bf`, not `ef bb bf`, "a cleaned-up version of real output."
+  Dh: Aunt Lou has a seat and a gift but nobody pays for her dinner (Dh
+  counted that gap toward human).
+- Bearing on the open thread: the audited-ledger read, absent on 2026-10-13,
+  came back on three samples: A (3 of 3 detectors), B (3 of 3), and D (D2 and
+  Dh; D1 counted the math toward human). That breaks the register split
+  recorded on 2026-09-29 and 2026-10-06 (reconciled numbers read as human in
+  logistics messages): 2 of 3 casual detectors read them as built this round.
+  The sample with no read, C, is the one that kept its working off the page,
+  which is the evidence behind `on-page-derivation` above. Recommendation:
+  keep the instruction on all four, and add "keep the working off the page"
+  to it next round, reported as a protocol change.
+- Mechanism guess: n/a (generation coherence)
+
+### Fold-only proposals (no new rule; merge into an existing one)
+
+- **Terminal beats** -> second-order uniformity, check 1. B2 listed all six
+  blog paragraph closers ("Six paragraphs and six clinchers"); Bh, C1, C2,
+  and Ch named the same on B and C ("Every row tripped it.", "Feeding was
+  out.", "The strong hive alone did not.").
+- **Mirrored before/after paragraphs** -> second-order uniformity, check 4
+  (paragraph-internal contour). A1, A2, and Ah on A's paragraphs 2 and 3:
+  same skeleton (who, volume, time), each closing on a verbless time-total
+  fragment ("Nearly two and a half hours on the phone ..." / "A little over
+  half an hour, total."). Ah: "Two paragraphs that end on matching verbless
+  fragments look like a template."
+- **Subject-first openers** -> `paragraph-opener-monotony`. B1, Bh, C1, C2,
+  Ch, and Ah. Bh on B: "My weak hive", "My mentor", "The weak hive", "The
+  strong one", "The combined hive"; Ch on C: "one step per paragraph:
+  symptom, evidence, cause, fix, prevention."
+- **No wrong turn** -> `closed-loop-narrative-economy` (both registers). C1,
+  C2, and Ch on C: no wrong guess before the hex dump (C1: "Real write-ups
+  usually include a wrong guess"); A1 and Ah on A: no rollout trouble, no
+  vendor, no cost; B2 and Bh on B: "Every detail does argumentative work, and
+  none are just there because they happened."
+- **Genre-expected pre-emption** -> the same entry's second check (preempt the
+  objections the details raise, not the ones the genre expects) and the
+  `Audience leak` fold. Ch and C2 on "`encoding="utf-8-sig"` strips a leading
+  BOM and reads a file without one unchanged" (Ch: "answers 'what about files
+  without a BOM?' before anyone asks").
+- **Reveal setup sentence** ("The fix is one argument.") -> second-order
+  uniformity, check 2 (entry points). C1, C2, and Ch each named it a set-up
+  line before the payoff. Covered.
+- **Twist-last triad** ("ran, exited 0, and loaded nothing") -> rule of three
+  in `patterns.md`. C1 and Ch. Covered.
+- **Approximator density** -> `uniform-hedge-per-number` (2026-08-11). A2
+  counted seven ("about", "close to", "roughly", "Nearly", "about", "or so",
+  "A little over") in 222 words: "Each one sounds natural, but together they
+  read like someone adding casualness on purpose."
+- **Named then dropped, or never named** -> `single-use-character`, ninth
+  round, and `named-entity-vacuum`. Ah on Luis; C1 and Ch on "A buyer on the
+  purchasing team" ("just a role").
+- **No contractions on the technical sample** -> the contraction thread
+  (2026-09-15). C2: "Not one 'didn't,' 'wasn't,' or 'we'd' in a casual
+  internal postmortem." The sample has no contractions at all; one detector,
+  below the bar on its own.
+- **One-word topic label** ("Money.") -> `Signposting`. D1, D2, and Dh named
+  it, and all three called it normal group-text voice. Below the bar again.
+- **Harvest hunk, definite article** -> no candidate. Issue 22 story 1 shipped
+  "a no-planning-required option" where the ledger had "the". One word, one
+  instance, and the Wikipedia page (read 2026-10-06) lists definitive
+  statements under signs of human writing, so the floor flagging "the"
+  framing would cut against that source. Recorded only so a repeat is
+  visible.
+
+### Round notes: protocol and branch state
+
+1. **Comparability.** Fourth Opus 5.5 round. Generators, detectors, prompts,
+   and the coherence instruction match 2026-10-13, so the verdict change is
+   comparable: standard pool 5 of 8 AI against 2 of 8 last round; hostile
+   pool 3 of 4 against 2 of 4. The one difference upstream is `SKILL.md`
+   itself, tightened in PR #8 (v0.2.3) between the two rounds. One round
+   cannot separate that from topic variance. The blog and technical samples
+   drew 6 of 6 AI calls (4 of 6 last round), and the linkedin sample went
+   from 0 of 3 to 2 of 3; the casual sample stayed at 0 of 3.
+2. **Generators ran their own verifier.** All four generators ran the
+   skill's fresh-context verifier before returning (three did last round).
+   The blog verifier caught two logic slips (syrup refused on cold nights
+   rather than cold days; a slow queen with no comparison) and the technical
+   verifier caught a fake-profound closer ("A skip counter nobody reads is
+   not monitoring") and a duplicated row count; both were fixed before the
+   samples were saved. The technical generator's replacement closer is the
+   self-verdict line the detectors flagged, so the verifier swapped one
+   listed exit for another.
+3. **Fan-out note.** A session hook asks for a written justification above
+   five subagents. This round ran 16 directly (4 generators and 12
+   detectors; step 2 requires two independent detectors per sample, and the
+   hostile pool is the only instrument that produces coherence findings),
+   plus the 4 verifier subagents the generators spawned. Each detector ran
+   tool-free on one sample.
+4. **Step 5 reconciliation.** `git fetch origin` shows local `main` and
+   `origin/main` both at `29f4616` (PR #8 merged). The three round sections
+   that were unpushed last week (2026-09-22 through 2026-10-06) and the
+   2026-10-13 section are now at origin, so no reset was needed and none was
+   run. `main` was not pushed.
+5. **The October PR is still waiting.** `loop/scout-2026-10` still exists
+   locally only (no `origin` ref), with the golden half of its eval gate not
+   run, per 2026-10-06 note 6. It was cut before PR #8, so its base is now
+   behind `origin/main`; the November scout round should rebase or recut it
+   rather than open it as is.
