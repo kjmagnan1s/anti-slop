@@ -10,9 +10,9 @@ description: >
   stance. It is the general AI-slop floor: on a byline with a personal voice
   spec, it pairs with that voice overlay through the protect-list seam, so it
   never flattens a writer's real signatures.
-version: 0.2.3
 license: MIT
 metadata:
+  version: 0.2.3
   replaces: [avoid-ai-writing, humanizer, stop-slop]
   status: stable
 ---

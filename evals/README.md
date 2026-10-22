@@ -53,3 +53,16 @@ pre-AI writing; see `golden/README.md`.
 
 When aging retires a rule, remove that flag from any `expected_flags` lists but
 keep the fixture text. Old slop stays useful as a negative-drift check.
+
+## Trigger and rule cases
+
+`cases/` is separate from the regression gate. It holds `claude plugin eval`
+cases (a `prompt.md` plus `graders/*.md` per case): one that should load the
+skill, one near-miss that should not, and one that checks the detect-mode
+honesty rule. Run with `claude plugin eval --no-publish <path to this repo>`;
+the gate fixtures in `slop/` and `golden/` are not eval cases and the runner
+skips them. Without `--no-publish`, the runner publishes the report (prompts,
+transcripts, grader verdicts) to claude.ai whenever the account supports it,
+and a byline case can pull in the private protect list. Publishing is opt-in:
+drop the flag only for a run you have decided to share. Results land in
+`evals/results/`, which git ignores.

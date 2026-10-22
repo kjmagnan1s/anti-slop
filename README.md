@@ -114,7 +114,7 @@ references/weekly-loop.md      The scheduled self-play / scout / aging round
 references/candidates.md       The inbox of proposed rules awaiting the gate
 onboarding/voice-sources.md    The corpus discovery manifest: where your voice evidence already lives
 onboarding/taste-interview.md  The stance-layer interview: what a writing sample can't show
-evals/                         The regression gate: slop fixtures, a local-only golden set, committed run reports
+evals/                         The regression gate (slop fixtures, a local-only golden set, committed run reports) plus trigger eval cases
 CREDITS.md                     Full lineage and attribution
 LICENSE                        MIT
 ```

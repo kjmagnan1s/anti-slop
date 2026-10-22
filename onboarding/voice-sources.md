@@ -1,5 +1,13 @@
 # Voice sources: the discovery manifest
 
+## Contents
+
+- Three rules, non-negotiable
+- The manifest
+- The consent flow
+- What the profiler extracts
+- Seams
+
 Step 0.5 of onboarding, between "install" and the taste interview. "Bring 3-5
 writing samples" is where onboarding funnels die; most people can't produce
 good samples on demand. But almost everyone running an AI coding tool is
