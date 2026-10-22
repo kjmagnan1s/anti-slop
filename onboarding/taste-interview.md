@@ -1,5 +1,16 @@
 # The taste interview
 
+## Contents
+
+- How to run it
+- The contamination guard
+- Section 1: beliefs and stances
+- Section 2: aesthetic crimes
+- Section 3: hard nos
+- Section 4: red flags
+- Section 5: registers a corpus rarely shows
+- Compiling
+
 The judgment layer of a voice spec. A writing corpus can teach an agent how you
 sound. It cannot teach what you think, what you'd never do, or what makes you
 close the app. This interview collects that layer.

@@ -1,5 +1,13 @@
 # Candidates inbox
 
+## Contents
+
+- Entry format
+- How to process the inbox
+- Inbox: one `## Round YYYY-MM-DD` section per weekly-loop run (plus the
+  occasional dated manual section), oldest first, newest at the bottom. List
+  them with `grep -n '^## ' references/candidates.md`.
+
 Proposed rules waiting for the writer's gate. The learning loops (harvest,
 self-play, scout, aging; see `references/harvest.md` and
 `references/weekly-loop.md`) write here. Nothing moves from this file into
